@@ -1,0 +1,976 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MA Departments | Student Academic Resources Archive</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #eef3f8;
+  color: #162033;
+  line-height: 1.6;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #073b73, #0f766e);
+  color: #fff;
+  padding: 56px 20px 72px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.page-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #dceeff;
+  font-size: 1rem;
+}
+
+.main-container {
+  width: min(1180px, calc(100% - 32px));
+  margin: -42px auto 48px;
+}
+
+.toolbar {
+  background: #fff;
+  border: 1px solid #d9e3ef;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 18px 45px rgba(20, 45, 80, 0.12);
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 15px 18px;
+  border: 1px solid #cbd7e3;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  background: #f8fafc;
+  color: #162033;
+}
+
+.search-box input:focus {
+  border-color: #0f766e;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+}
+
+.course-card {
+  background: #fff;
+  border: 1px solid #d9e3ef;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(20, 45, 80, 0.08);
+}
+
+details {
+  background: #fff;
+  border-bottom: 1px solid #e4ebf3;
+}
+
+details:last-child {
+  border-bottom: 0;
+}
+
+details details {
+  margin: 12px 18px;
+  border: 1px solid #e2eaf2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+details details details {
+  margin: 10px 14px;
+  background: #f8fafc;
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 52px 16px 20px;
+  font-weight: 700;
+  color: #14213d;
+  position: relative;
+  user-select: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #e8f4f3;
+  color: #0f766e;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+details[open] > summary::after {
+  content: "-";
+  background: #0f766e;
+  color: #fff;
+}
+
+details[open] > summary {
+  background: #f7fbfd;
+}
+
+.year {
+  padding: 14px 18px 18px;
+}
+
+.paper-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 9px 0;
+  border-bottom: 1px dashed #d8e2ec;
+}
+
+.paper-row:last-child {
+  border-bottom: 0;
+}
+
+.paper-year {
+  min-width: 58px;
+  font-weight: 800;
+  color: #073b73;
+}
+
+.year a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  background: #0f766e;
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+.year a:hover {
+  background: #0b5f59;
+  transform: translateY(-1px);
+}
+
+.year a[href="#"] {
+  background: #e8edf3;
+  color: #7a8796;
+  pointer-events: none;
+}
+
+.no-results {
+  display: none;
+  padding: 24px;
+  text-align: center;
+  color: #64748b;
+  background: #fff;
+  border: 1px solid #d9e3ef;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 42px 16px 64px;
+  }
+
+  .main-container {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .toolbar {
+    padding: 14px;
+  }
+
+  details details {
+    margin: 10px;
+  }
+
+  summary {
+    padding: 14px 46px 14px 14px;
+    font-size: 15px;
+  }
+
+  .year {
+    padding: 12px;
+  }
+
+  .paper-row {
+    align-items: flex-start;
+  }
+
+  .paper-year {
+    width: 100%;
+  }
+}
+
+/* ================= MSc-STYLE OVERRIDES ================= */
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#eef5f1;
+    color:#222;
+    line-height:1.6;
+}
+
+.page-header{
+    background:linear-gradient(135deg,#243b1e,#425c2c);
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.page-header h1{
+    margin:0;
+    font-size:38px;
+}
+
+.page-header p{
+    margin-top:10px;
+    font-size:17px;
+    color:white;
+}
+
+.main-container{
+    width:95%;
+    max-width:1300px;
+    margin:auto;
+    padding:25px 0;
+}
+
+.toolbar{
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    padding:0;
+    margin-bottom:25px;
+}
+
+.search-box{
+    text-align:center;
+}
+
+.search-box input{
+    width:60%;
+    max-width:500px;
+    padding:14px 18px;
+    border:none;
+    border-radius:30px;
+    outline:none;
+    font-size:16px;
+    background:white;
+    color:#222;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.course-card{
+    background:transparent;
+    border:0;
+    border-radius:0;
+    overflow:visible;
+    box-shadow:none;
+}
+
+details{
+    margin-bottom:15px;
+    background:transparent;
+    border:0;
+}
+
+details details,
+details details details{
+    margin:0 0 15px;
+    border:0;
+    border-radius:0;
+    overflow:visible;
+    background:transparent;
+}
+
+summary{
+    list-style:none;
+    cursor:pointer;
+    padding:16px 20px;
+    border-radius:14px;
+    font-weight:bold;
+    transition:0.3s;
+    position:relative;
+    color:#222;
+}
+
+summary::after{
+    content:">";
+    position:absolute;
+    right:20px;
+    top:auto;
+    transform:none;
+    width:auto;
+    height:auto;
+    border-radius:0;
+    background:transparent;
+    color:inherit;
+    display:block;
+    font-size:16px;
+}
+
+details[open] > summary::after{
+    content:">";
+    transform:rotate(90deg);
+    background:transparent;
+    color:inherit;
+}
+
+details[open] > summary{
+    background:inherit;
+}
+
+.course-card > details > summary{
+    background:#2f4b26;
+    color:white;
+    font-size:22px;
+}
+
+.course-card > details > .year > details > summary{
+    background:#d0ecfc;
+    color:#13304b;
+    box-shadow:0 5px 12px rgba(0,0,0,0.08);
+}
+
+.course-card > details > .year > details > summary:hover{
+    transform:translateY(-5px);
+    background:#b8defd;
+}
+
+.course-card > details > .year > details > .year > details > summary{
+    background:#e9f7df;
+    color:#215010;
+    margin-top:10px;
+    border-left:5px solid #4a8f28;
+}
+
+.course-card > details > .year > details > .year > details > summary:hover{
+    background:#daf0ca;
+}
+
+.year{
+    background:white;
+    padding:15px 20px;
+    border-radius:0 0 12px 12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    line-height:2.1;
+}
+
+.paper-row{
+    display:block;
+    border-bottom:0;
+    padding:0;
+}
+
+.paper-year{
+    min-width:0;
+    font-weight:bold;
+    color:#2f4b26;
+    margin-right:8px;
+}
+
+.year a{
+    display:inline-block;
+    min-height:0;
+    margin:5px 8px;
+    padding:8px 14px;
+    text-decoration:none;
+    background:#3d6d2f;
+    color:white;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:400;
+    transition:0.3s;
+    pointer-events:auto;
+}
+
+.year a:hover{
+    background:#24451c;
+    transform:translateY(-3px) scale(1.05);
+}
+
+.year a[href="#"]{
+    background:#3d6d2f;
+    color:white;
+}
+
+.ma-footer{
+    background:#1d2916;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+@media(max-width:768px){
+    .page-header h1{
+        font-size:28px;
+    }
+
+    .search-box input{
+        width:90%;
+    }
+
+    summary{
+        font-size:15px;
+    }
+}
+</style>
+
+<link rel="stylesheet" href="site-theme.css">
+
+  <!-- GU-ENHANCEMENTS:HEAD -->
+  <meta name="theme-color" content="#0b4f3c">
+<!-- /GU-ENHANCEMENTS:HEAD -->
+</head>
+
+<body class="archive-theme theme-pyq">
+
+<header class="page-header">
+  <h1>Master of Arts (MA)</h1>
+  <p>Previous Year Question Papers</p>
+</header>
+
+<main class="main-container">
+
+  <section class="toolbar">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search Department..." autocomplete="off">
+    </div>
+  </section>
+
+  <p class="no-results" id="noResults">No department found. Try another search term.</p>
+
+  <section class="course-card">
+    <details class="main-course" open>
+      <summary>Master of Arts (MA)</summary>
+      <div class="year">
+
+        <details>
+          <summary>Arabic</summary>
+          <div class="year">
+
+            <details>
+              <summary>Semester 1</summary>
+              <div class="year">
+               
+                <div class="paper-row"><span class="paper-year">2025</span><a href="https://drive.google.com/file/d/1resnYPSKK5LY_mk-nSJrIqeQId95PSMw/view?usp=drive_link" download>Final</a>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>Semester 2</summary>
+              <div class="year">
+                
+                <div class="paper-row"><span class="paper-year">2025</span><a href="https://drive.google.com/file/d/1AW1XAmu0ZPmszKI0Gid_OYzYW8yi2bNm/view?usp=drive_link" download>Final</a>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>Semester 3</summary>
+              <div class="year">
+            
+                <div class="paper-row"><span class="paper-year">2025</span><a href="https://drive.google.com/file/d/1KXJsucuM7sFJDDFUke6pZuBTOEM3qrHI/view?usp=drive_link" download>Final</a>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>Semester 4</summary>
+              <div class="year">
+             
+                <div class="paper-row"><span class="paper-year">2025</span><a href="https://drive.google.com/file/d/1-c4DzDlljCDIzHWFj5JWH0wlBitLvKF5/view?usp=drive_link" download>Final</a>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </details>
+
+<details><summary>Anthropology</summary><div class="year">
+<details><summary> SEMESTER 1</summary><div class="year">
+
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+</div></details></div></details>
+
+<details><summary>Assamese</summary><div class="year">
+    <details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1O60MfoLJiWQddcCaKcBRrBgUa57U0Oj4/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1gqom7RoT7qXzDW8pAUn_bqzX8MJwtQHw/view?usp=drive_link" download>Final</a><a href="">Sessional</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1oExnP2imZoVPb4EcwJ0n4BB2qlvrVuiw/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/1ukuCndxxHhdc7Zdr-TWmEMDRGOLYi7Oj/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1I7NShK_8bv61UFGbStoxh2PEjGwcJFRV/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1O5VpJjTDY9CF09G24DDiiD76dFOmoBMp/view?usp=drive_link" download>Final</a>
+</div></details></div></details>
+
+<details><summary>Bengali</summary><div class="year">
+<details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1qAGA0TQMsJvbxeNOk-xzQi0dijNprEyu/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1vb7GLyfTqLiiswInzsN2PDvCltlWLxWo/view?usp=drive_link" download>Sessional</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1v9S4N8Z6Uu3naTHdzxurHIAtt43lidKr/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1KFvpoFB1c3ipoj3Jzdo7CUUBtb1B47WK/view?usp=drive_link" download>Sessional</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1_KSMiwLG3cFIDyfA4v0HL01OKGugodry/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1_yyVPSYS3NF1AR0jj2dPDrZPGWaQgDWB/view?usp=drive_link" download>Sessional</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/172t-yKWmqLghSU84smpRSbRr_uveqMxq/view?usp=drive_link" download>Final including Sessional</a>
+</div></details></div></details>
+
+<details><summary>Bodo</summary><div class="year">
+    <details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1q7ra2KEFdSZkdlqfFg5W2xHZY6qqTGlG/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1G1nOoqtxcfaSIv4N3vGEqEDmyONcpkBF/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1DbgGpCPnjUss26BpzNDNEUOA52m1gT5T/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1aKlyhM7FQ5dVAL0rJjcywUjGZnIkVuXA/view?usp=drive_link" download>Final</a>
+
+</div></details></div></details>
+
+<details><summary>Comparative Indian Literature</summary><div class="year">
+    <details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1wADz6G3OSuBsyL_7PCLJ0mT54xECXJpI/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/14DeoG1N3sg0xBdWNcH-HLMBb9X4spIBJ/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2023
+<br> 2024<a href="https://drive.google.com/file/d/1JXP64Fuuyhuxe5BZifWzmi-dbLREzxzj/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1LeMsse8eZb-cVZIroqe1NBUdgJuoFr4q/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<div> 2023 </div> <a href="https://drive.google.com/file/d/1KBFyMtC8YWyYqaY_2na7U6dOVMdqSyMF/view?usp=drive_link" download>final</a>
+<div> 2024 </div> <a href="https://drive.google.com/file/d/1lb9Pa-dUkMn9XS6HnsVju1PJ68X9d4Fp/view?usp=drive_link" download>final</a>
+<div> 2025 </div> <a href="https://drive.google.com/file/d/1ztLAqHl2LaxEe3k4s9ZSaiB8s9CNXLCX/view?usp=drive_link" download>Final</a>
+</div></details></div></details>
+
+<details><summary>Economics</summary><div class="year">
+    <details><summary> SEMESTER 1</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/1xQhI-8_ceOxQ4vT2vCxOx4CeTjnDrJ5J/view?usp=drive_link" download>Final</a>
+<br> 2023<a href="https://drive.google.com/file/d/1BejLYcVf0Qe42mvHU6V2BolI9jw773bH/view?usp=drive_link" download>Final</a>
+<br> 2024 <a href="https://drive.google.com/file/d/19C8qsAhKgfGftnss2oATMEvs12yHQ3c-/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/1fCv3UPNS6NjFAjk6jDufirjARrKJv_to/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1kSN54rV-IG5uG0mKDowy-vyBC-1Uo8pB/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1Cedjxo59qtbIPorVf2fj5-SmJOG_5dHt/view?usp=drive_link" download>Sessional</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1m7LWZZ620iBzfhbv15Vl-NXqiV1_j7gS/view?usp=drive_link " download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<br> 2022 <a href="https://drive.google.com/file/d/1PyLqoPANvSbbir3xy5CJ5JBkXBs0d5Kk/view?usp=drive_link" download>Final</a>
+<br> 2023<a href="https://drive.google.com/file/d/1RbanOa0qti2u48wCmmYIdsgtfrADvbSU/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1v2pbKLCTsPjG8uDAx7uJCZNNGHByAR8s/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1L6hnBPY_9aIb4xba1BxPenatuznMCYtN/view?usp=drive_link" download>Sessional</a>
+
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1cWL_ix6DpnWx4bBoHpxslexcX-8xsle2/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1OwLLLJB_UNiRBE-dxV1suq5VG5GbGyBR/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1ULqWxeWr8e9ptY6EGiR7CipW3_K6_SNn/view?usp=drive_link" download>Sessional</a>
+</div></details></div></details>
+
+<details><summary>Education</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1jkOpwgjZRwGMOq8TJ9lsdo_eey2jnDph/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1ekdIF-9qyu9ztbRh2O0Ol6jtK5vxDS6H/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/1Md-DHX53xzieG2J-MclEclHRWfUITZN6/view?usp=drive_link" download>Final</a>
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1QbAo1CbtcWvYSveS97sjKoRNDOi02Dbv/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1l5NoWQdHHK8uetHX3OjT9-8tx9lQtj0F/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2023
+<br> 2024<a href="https://drive.google.com/file/d/15xI0nXVwqbSpDceaV86A6vNjg1oFVpKt/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1pnlCciaAiRm6Nx626cU83cKbE_lZT-0E/view?usp=drive_link" download>Final</a>
+</div></details></div></details>
+
+<details><summary>English</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/104mI7KERTW_EuelSqu54xIAjKWCgJ5a3/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1dVQdft6WXcLoAirHPvS_ataMAKqTWUvk/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1s3MQK7G74CHwms0RextbtnVSi4HYAuFe/view?usp=drive_link" download> final</a>
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2023
+<br> 2024<a href="https://drive.google.com/file/d/1SZR9WJbc3EkXQrtGDvwYQZ7LAh0F8gFd/view?usp=drive_link" download>Final</a>
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/1pEpObjsZoIpRF6nbRhHK1vLw22-7ci5e/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1sBBp3DAN22SFZsKgiDuuejTR5WxZDX2g/view?usp=drive_link" download>Sessional</a>
+<BR>2023<a href="https://drive.google.com/file/d/1ZmIJqadlUcB3GWNoM7s2qMYGYh3heErw/view?usp=drive_link" download>Final</a>
+<br> 2024 <a href="https://drive.google.com/file/d/1l8QowfyIcyxLGt_yMNwOxuKfp2X3M0lT/view?usp=drive_link" download>Final</a>
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/1d96tA43vLUnV9zl3_4qAewqUPZZV59SW/view?usp=drive_link" download>Final</a>
+  <BR>2024<a href="https://drive.google.com/file/d/1U-L2mA6A-luu36kuXh5vnOLHpTLeq0Xv/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1UvGxiAer-J1I2_OnocA-_Fj2b1uyvpMC/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/19j2HVBuZMky5XdMhzoAg-uUpztM04zKf/view?usp=drive_link" download>Sessional</a>
+</div></details></div></details>
+
+<details><summary>Folklore Studies</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2024<a href="https://drive.google.com/file/d/14IzyDpi9nWglP2qdAEtZkQMo5t7SujH3/view?usp=drive_link" download>Final</a>
+  <BR>2025<a href="https://drive.google.com/file/d/1rE9Nwec-_FSkrSQQIe58Au5OM-KxJaAD/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1nJ6r-vKizzGw8pmXG2pbAbt3cAPukjST/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1_yz8Tn3HjVE9YwybjpZMqahURc8zjAbe/view?usp=drive_link" download>Sessional</a>
+<BR>2026<a href="https://drive.google.com/file/d/1Ixzgkmvwyh-3gEu3gi1VcXGOSZHqWG4r/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1wWSyKPDqjdSDaEa9MUNadxBn3jDAWq4d/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+</div></details></div></details>
+<details><summary>Geography</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<br> 2022<a href="https://drive.google.com/file/d/1gTlGvIPjAIKJW2_38zNeB3V5Z61D9rly/view?usp=drive_link" download>Final</a>
+<BR>2023<a href="https://drive.google.com/file/d/1McJMQqcZ3p_FY4WYlQu1XbnKyu8F1cdl/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1bA33VTuKSl1_dhx3dUaylEBVgoCsmK2g/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/1CoypZrDTKKGbs8fpCjgWV2vIY0T5o-Js/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1scYrolDys9eQ6lFsTncaJwu0xXLMslPc/view?usp=drive_link" download>Practical</a>
+<br> 2023<a href="https://drive.google.com/file/d/1QARBFWXLqErbqECfVF5PNCoOZ7HWnFo5/view?usp=drive_link" download>Final</a>
+<br> 2024 <a href="https://drive.google.com/file/d/15lzal1Tvc2Vilcau2uGGcEtCjwjhtTID/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/1iWFJLJAE0h10HJf2NF7UT2W_Ch69v5qe/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1gTm0eq1MnKnfpNfmZSaWpoJR4PCeiksn/view?usp=drive_link" download>Final</a>
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1GIr-7QCxBEyvA6HaKxhcvtrr6UPrtMLk/view?usp=drive_link" download>Final</a>
+</div></details></div></details>
+
+<details><summary>Hindi</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1kLd62kvvsY9K4sXt9NBf0LfmbmGY07GT/view?usp=drive_link" download>Final</a>
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2023
+<br> 2024<a href="https://drive.google.com/file/d/14-50Avt8MGM8N52e9dEjcn1irq-rs2Gu/view?usp=drive_link" download>Final</a>
+<br> 2025 
+</div></details></div></details>
+
+<details><summary>History</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/15_Xw0XwyB0zt1q31E6Vu_Df5Esfeb2xt/view?usp=drive_link" download>Final</a>
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1AwoXoBt2UT5joRN81WLgoafKHszblmFL/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1aTS0QMEjD_1MZRi6YU0z0s2xU-G_9D3T/view?usp=drive_link" download>Sessional</a>
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2023
+<br> 2024<a href="https://drive.google.com/file/d/1VWVzC41auvzf2huB3BJWCgmp4DRAuhBU/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1kPTRPRjAOMcSU3xUtFqCxTlUcnH6-K-G/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/188ieyv2-sE3N0RrT4iX7kzGOXb4pN5L9/view?usp=drive_link" download>Sessional</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2025 
+</div></details></div></details>
+
+<details><summary>Linguistics</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2023
+<br> 2024<a href="https://drive.google.com/file/d/1R1_Gzmd6chOQTfRDiZAYmJzSDPHRon5s/view?usp=drive_link" download>Final</a>
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1TwFCXS21fhiqrRIEmugBoXk3hlTXNEPd/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1fYR93Qbs4V7Lp0c-ZMzgiA71zvPQlL9d/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+  <br> 2026<a href="https://drive.google.com/file/d/1rsXxIEve3mRA7lfB83AhnMK8HuX9nsNS/view?usp=drive_link" download>Final</a>
+
+</div></details></div></details>
+
+<details><summary>English Language Teaching</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 
+</div></details></div></details>
+
+<details><summary>Mass Communication</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2023
+<br> 2024<a href="https://drive.google.com/file/d/1ihXoXbRMAO7hhSlNa_3mgpS1d-dLL2N3/view?usp=drive_link" download>Sessional</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1ZFHZ-9vpTj0eytyIFCKVfg6sNT5tdzSt/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1zyq-Gg0sENN294DrOu5gvfTpJHHSGCvf/view?usp=drive_link" aria-disabled="true">Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 
+</div></details></div></details>
+
+<details><summary>Persian</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/160ljOg_5N2_SZ04LYbWXEyTtsfyiyuxE/view?usp=drive_link" download>Final</a>
+<br> 2023<a href="https://drive.google.com/file/d/1hvPPCQdgz2U-M-1lIqIAmKRUffenSf_W/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/1-SMeCAyS5FxhuihPTz1TpGnDB7kYO_1J/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1r6cfx_ITzjy0XoNsEWx3gVf2eXfNQlaF/view?usp=drive_link" download>Final</a>
+</div></details></div></details>
+<details><summary>Philosophy</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1gM-kd_30eYend7UTnG02b5qkv2lIpx20/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1xfERLp2OKA3G0UyqIBoIE8HsNTiqj3Mh/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1uvQlDrQQ-sNfDVOQHexkbe-gsp1v2HqJ/view?usp=drive_link" download>Sessional</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1nea6vz1tWisg9HZVjAxMqiID82LMos-M/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1Yn6Kpxv5BcSy-0cWul-9KUJvj9Ik6vyh/view?usp=drive_link" download>Sessional</a>
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1UGroXwPF8fNA_vLpxWx4KI2hBVsik-Y4/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1pW2JoF7MxUuuhkP5JnHYDBReRpz27H99/view?usp=drive_link" download>sessional</a>
+</div></details></div></details>
+
+<details><summary>Political Science</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/1fOkTwBEM_BHfqaTeGGCwxMygd1e4XtKC/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/1eKYzhDwAXzRJXXMI7_9BxIRf0vJGI3tU/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/12EEZEbCF3vOf4PUl4XXfotB1Q65t-FWd/view?usp=drive_link" download>Final</a>
+<br> 2025 <a href="https://drive.google.com/file/d/18kUBjH7YCrUMETjOhOaf3wPN-4g8MMpe/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/1pvp0VEVeEQMI67TaB3VWj5otEWPBJIgx/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1gWsHXLTNl7zb_PG4bfeJFP5bHtlacs_0/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2026<a href="https://drive.google.com/file/d/19v0-X5vlJP8HFUTEW5BkrK56n_LNSnwt/view?usp=drive_link" download>Final</a>
+
+</div></details></div></details>
+<details><summary>Psychology</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1JVWn2LcguBGJH4qARIosQoPIWOI0jjSB/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1EliXu-o4eSc7CmNYzdpDaJ8RKRfwopPp/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1fryQ7hYLvwBJrnWmaJpN7Gg6_J86nWHE/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1fSVkFz1XGMjLn0rTdT55qrc71yECLE_2/view?usp=drive_link" download>Final</a>
+</div></details></div></details>
+<details><summary>Sanskrit</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2023<a href="https://drive.google.com/file/d/1me_b-PR9hpq6u0mcW2XcJ2JpyDG1lo4f/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1lmbdXgYqImb3_LGIOWoXODrrBOgcOGJk/view?usp=drive_link" download>Final</a><a href="https://drive.google.com/file/d/1whRQexulzU-WRXJ--SbKBbkrmeHLNI_m/view?usp=drive_link" download>Sessional</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2023
+<br> 2024
+<br> 2025 <a href="https://drive.google.com/file/d/1gwlypNZyLqz2q9KwFhLy0yAv6b-FS3mE/view?usp=drive_link" download>Final</a>
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2025 
+</div></details></div></details>
+<details><summary>Sociology</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/16NyioF7mn97agoqJEpTTgZxuTB5ZZQ6c/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/1s0kbaKLCoXghxCTyjLTUgehvTf6iok9X/view?usp=drive_link" download>Final</a>
+<br> 2023<a href="https://drive.google.com/file/d/1p6im1alRh_qbIGsB-lFjfDLPwKMv1U9U/view?usp=drive_link" download>Final</a>
+<br> 2025 
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+<BR>2022<a href="https://drive.google.com/file/d/16aeR40xGz5sPgcFzC7fiBH9v-mXCihgn/view?usp=drive_link" download>Final</a>
+
+</div></details></div></details>
+<details><summary>Women Studies</summary><div class="year"><details><summary> SEMESTER 1</summary><div class="year">
+<br> 2016-19<a href="https://drive.google.com/file/d/1HWAh4K88WlJ4I9A9mpPmk6c-yTC4ZxXr/view?usp=drive_link" download>Final</a>
+<br> 2024<a href="https://drive.google.com/file/d/1lX8jZ4ysvITrIJXlEQJezTmxUf0bC24E/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 2</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1m3TqNrDoMnd43jr1x1kWdJi0Mq8CVwaj/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 3</summary><div class="year">
+
+<br> 2024<a href="https://drive.google.com/file/d/1be8DZZQtoxvLgzWIzNc4YYwgBq25tRlY/view?usp=drive_link" download>Final</a>
+
+</div></details>
+<details><summary> SEMESTER 4</summary><div class="year">
+
+<br> 2025 <a href="https://drive.google.com/file/d/1cF8EZGdLrIZfHume6tyGVA68DjLfquD3/view?usp=drive_link" download>Final</a>
+</div></details></div></details>
+</div></details>
+
+  </section>
+
+
+
+</main>
+
+<footer>
+Â© 2026 M.A. Previous Year Question Papers
+</footer>
+
+
+
+
+  <!-- GU-ENHANCEMENTS:BODY -->
+  <script src="site-enhancements.js" defer></script>
+  <!-- /GU-ENHANCEMENTS:BODY -->
+</body>
+</html>
+
+

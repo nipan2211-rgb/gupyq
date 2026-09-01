@@ -1,0 +1,1897 @@
+﻿ <!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   GUPGET Information
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    .seat-arrangement-box{
+    margin-top:35px;
+    background:#ffffff;
+    border:1px solid #dbeafe;
+    border-left:6px solid #2563eb;
+    border-radius:18px;
+    padding:22px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.seat-arrangement-box:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 35px rgba(37,99,235,.15);
+}
+
+.seat-icon{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#eff6ff;
+    color:#2563eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    flex-shrink:0;
+}
+
+.seat-content{
+    flex:1;
+}
+
+.seat-content h3{
+    color:#101f58;
+    margin-bottom:8px;
+    font-size:20px;
+}
+
+.seat-content p{
+    color:#64748b;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.download-seat-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:linear-gradient(135deg,#dc2626,#ef4444);
+    color:#fff;
+    padding:13px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+    white-space:nowrap;
+}
+
+.download-seat-btn:hover{
+    background:linear-gradient(135deg,#b91c1c,#dc2626);
+    transform:translateY(-2px);
+}
+
+.download-seat-btn i{
+    font-size:18px;
+}
+
+@media(max-width:768px){
+
+    .seat-arrangement-box{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .download-seat-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+}
+    /* WhatsApp Helpdesk */
+
+.whatsapp-helpdesk{
+    padding:60px 20px;
+    background:#f8fafc;
+}
+
+.wa-card{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    border:1px solid #e5e7eb;
+}
+
+.wa-icon{
+    width:90px;
+    height:90px;
+    background:#25D366;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:46px;
+    flex-shrink:0;
+}
+
+.wa-content h2{
+    margin-bottom:12px;
+    color:#0f172a;
+    font-size:28px;
+}
+
+.wa-content p{
+    color:#475569;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.wa-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.wa-btn:hover{
+    background:#1da851;
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(37,211,102,.35);
+}
+
+@media(max-width:768px){
+
+.wa-card{
+    flex-direction:column;
+    text-align:center;
+}
+
+.wa-content h2{
+    font-size:24px;
+}
+
+}
+   *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#dff5d8;
+            color:#333;
+        }
+
+        header{
+            background:#11200c;
+            color:white;
+            text-align:center;
+            padding:25px;
+        }
+
+        header h1{
+            font-size:34px;
+        }
+
+        nav{
+            background:#687e66;
+            text-align:center;
+            padding:12px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:0 15px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:#dff5d8;
+        }
+
+        .container{
+            max-width:900px;
+            margin:40px auto;
+            background:white;
+            padding:35px;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .title{
+            text-align:center;
+            color:#2f4f2f;
+            margin-bottom:25px;
+        }
+
+        .title h2{
+            font-size:32px;
+            margin-bottom:10px;
+        }
+
+        .title p{
+            font-size:16px;
+            color:#555;
+        }
+
+        .document-list{
+            margin-top:25px;
+        }
+
+        .doc-item{
+            display:flex;
+            align-items:center;
+            gap:15px;
+            background:#f7fff3;
+            padding:18px;
+            margin-bottom:15px;
+            border-radius:10px;
+            border-left:5px solid #6b8e23;
+            transition:0.3s;
+        }
+
+        .doc-item:hover{
+            transform:translateX(5px);
+            box-shadow:0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .doc-item i{
+            font-size:24px;
+            color:#6b8e23;
+            min-width:30px;
+        }
+
+        .doc-item p{
+            font-size:16px;
+            line-height:1.6;
+        }
+
+        .important-note{
+            margin-top:35px;
+            background:#fff8dc;
+            padding:22px;
+            border-radius:10px;
+            border-left:6px solid #ff9800;
+            line-height:1.8;
+        }
+
+        .important-note h3{
+            margin-bottom:12px;
+            color:#d97706;
+        }
+
+        /* Extra Pages Section */
+
+        .extra-pages{
+            margin-top:45px;
+        }
+
+        .extra-pages h3{
+            text-align:center;
+            margin-bottom:20px;
+            color:#2f4f2f;
+        }
+
+        .page-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+            gap:20px;
+        }
+
+        .page-card{
+            background:#f7fff3;
+            padding:20px;
+            border-radius:10px;
+            text-align:center;
+            border:1px solid #dcefd2;
+            transition:0.3s;
+        }
+
+        .page-card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 5px 12px rgba(0,0,0,0.1);
+        }
+
+        .page-card i{
+            font-size:35px;
+            color:#6b8e23;
+            margin-bottom:12px;
+        }
+
+        .page-card h4{
+            margin-bottom:10px;
+            color:#2f4f2f;
+        }
+
+        .page-card p{
+            font-size:14px;
+            margin-bottom:15px;
+            line-height:1.6;
+        }
+
+        .page-card a{
+            display:inline-block;
+            background:#10301c;
+            color:white;
+            text-decoration:none;
+            padding:10px 16px;
+            border-radius:6px;
+            transition:0.3s;
+        }
+
+        .page-card a:hover{
+            background:#123b2f;
+        }
+
+        footer{
+            text-align:center;
+            background:#333;
+            color:white;
+            padding:15px;
+            margin-top:40px;
+        }
+
+        @media(max-width:600px){
+
+            .container{
+                margin:20px;
+                padding:20px;
+            }
+
+            header h1{
+                font-size:26px;
+            }
+
+            .title h2{
+                font-size:26px;
+            }
+
+        }
+
+.info-section{
+    background:#fff;
+    margin:30px auto;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,0.12);
+}
+
+.section-title{
+    background:#11a8df;
+    color:#000;
+    text-align:center;
+    padding:14px;
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+}
+
+.section-content{
+    padding:30px;
+    font-size:18px;
+    line-height:1.9;
+}
+
+.section-content h3{
+    margin-top:15px;
+    color:#222;
+}
+
+.section-content ul{
+    padding-left:25px;
+}
+
+.note-box{
+    background:#f3f9fc;
+    border-left:5px solid #11a8df;
+    padding:15px;
+    margin:20px 0;
+    border-radius:6px;
+}
+
+.section-content a{
+    color:#0b57d0;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.section-content a:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:768px){
+
+.section-title{
+    font-size:24px;
+}
+
+.section-content{
+    padding:20px;
+    font-size:16px;
+}
+
+}
+
+.reading-box{
+    max-width:900px;
+    margin:30px auto;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    line-height:1.9;
+}
+
+.reading-box h2{
+    color:#2f4f2f;
+    margin-bottom:18px;
+}
+
+.reading-box p{
+    font-size:17px;
+}
+
+.table-wrapper{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    max-width:100%;
+}
+
+@media(max-width:768px){
+    nav a{
+        display:inline-block;
+        margin:6px 10px;
+    }
+    .doc-item{
+        align-items:flex-start;
+    }
+    .reading-box{
+        margin:20px;
+        padding:20px;
+    }
+}
+
+.routine-section{
+    margin-top:40px;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.section-heading i{
+    font-size:45px;
+    color:#2563eb;
+    margin-bottom:12px;
+}
+
+.section-heading h2{
+    font-size:34px;
+    color:#101f58;
+    margin-bottom:8px;
+}
+
+.section-heading p{
+    color:#64748b;
+    font-size:15px;
+}
+
+.table-container{
+    overflow-x:auto;
+    border-radius:22px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.routine-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:900px;
+    background:white;
+}
+
+.routine-table thead th{
+    background:linear-gradient(135deg,#101f58,#1d4ed8);
+    color:white;
+    padding:22px 18px;
+    text-align:center;
+    font-size:17px;
+}
+
+.routine-table thead span{
+    display:block;
+    margin-top:8px;
+    font-size:13px;
+    color:#dbeafe;
+    font-weight:400;
+}
+
+.routine-table td{
+    padding:22px;
+    text-align:center;
+    vertical-align:top;
+    border-bottom:1px solid #e5e7eb;
+    line-height:1.9;
+    color:#334155;
+}
+
+.routine-table tbody tr:nth-child(even){
+    background:#f8fafc;
+}
+
+.routine-table tbody tr:hover{
+    background:#eef4ff;
+    transition:0.3s;
+}
+
+.date-column{
+    background:#eff6ff;
+    font-weight:600;
+    color:#1e3a8a;
+    min-width:160px;
+}
+
+.date-column strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:6px;
+}
+
+.date-column small{
+    color:#64748b;
+    font-size:13px;
+}
+
+@media(max-width:768px){
+
+    .section-heading h2{
+        font-size:28px;
+    }
+
+    .routine-table{
+        min-width:750px;
+    }
+
+    .routine-table td{
+        padding:18px 14px;
+        font-size:14px;
+    }
+}
+  </style>
+  <link href="site-theme.css" rel="stylesheet"/>
+  <!-- GU-ENHANCEMENTS:HEAD -->
+  <meta content="#0b4f3c" name="theme-color"/>
+  <!-- /GU-ENHANCEMENTS:HEAD -->
+ </head>
+ <body class="archive-theme theme-admission">
+  <header>
+   <h1>
+    GUPGET
+   </h1>
+   <p>
+    Gauhati University Postgraduate Entrance Examination
+   </p>
+  </header>
+  <nav>
+   <a href="index.html">
+    Home
+   </a>
+  </nav>
+  <div class="extra-pages">
+   <div class="page-grid">
+    <div class="page-card">
+     <i class="fa-solid fa-file-pen">
+     </i>
+     <h4>
+      Question Pattern
+     </h4>
+     <p>
+      View complete entrance examination pattern and marking scheme.
+     </p>
+     <a href="pget-exam pattern.html">
+      Open
+     </a>
+    </div>
+    <div class="page-card">
+     <i class="fa-solid fa-book">
+     </i>
+     <h4>
+      Syllabus
+     </h4>
+     <p>
+      Subject wise syllabus and preparation topics.
+     </p>
+     <a href="pget-syllabus.html">
+      Open
+     </a>
+    </div>
+    <div class="page-card">
+     <i class="fa-solid fa-list">
+     </i>
+     <h4>
+      Merit List
+     </h4>
+     <p>
+      Latest merit lists and admission updates.
+     </p>
+     <a href="pget-merit.html">
+      Open
+     </a>
+    </div>
+   </div>
+   <div class="container">
+    <h2 style="text-align:center; margin-bottom:20px;">
+     Required Documents
+    </h2>
+    <p style="margin-bottom:20px; line-height:1.8;">
+     <strong>
+      Keep the following documents ready before filling up the GUPGET application form:
+     </strong>
+    </p>
+    <ul style="line-height:2; padding-left:25px; font-size:17px;">
+     <li>
+      Email ID
+     </li>
+     <li>
+      Passport Size Photograph
+     </li>
+     <li>
+      Signature Photograph
+     </li>
+     <li>
+      Caste Certificate (OBC / SC / ST)
+     </li>
+     <li>
+      Marksheets (HSLC, HS, UG). 
+            If appearing in UG final year, UG marksheet is not mandatory.
+     </li>
+     <li>
+      Income Certificate (For Fee Waiver Benefit)
+     </li>
+     <li>
+      PRC (Permanent Resident Certificate)
+     </li>
+    </ul>
+    <!-- Important Note -->
+    <div class="important-note">
+     <h3>
+      Important Notice
+     </h3>
+     <p>
+      Please keep all the above mentioned documents ready beforehand
+            so that you do not face any trouble during admission.
+     </p>
+     <p>
+      PRC may not always be mandatory, but keeping all documents ready
+            will help you complete the admission process smoothly and quickly.
+     </p>
+    </div>
+   </div>
+   <div class="container">
+    <h2 style="text-align:center; margin-bottom:20px;">
+     Eligibility Criteria
+    </h2>
+    <p style="line-height:2; text-align:justify;">
+     Students appearing in the 6th Semester Examination
+and awaiting results may apply for PGET 2026 and
+receive provisional admission if selected.
+
+However, the final marksheet must be submitted
+within 7 days of result publication.
+    </p>
+   </div>
+   <!-- Extra Pages Section -->
+   <div class="container">
+    <h2 style="text-align:center; margin-bottom:20px;">
+     Important Documents Required in Admission
+    </h2>
+    <p style="margin-bottom:20px; line-height:1.8;">
+     Keep the following documents ready during the admission process:
+    </p>
+    <ul style="line-height:2; padding-left:25px; font-size:17px;">
+     <li>
+      <strong>
+       HSLC &amp; HS Marksheet and Certificate
+      </strong>
+     </li>
+     <li>
+      <strong>
+       Degree Marksheet
+      </strong>
+      <ul style="padding-left:20px; margin-top:8px;">
+       <li>
+        For passed-out students: All semester grade sheets
+       </li>
+       <li>
+        For appearing students: Till the last semester marksheet
+       </li>
+      </ul>
+     </li>
+     <li>
+      <strong>
+       Degree Pass Certificate
+      </strong>
+     </li>
+     <li>
+      <strong>
+       Caste Certificate (if applicable)
+      </strong>
+      <br/>
+      SC / ST / OBC (Non-Creamy Layer Certificate Mandatory) / 
+            MOBC / EWS
+     </li>
+     <li>
+      <strong>
+       PRC / Domicile Certificate
+      </strong>
+     </li>
+     <li>
+      <strong>
+       Gap Certificate (if applicable)
+      </strong>
+     </li>
+     <li>
+      <strong>
+       EC / NCC / NSS Certificate (if any)
+      </strong>
+     </li>
+     <li>
+      <strong>
+       UGC Anti-Ragging Undertaking Form
+      </strong>
+      <br/>
+      (Required only during admission)
+      <a href="https://antiragging.in/affidavit_university_form.php">
+       To fill up click here
+      </a>
+     </li>
+     <br/>
+     While filling out the anti-ragging affidavit form, youâ€™ll need the following university details. Please use the info below:
+     <br/>
+     <strong>
+      Gauhati University Information:
+     </strong>
+     <br/>
+     Vice Chancellor: Dr. Nani Gopal Mahanta
+     <br/>
+     University Phone Number: 9864156214
+     <br/>
+     Landline Number (Optional): 0361 2570412
+     <br/>
+     Nearest Police Station:
+Jalukbari Police Station
+     <li>
+      <strong>
+       GU-PGET 2025 Application Form &amp; Admit Card
+      </strong>
+     </li>
+    </ul>
+    <br/>
+    <div class="important-note">
+     <strong>
+      Important Note:
+     </strong>
+     <br/>
+     <br/>
+     <p style="line-height:1.9; text-align:justify;">
+      Candidates are advised to keep both original and photocopies of all 
+        required documents ready before the admission process begins.
+
+        Ensure that all certificates and marksheets are properly arranged 
+        to avoid inconvenience during document verification.
+     </p>
+    </div>
+    <div class="container">
+     <!-- How to Apply -->
+     <div class="info-section">
+      <h2 style="text-align:center; margin-bottom:20px;">
+       How to Apply
+      </h2>
+      <div class="section-content">
+       <p>
+        Online applications will be invited from eligible candidates through the following online portal:
+       </p>
+       <p>
+        <a href="https://gauhatiadmission.samarth.edu.in/pg" target="_blank">
+         https://gauhatiadmission.samarth.edu.in/pg
+        </a>
+       </p>
+       <p>
+       Available PG Programmes
+       </p>
+       <p>
+        <a href="https://admissions.gauhati.ac.in/pg/" target="_blank">
+         Detail information about each department </a>
+       </p>
+      </div>
+     </div>
+     <!-- Seat Matrix -->
+     <div class="info-section">
+      <h2 style="text-align:center; margin-bottom:20px;">
+       Seat Matrix
+      </h2>
+      <div class="section-content">
+       <h3>
+        A. Traditional Programmes
+       </h3>
+       <p>
+        Seat reservation policy for the Traditional Programmes of Gauhati University for the Academic Session 2026-27:
+       </p>
+       <ul>
+        <li>
+         <strong>
+          50% seats reserved for Gauhati University candidates.
+         </strong>
+        </li>
+        <li>
+         <strong>
+          50% seats reserved for candidates from other Universities (including Gauhati University candidates).
+         </strong>
+        </li>
+       </ul>
+       <div class="note-box">
+        <strong>
+         Special Exception:
+        </strong>
+        <br/>
+        For M.Sc. in Geology Programme, the reservation ratio will be:
+        <br/>
+        <br/>
+        <strong>
+         30% for Gauhati University candidates
+        </strong>
+        <br/>
+        <strong>
+         70% Open Category
+        </strong>
+        (for candidates from all Universities including Gauhati University).
+       </div>
+       <h3>
+        B. Interdisciplinary Programmes
+       </h3>
+       <p>
+        Seats in the Interdisciplinary Programmes remain open to all candidates irrespective of their University affiliation.
+       </p>
+       <div class="note-box">
+        Other reservation provisions shall be applicable according to the rules of the Government of Assam and Gauhati University.
+       </div>
+      </div>
+     </div>
+     <!-- Selection Procedure -->
+     <div class="info-section">
+      <h2 style="text-align:center; margin-bottom:20px;">
+       Selection Procedure
+      </h2>
+      <div class="section-content">
+       <ol type="A">
+        <li>
+         All candidates must appear in the PGET-2026 to obtain admission into postgraduate programmes offered by Gauhati University and its affiliated colleges.
+        </li>
+        <br/>
+        <li>
+         Selection of eligible candidates will be based solely on PGET-2026 scores. Admission shall remain provisional until all original documents and certificates are verified by the concerned department.
+        </li>
+        <br/>
+        <li>
+         Preference for admission will be given to candidates securing higher marks in PGET-2026.
+        </li>
+        <br/>
+        <li>
+         Reservation of seats shall be implemented according to the guidelines prescribed by the Government of Assam and Gauhati University.
+        </li>
+        <br/>
+        <li>
+         <strong>
+          Merely appearing in PGET-2026 does not guarantee admission.
+         </strong>
+         If a candidate fails to satisfy the minimum eligibility criteria during document verification, his/her candidature shall be cancelled.
+        </li>
+       </ol>
+      </div>
+     </div>
+    </div>
+    <!-- QUOTA DETAILS -->
+    <div class="container">
+     <h2 style="text-align:center; margin-bottom:25px;">
+      Statutory Reservation Policy
+     </h2>
+     <p style="line-height:1.9; text-align:justify;">
+      Gauhati University follows the reservation policy prescribed by the Government of Assam for admission into postgraduate programmes. Candidates seeking admission under reserved categories must produce valid supporting certificates during admission and document verification.
+     </p>
+     <div class="important-note">
+      <h3>
+       Reservation Categories
+      </h3>
+      <ul style="line-height:2; padding-left:25px; font-size:17px;">
+       <li>
+        <strong>
+         Scheduled Caste (SC):
+        </strong>
+        7% of seats reserved.
+       </li>
+       <li>
+        <strong>
+         Scheduled Tribe (Plains) [ST(P)]:
+        </strong>
+        10% of seats reserved.
+       </li>
+       <li>
+        <strong>
+         Scheduled Tribe (Hills) [ST(H)]:
+        </strong>
+        5% of seats reserved.
+       </li>
+       <li>
+        <strong>
+         OBC / MOBC:
+        </strong>
+        27% of seats reserved for Non-Creamy Layer candidates.
+       </li>
+       <li>
+        <strong>
+         Differently-Abled Candidates:
+        </strong>
+        3% reservation.
+       </li>
+       <li>
+        <strong>
+         Economically Weaker Sections (EWS):
+        </strong>
+        10% reservation.
+       </li>
+      </ul>
+     </div>
+     <h3 style="margin-top:30px; margin-bottom:15px;">
+      OBC / MOBC Reservation Details
+     </h3>
+     <p style="line-height:1.9; text-align:justify;">
+      The reservation for OBC/MOBC candidates has been enhanced from 15% to 27% and is applicable only to candidates belonging to the Non-Creamy Layer category.
+
+        Within the 27% reservation, special community-wise reservation is available for the following communities:
+     </p>
+     <table style="width:100%; border-collapse:collapse; margin-top:15px;">
+      <tr style="background:#6b8e23; color:white;">
+       <th style="padding:12px; border:1px solid #ccc;">
+        Community
+       </th>
+       <th style="padding:12px; border:1px solid #ccc;">
+        Reserved Seats
+       </th>
+      </tr>
+      <tr>
+       <td style="padding:10px; border:1px solid #ccc;">
+        Ahom
+       </td>
+       <td style="padding:10px; border:1px solid #ccc;">
+        07
+       </td>
+      </tr>
+      <tr style="background:#f7fff3;">
+       <td style="padding:10px; border:1px solid #ccc;">
+        Tea Tribe / Tea Garden
+       </td>
+       <td style="padding:10px; border:1px solid #ccc;">
+        06
+       </td>
+      </tr>
+      <tr>
+       <td style="padding:10px; border:1px solid #ccc;">
+        Koch Rajbongshi
+       </td>
+       <td style="padding:10px; border:1px solid #ccc;">
+        06
+       </td>
+      </tr>
+      <tr style="background:#f7fff3;">
+       <td style="padding:10px; border:1px solid #ccc;">
+        Chutia
+       </td>
+       <td style="padding:10px; border:1px solid #ccc;">
+        05
+       </td>
+      </tr>
+      <tr>
+       <td style="padding:10px; border:1px solid #ccc;">
+        Moran
+       </td>
+       <td style="padding:10px; border:1px solid #ccc;">
+        06
+       </td>
+      </tr>
+      <tr style="background:#f7fff3;">
+       <td style="padding:10px; border:1px solid #ccc;">
+        Matak
+       </td>
+       <td style="padding:10px; border:1px solid #ccc;">
+        05
+       </td>
+      </tr>
+     </table>
+     <h3 style="margin-top:35px; margin-bottom:15px;">
+      Reservation for Differently-Abled Candidates
+     </h3>
+     <p style="line-height:1.9; text-align:justify;">
+      Three percent (3%) of the total seats in each academic discipline are reserved for candidates with benchmark disabilities of not less than 40%.
+
+        Candidates must submit a Medical Certificate issued by the Joint Director of Health Services of the concerned district and the prescribed reservation application form to the Office of the Secretary, University Classes, Gauhati University.
+
+        Applicants may also be required to appear before a Medical Board constituted by the University.
+     </p>
+     <h3 style="margin-top:35px; margin-bottom:15px;">
+      Economically Weaker Sections (EWS)
+     </h3>
+     <p style="line-height:1.9; text-align:justify;">
+      Ten percent (10%) of seats in each academic programme are reserved for candidates belonging to the Economically Weaker Sections (EWS) category.
+
+        Candidates claiming reservation under EWS must produce a valid EWS Certificate issued by an officer not below the rank of Circle Officer at the time of admission.
+     </p>
+     <div class="important-note">
+      <h3>
+       Important Note
+      </h3>
+      <p style="line-height:1.9; text-align:justify;">
+       Candidates seeking admission under any reserved category must produce original certificates during admission and document verification. Failure to produce valid supporting documents may result in cancellation of the reservation benefit.
+      </p>
+     </div>
+    </div>
+    <div class="container">
+     <h2 style="text-align:center; margin-bottom:25px;">
+      Non-Statutory Reservation Quota
+     </h2>
+     <p style="line-height:1.9; text-align:justify; font-size:17px;">
+      <strong>
+       (I) Reservation for Students from North-East India (Excluding Assam):
+      </strong>
+      <br/>
+      One supernumerary seat is reserved in each academic department having an intake capacity of 40 or fewer students. Departments with an intake capacity exceeding 40 students will have two supernumerary seats reserved for eligible candidates from North-East Indian states excluding Assam.
+      <br/>
+      <br/>
+      <strong>
+       (II) Sons and Daughters of Permanent Gauhati University Employees:
+      </strong>
+      <br/>
+      One seat in each academic department with an intake capacity of 40 or less and two seats where intake exceeds 40 students are reserved on a supernumerary basis. Candidates must submit the prescribed application form to the Office of the Secretary, University Classes, Gauhati University.
+      <br/>
+      <br/>
+      <strong>
+       (III) Sons and Daughters of Retired Gauhati University Employees:
+      </strong>
+      <br/>
+      A total of five supernumerary seats are reserved irrespective of departments. Applicants must submit the prescribed form to the Office of the Secretary, University Classes, Gauhati University.
+      <br/>
+      <br/>
+      <strong>
+       (IV) Fringe Village Quota:
+      </strong>
+      <br/>
+      A total of fifteen supernumerary seats are reserved across all academic departments. However, a department can admit a maximum of one candidate under this quota. Applicants must be sons or daughters of residents of Garigaon, Sadilapur, Katiadalang (North Jalukbari), or Sundarbari. The applicant's forefathers must have been residents of these villages at the time of the establishment of Gauhati University. Candidates must submit the prescribed form along with land ownership documents and NRC 1951 records.
+      <br/>
+      <br/>
+      <strong>
+       (V) Extra-Curricular &amp; Co-Curricular Activities Quota:
+      </strong>
+      <br/>
+      One supernumerary seat is reserved in each academic department. Selection is based on achievements in Sports, Arts, or Cultural activities during the last three years preceding graduation. Candidates must have represented Gauhati University or the State of Assam in recognized events conducted by AIU, National Sports Federations, SAI, or other competent authorities. Selection will be made by a committee constituted by the Hon'ble Vice-Chancellor.
+      <br/>
+      <br/>
+      <strong>
+       (VI) N.C.C. Quota:
+      </strong>
+      <br/>
+      Three supernumerary seats are reserved irrespective of academic departments. Candidates must have represented Assam in the Republic Day Parade in New Delhi or possess an NCC 'C' Certificate. Only certificates obtained within the last three years preceding graduation will be considered.
+      <br/>
+      <br/>
+      <strong>
+       (VII) N.S.S. Quota:
+      </strong>
+      <br/>
+      Two supernumerary seats are reserved irrespective of departments. Selection is based on merit and achievements in NSS activities. Preference will be given in the following order:
+      <br/>
+      1. National Level NSS Awardees
+      <br/>
+      2. State Level NSS Awardees
+      <br/>
+      3. Members of the Indian Youth Delegation Team (International Youth Exchange)
+      <br/>
+      4. Republic Day Camp Participants
+      <br/>
+      5. National Level NSS Integration Camps and Programmes
+      <br/>
+      6. State Level NSS Integration Camps and University Level NSS Programmes
+      <br/>
+      <br/>
+      <strong>
+       (VIII) Sons and Daughters of Ex-Defence Personnel:
+      </strong>
+      <br/>
+      One supernumerary seat is reserved in each academic department for eligible candidates belonging to this category.
+     </p>
+     <div class="important-note">
+      <h3 style="margin-top:30px; margin-bottom:15px;">
+       Important Notes
+      </h3>
+      <ol style="line-height:2; padding-left:25px; font-size:17px;">
+       <li>
+        Under Non-Statutory Reservation Quotas (Categories II to VIII), if more than one eligible candidate applies for a supernumerary seat, only one candidate per category will be selected for each programme. This restriction does not apply to the North-East India quota.
+       </li>
+       <li>
+        Candidates applying under Non-Statutory Quotas and the Differently-Abled category must submit the prescribed application form, self-attested testimonials, and supporting documents to Room No. 14, Office of the Secretary, University Classes, Gauhati University, Jalukbari, Guwahati â€“ 781014, either in person or by post before the commencement of the Entrance Test.
+       </li>
+       <li>
+        Candidates applying under General, Statutory Reservation, or EWS categories must submit relevant certificates to their respective Departments, Institutes, or Centres at the time of admission.
+       </li>
+       <li>
+        Candidates seeking admission under reserved categories must be permanent residents of Assam. Production of a valid Permanent Resident Certificate (PRC) at the time of admission is mandatory.
+       </li>
+      </ol>
+     </div>
+    </div>
+    <!-- Criteria -->
+    <div class="container">
+     <h2 style="text-align:center; margin-bottom:25px;">
+      Criteria for Reservation Under NCC &amp; NSS Quota
+     </h2>
+     <ol style="line-height:2; padding-left:25px; font-size:17px;">
+      <li>
+       Those who have obtained NCC â€œCâ€ Certificate or have participated 
+            in the Republic Day Parade under NCC.
+      </li>
+      <li>
+       Those who represented the University in NSS Camp at National Level.
+      </li>
+      <li>
+       Those who have obtained NCC 'B' Certificate or have participated in the Republic Day Parade under NCC. (This is applicable only for the students applying for admission into integrated courses).
+      </li>
+     </ol>
+     <p style="margin-top:20px; line-height:1.9; font-size:17px; text-align:justify;">
+      <strong>
+       Important Note:
+      </strong>
+      <br/>
+      <br/>
+      The above certificates must have been obtained within the last 
+        three years preceding admission.
+     </p>
+     <hr style="margin:40px 0;"/>
+     <h2 style="text-align:center; margin-bottom:25px;">
+      Criteria for Reservation Under Extra Curricular &amp; Co-Curricular Activities
+     </h2>
+     <p style="margin-bottom:20px; line-height:1.8; font-size:17px;">
+      Preference will be given to candidates in the following order:
+     </p>
+     <ol style="line-height:2; padding-left:25px; font-size:17px;">
+      <li>
+       Those who represented the country in International Events.
+      </li>
+      <li>
+       Those who won prizes at recognised National Level Events.
+      </li>
+      <li>
+       Those who won prizes in Inter-University Sports / Cultural / Literary Events.
+      </li>
+      <li>
+       Those who represented Gauhati University in Inter-University 
+            Sports / Cultural / Literary Meet under GU Sports Board.
+      </li>
+      <li>
+       Those who won prizes in Inter-College Youth Festival, GU 
+            and Inter-College Sports Meet under GU Sports Board.
+      </li>
+      <li>
+       Those who won prizes at recognised State Level Competitions.
+      </li>
+      <li>
+       Students who were awarded Fellowships / Scholarships by 
+            Central Ministry of Culture, Sports, and Youth Welfare 
+            for excellence in Art, Culture, and Sports.
+      </li>
+     </ol>
+    </div>
+    <div class="container">
+     <h2 style="text-align:center; margin-bottom:25px;">
+      Submit Quota Certificate Criteria
+     </h2>
+     <p style="line-height:1.9; font-size:17px; text-align:justify;">
+      Candidates applying under the following Non-Statutory Quotas for 
+        PGET 2025, Gauhati University may submit their documents through
+      <strong>
+       Speed Post
+      </strong>
+      if they are unable to visit in person
+      <div>
+       <a download="" href="https://drive.google.com/file/d/1pLnPtnyhAHkojKUjdsbBGnzgFuEkKLyu/view?usp=drive_link">
+        Download Reserved Quota Form
+       </a>
+      </div>
+     </p>
+     <h3 style="margin-top:25px; margin-bottom:15px;">
+      Applicable Quota Categories
+     </h3>
+     <ul style="line-height:2; padding-left:25px; font-size:17px;">
+      <li>
+       Extra-Curricular &amp; Co-Curricular Activities
+      </li>
+      <li>
+       Differently-Abled
+      </li>
+      <li>
+       NCC / NSS
+      </li>
+      <li>
+       Fringe Village
+      </li>
+      <li>
+       Son / Daughter of GU Employee / Ex-Employee
+      </li>
+      <li>
+       Son / Daughter of Ex-Defence Personnel
+      </li>
+     </ul>
+     <h3 style="margin-top:30px; margin-bottom:15px;">
+      Required Documents
+     </h3>
+     <ol style="line-height:2; padding-left:25px; font-size:17px;">
+      <li>
+       Quota Application Form with recent passport-size photograph 
+            and signature.
+      </li>
+      <li>
+       Copy of the PGET Application Form.
+      </li>
+      <li>
+       Relevant supporting certificates based on the quota category claimed.
+      </li>
+     </ol>
+     <p style="margin-top:20px; line-height:1.9; font-size:17px; text-align:justify;">
+      <strong>
+       For Extra-Curricular &amp; Co-Curricular Quota:
+      </strong>
+      <br/>
+      All relevant certificates from National, State, and District levels 
+        must be enclosed with the signature of the certificate holder.
+      <br/>
+      <br/>
+      <strong>
+       For Ex-Defence Personnel Quota:
+      </strong>
+      <br/>
+      A copy of the Defence ID of the parent must be enclosed with 
+        proper seal and signature.
+     </p>
+     <h3 style="margin-top:30px; margin-bottom:15px;">
+      Address for Submission Through Speed Post
+     </h3>
+     <p style="line-height:2; font-size:17px;">
+      The Office of the Secretary, University Classes
+      <br/>
+      Room No. 14, Gauhati University
+      <br/>
+      Guwahati â€“ 781014
+     </p>
+    </div>
+    <!-- Fee Structure Reading Section -->
+    <div class="reading-box">
+     <h2 style="text-align:center;">
+      <i class="fa-solid fa-money-bill-wave">
+      </i>
+      Fee Structure
+     </h2>
+     <p style="text-align:center; margin-bottom:15px; line-height:1.9;">
+      Fee Waiver is available for students enrolled in 
+    non-self-financed courses and possessing a valid Ration Card.
+     </p>
+     <p style="text-align:center; margin-bottom:15px; line-height:1.9;">
+      Free admission is not applicable for Self-Financed Courses.
+     </p>
+     <p style="text-align:center; margin-bottom:25px; line-height:1.9;">
+      The fee structure is provided below.
+     </p>
+     <!-- FEE STRUCTURE TABLE -->
+     <div style="overflow-x:auto; margin-top:20px;">
+      <h2 style="text-align:center; color:#0b4f6c; margin-bottom:15px;">
+       Fee Structure (Session 2026-27)
+      </h2>
+      <table style="width:100%; border-collapse:collapse; min-width:900px; font-size:15px;">
+       <tr style="background:#0b4f6c; color:white;">
+        <th style="padding:12px; border:1px solid #ccc;">
+         Sl No.
+        </th>
+        <th style="padding:12px; border:1px solid #ccc;">
+         Department / Programme
+        </th>
+        <th style="padding:12px; border:1px solid #ccc;">
+         Admission Fee (â‚¹)
+        </th>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         1
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Assamese / CIL / ELT / Arabic / Bengali / Bodo / Economics / English / Hindi / History / Folklore Studies / Linguistics / Persian / Philosophy / Political Science / Sanskrit / Women Studies / Mathematics / M.Com / Sociology
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹7,670
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         2
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Education
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹9,040
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         3
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Mass Communication
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹22,370
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         4
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Psychology
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹10,620
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         5
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Botany / Zoology
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹16,010
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         6
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Statistics
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹10,510
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         7
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Biotechnology
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹19,650
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         8
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Biotechnology (Self Finance - Annually)
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹80,000
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         9
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Computer Science
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹23,510
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         10
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Chemistry / Physics
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹16,060
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         11
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Anthropology / Environmental Science / Geological Science / Geography
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹10,710
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         12
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Instrumentation &amp; USIC / Electronic Science / Micro Electronics &amp; Advanced Communication
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹20,670
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         13
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Information Technology M.Sc.
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹26,930
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         14
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         M.Lib.I.Sc.
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹17,630
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         15
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         MBA
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹50,000
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         16
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         MBA Self Finance
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹75,000
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         17
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Microbiology (Per Semester)
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹30,250
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         18
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         LLM
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹16,440
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         19
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         LLM Self Finance
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹65,000
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         20
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         LLB (3 Years) 1st &amp; 2nd Semester
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹14,400
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         21
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         LLB (3 Years) 3rd &amp; 4th Semester
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹11,120
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         22
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         LLB (3 Years) 5th &amp; 6th Semester
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹11,930
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         23
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         BA LLB (5 Years)
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹21,820
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         24
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Integrated M.Com (1st Semester Admission)
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹27,500
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         24A
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Integrated M.Com (Subsequent Semesters)
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹25,000
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         25
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Wildlife Science
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹40,000
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         26
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         M.Ed.
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹55,000
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         27
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         M.Tech
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹26,930
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         28
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         M.A. in Performing Arts &amp; Culture (Sattriya Dance / Theatre Studies &amp; Acting) (Per Semester)
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹20,000
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         29
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         M.Sc. in Cancer Biology (Per Semester)
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         â‚¹25,000
+        </td>
+       </tr>
+       <tr>
+        <td style="padding:10px;border:1px solid #ccc;">
+         30
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Applied Sciences
+         <br/>
+         â€¢ M.Sc. Chemical Science
+         <br/>
+         â€¢ M.Sc. Physical Science
+         <br/>
+         â€¢ M.Sc. Mathematical Science
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Odd Semester: â‚¹16,500
+         <br/>
+         Even Semester: â‚¹14,500
+        </td>
+       </tr>
+       <tr style="background:#f7f9fc;">
+        <td style="padding:10px;border:1px solid #ccc;">
+         31
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Information Technology
+         <br/>
+         (M.Voc in Animation &amp; Graphic Design)
+        </td>
+        <td style="padding:10px;border:1px solid #ccc;">
+         Odd Semester: â‚¹16,500
+         <br/>
+         Even Semester: â‚¹14,500
+        </td>
+       </tr>
+      </table>
+      <div style="margin-top:15px; padding:15px; background:#fff8e1; border-left:5px solid #ff9800;">
+       <strong>
+        Note:
+       </strong>
+       Fee waiver scheme will be applicable only if the scheme is made available by the Government of Assam for Session 2026â€“27.
+      </div>
+     </div>
+
+<section class="routine-section">
+
+    <div class="section-heading">
+        <i class="fa-solid fa-calendar-days"></i>
+        <h2>PGET 2026-27 Entrance Test Routine</h2>
+        <p>Offline Examination Schedule</p>
+    </div>
+
+    <div class="table-container">
+
+        <table class="routine-table">
+
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Session I<br><span>9:00 AM - 11:00 AM</span></th>
+                    <th>Session II<br><span>12:00 Noon - 2:00 PM</span></th>
+                    <th>Session III<br><span>3:00 PM - 5:00 PM</span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td class="date-column">
+                        <strong>08 July 2026</strong>
+                        <small>Wednesday</small>
+                    </td>
+
+                    <td>
+                        Environmental Science<br>
+                        English Language Teaching<br>
+                        Philosophy<br>
+                        M.Tech VLSI & Microelectronics
+                    </td>
+
+                    <td>
+                        Sanskrit<br>
+                        Political Science<br>
+                        Geology<br>
+                        Microbiology<br>
+                        Psychology<br>
+                        Electronics & Communication Technology
+                    </td>
+
+                    <td>
+                        Botany<br>
+                        Chemistry<br>
+                        Zoology<br>
+                        M.Tech ACIS<br>
+                        Linguistics<br>
+                        Folklore Studies
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="date-column">
+                        <strong>09 July 2026</strong>
+                        <small>Thursday</small>
+                    </td>
+
+                    <td>
+                        Assamese<br>
+                        Hindi<br>
+                        Arabic<br>
+                        Economics<br>
+                        Education<br>
+                        English<br>
+                        History
+                    </td>
+
+                    <td>
+                        Computer Science / IT<br>
+                        Anthropology<br>
+                        Comparative Indian Literature<br>
+                        Commerce<br>
+                        Tourism Management<br>
+                        Mathematical Science<br>
+                        Physical Science
+                    </td>
+
+                    <td>
+                        Bengali<br>
+                        Bodo<br>
+                        Persian<br>
+                        Cancer Biology<br>
+                        Mass Communication
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="date-column">
+                        <strong>10 July 2026</strong>
+                        <small>Friday</small>
+                    </td>
+
+                    <td>
+                        Biotechnology<br>
+                        Instrumentation & Applied Physics<br>
+                        Sociology<br>
+                        M.Tech (Research) AI & ML
+                    </td>
+
+                    <td>
+                        Geography<br>
+                        Wildlife Science<br>
+                        Women's Studies<br>
+                        Performing Arts<br>
+                        Mathematics
+                    </td>
+
+                    <td>
+                        Physics<br>
+                        Statistics<br>
+                        M.Tech IT<br>
+                        LL.M<br>
+                        M.Tech Biotechnology<br>
+                        M.Lib.I.Sc
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+   <!-- Seat Arrangement -->
+
+<div class="seat-arrangement-box">
+
+    <div class="seat-icon">
+        <i class="fa-solid fa-map-location-dot"></i>
+    </div>
+
+    <div class="seat-content">
+        <h3>Last Year Seat Arrangement (Gauhati University Campus)</h3>
+
+        <p>
+            Candidates can download the previous year's seat arrangement to get
+            an idea about examination halls and department-wise room allocation.
+        </p>
+    </div>
+
+    <a href="https://drive.google.com/file/d/1tRKbLJV2yadXScoZS_UPP0LFbppBkeNS/view?usp=drive_link"
+       target="_blank"
+       class="download-seat-btn">
+
+        <i class="fa-solid fa-file-pdf"></i>
+        Download PDF
+
+    </a>
+
+</div>  
+    <!-- WhatsApp Helpdesk Section -->
+<section class="whatsapp-helpdesk">
+    <div class="wa-card">
+        <div class="wa-icon">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <div class="wa-content">
+            <h2>Join Our WhatsApp Community</h2>
+            <p>
+                Stay updated with the latest Question Papers, Syllabus,
+                Admission Notices, Merit Lists, Study Materials and
+                important Gauhati University announcements.
+            </p>
+
+            <a href="https://chat.whatsapp.com/E6PNzqP01W8DzYKUuL3SDy"
+               target="_blank"
+               class="wa-btn">
+                <i class="fab fa-whatsapp"></i>
+                Join Community
+            </a>
+        </div>
+    </div>
+</section>
+    </div>
+   </div>
+  </div>
+  <footer>
+   <p>
+    Â© 2026 GUPGET Admission Portal
+   </p>
+  </footer>
+  <!-- GU-ENHANCEMENTS:BODY -->
+  <script defer="" src="site-enhancements.js">
+  </script>
+ </body>
+</html>

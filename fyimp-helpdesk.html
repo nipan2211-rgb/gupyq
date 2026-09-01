@@ -1,0 +1,751 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GU FYIMP Admission</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="site-theme.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+
+    /* WhatsApp Helpdesk */
+
+.whatsapp-helpdesk{
+    padding:60px 20px;
+    background:#f8fafc;
+}
+
+.wa-card{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    border:1px solid #e5e7eb;
+}
+
+.wa-icon{
+    width:90px;
+    height:90px;
+    background:#25D366;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:46px;
+    flex-shrink:0;
+}
+
+.wa-content h2{
+    margin-bottom:12px;
+    color:#0f172a;
+    font-size:28px;
+}
+
+.wa-content p{
+    color:#475569;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.wa-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.wa-btn:hover{
+    background:#1da851;
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(37,211,102,.35);
+}
+
+@media(max-width:768px){
+
+.wa-card{
+    flex-direction:column;
+    text-align:center;
+}
+
+.wa-content h2{
+    font-size:24px;
+}
+
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#dff5d8;
+    color:#333;
+}
+
+header{
+    background:#10180f;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+}
+
+header h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:17px;
+}
+
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.section-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:20px;
+}
+
+.section-card{
+    background:white;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+    border:1px solid #dcefd2;
+    transition:0.3s;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.section-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
+}
+
+.section-card i{
+    font-size:42px;
+    color:#6b8e23;
+    margin-bottom:15px;
+}
+
+.section-card h2{
+    font-size:22px;
+    margin-bottom:12px;
+    color:#2f4f2f;
+}
+
+.section-card p{
+    font-size:15px;
+    line-height:1.7;
+}
+
+.hidden-section{
+    display:none;
+    margin-top:15px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.hidden-section h3{
+    text-align:center;
+    margin-bottom:25px;
+    color:#2f4f2f;
+    font-size:25px;
+}
+
+.sub-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+    gap:18px;
+}
+
+.sub-box{
+    background:#f7fff3;
+    border:1px solid #dcefd2;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.sub-box h4{
+    margin-bottom:12px;
+    color:#2f4f2f;
+}
+
+.sub-box a{
+    display:inline-block;
+    margin:8px 4px 0;
+    text-decoration:none;
+    background:#6b8e23;
+    color:white;
+    padding:8px 16px;
+    border-radius:6px;
+    font-size:14px;
+}
+
+.sub-box a:hover{
+    background:#1d3b12;
+}
+
+.reading-section{
+    margin-top:40px;
+}
+
+.reading-box,
+.info-card{
+    background:white;
+    padding:32px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+    line-height:1.9;
+    border:1px solid #dcefd2;
+}
+
+.reading-box h2,
+.info-card h2{
+    color:#2f4f2f;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.reading-box h2 i,
+.info-card h2 i{
+    color:#6b8e23;
+    margin-right:10px;
+}
+
+.reading-box h3,
+.info-card h3{
+    color:#2f4f2f;
+    margin:18px 0 10px;
+    font-size:20px;
+}
+
+.reading-box p,
+.info-card p{
+    font-size:17px;
+    text-align:justify;
+}
+
+.reading-box ul,
+.reading-box ol,
+.info-card ul{
+    line-height:2;
+    padding-left:28px;
+    font-size:17px;
+}
+
+.reading-box a,
+.info-card a{
+    color:#6b8e23;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.reading-box a:hover,
+.info-card a:hover{
+    text-decoration:underline;
+}
+
+.important-note{
+    background:#fff8e6;
+    border-left:5px solid #6b8e23;
+    padding:20px;
+    margin-top:20px;
+    border-radius:8px;
+}
+
+.info-table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    margin-top:18px;
+}
+
+.info-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:16px;
+    min-width:650px;
+}
+
+.info-table th,
+.info-table td{
+    border:1px solid #d6ddd2;
+    padding:14px;
+    text-align:left;
+    vertical-align:top;
+}
+
+.info-table th{
+    background:#f3f6ef;
+    color:#2f4f2f;
+}
+
+footer{
+    text-align:center;
+    background:#333;
+    color:white;
+    padding:16px;
+    margin-top:40px;
+    font-size:14px;
+}
+
+@media(max-width:768px){
+    header h1{
+        font-size:28px;
+    }
+
+    .container{
+        padding:15px;
+        margin:25px auto;
+    }
+
+    .reading-box,
+    .info-card{
+        padding:22px;
+    }
+
+    .reading-box h2,
+    .info-card h2{
+        font-size:23px;
+    }
+}
+</style>
+
+<meta name="theme-color" content="#0b4f3c">
+</head>
+
+<body class="archive-theme theme-admission">
+
+<header>
+    <h1>GU FYIMP Admission</h1>
+    <p>Admission information, cut-off lists, merit lists, reservation criteria and application details.</p>
+</header>
+
+<div class="container">
+
+    <div class="section-grid">
+
+        <div class="section-wrapper">
+            <div class="section-card" onclick="toggleCutoff()">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Previous Year Cut-Off List <span id="cutoffArrow">â–¼</span></h2>
+                <p>View previous year department wise cut-off marks.</p>
+            </div>
+
+            <div id="cutoffDropdown" class="hidden-section">
+                <h3>Previous Year Cut-Off List</h3>
+
+                <div class="sub-grid">
+                    <div class="sub-box">
+                        <h4>GU-INT-MSc</h4>
+                        <a href="https://drive.google.com/file/d/1TXpwRLq2sCKGBEsN7WTqREZZ8b9pgn40/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/1ZNuPrFviwwr2LxT6_C3OlBZwgOwGrzuw/view?usp=drive_link" download>2026</a>
+                    </div>
+
+                    <div class="sub-box">
+                        <h4>GU-INT-MA</h4>
+                        <a href="https://drive.google.com/file/d/1114uQCQXpDdMVY6DM3I4BYiq_gydOJVb/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/1FZR71hWHJzU_xgIURtBCrd5gus6bym-I/view?usp=drive_link" download>2026</a>
+                    </div>
+
+                    <div class="sub-box">
+                        <h4>GU-INT-MBA</h4>
+                        <span>2025 â€” Not available</span>
+                        <a href="https://drive.google.com/file/d/1ieFz8WGZxFnOo5WW2reYPA1ggUQr9MbU/view?usp=drive_link" download>2026</a>
+                    </div>
+
+                    <div class="sub-box">
+                        <h4>GU-INT-M.Com</h4>
+                        <a href="https://drive.google.com/file/d/1oNqors0RXqZiIwvKeN63-HshAeQf8sFg/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/1zw1p2rJENrZaqjB6qNtTSK9pHX5uJhmB/view?usp=drive_link" download>2026</a>
+                    </div>
+
+                    <div class="sub-box">
+                        <h4>GU-INT-AGD</h4>
+                        <a href="https://drive.google.com/file/d/1awhYD_3w_SlB-QthWDvqenDOtzkg2Bmb/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/16RSrPqStPTLoh8K7nx3qjaCrEBPh9ksk/view?usp=drive_link" download>2026</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-wrapper">
+            <div class="section-card" onclick="toggleMerit()">
+                <i class="fa-solid fa-list-check"></i>
+                <h2>Previous Year Merit List <span id="meritArrow">â–¼</span></h2>
+                <p>Check previous year merit lists and selected candidates.</p>
+            </div>
+
+            <div id="meritDropdown" class="hidden-section">
+                <h3>Previous Year Merit List</h3>
+
+                <div class="sub-grid">
+                    <div class="sub-box">
+                        <h4>GU-INT-MSc</h4>
+                        <a href="https://drive.google.com/file/d/1nIIVUJq6gxODUV4wR1xZZucQYXO8vVDz/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/1A_P_QjP56dYqw1wke9_EONd-ctk3bC-0/view?usp=drive_link" download>2026</a>
+                    </div>
+
+                    <div class="sub-box">
+                        <h4>GU-INT-MA</h4>
+                        <a href="https://drive.google.com/file/d/1o97RkZMdOA727T0z6fKIpDXuEmgodev1/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/1TaxcXsgYZ1S9gi6pm9OngzS2le3anArA/view?usp=drive_link" download>2026</a>
+                    </div>
+
+                    <div class="sub-box">
+                        <h4>GU-INT-MBA</h4>
+                        <a href="https://drive.google.com/file/d/16vn4N7t3zZFUlVEnsVjnCizJc3ci5Jj2/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/14HDK7zJlzSuAyh-hkP54wV6lT2JZTWDB/view?usp=drive_link" download>2026</a>
+                    </div>
+
+                    <div class="sub-box">
+                        <h4>GU-INT-M.Com</h4>
+                        <a href="https://drive.google.com/file/d/1LwrE2Q_izu20GK30vDavZSYLgRAkMoeS/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/1I2zhb1tmkhLg5X-1ydQKhv4SwvorvgXQ/view?usp=drive_link" download>2026</a>
+                    </div>
+
+                    <div class="sub-box">
+                        <h4>GU-INT-AGD</h4>
+                        <a href="https://drive.google.com/file/d/1XueIaPfYy0RUDoZT3L7_byIfUoPD84Wc/view?usp=drive_link" download>2025</a>
+                        <a href="https://drive.google.com/file/d/10aarHyQb_jJ2YK0CqiQE4EYZZnMZExHr/view?usp=drive_link" download>2026</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="reading-section">
+
+        <div class="info-card">
+            <h2><i class="fa-solid fa-user-check"></i>Eligibility for Application</h2>
+
+            <p>
+                All candidates must have passed the 12th Grade (10+2) examination.
+                Specific subject requirements apply to certain disciplines.
+            </p>
+
+            <ul>
+                <li>Science Majors require specific subjects like Physics, Chemistry, Mathematics, or Biology in 10+2.</li>
+                <li>M.Tech programmes require CEE/JEE scores and specific subject combinations including Mathematics and Physics.</li>
+            </ul>
+
+            <h3>Stream-specific Eligibility</h3>
+
+            <h3>FYIMP â€” Commerce & Business Administration</h3>
+            <ul>
+                <li><strong>Commerce:</strong> 10+2 with subject related to Commerce.</li>
+                <li><strong>BBA/MBA:</strong> 10+2 in any stream.</li>
+            </ul>
+
+            <h3>FYIMP â€” Science & Technology Programmes</h3>
+            <ul>
+                <li>Requires 10+2 in Science Stream for most M.Sc programmes.</li>
+                <li>M.Tech requires CEE/JEE scores and subject combination such as Maths, Physics and one of Chemistry/CS/etc.</li>
+            </ul>
+
+            <h3>FYIMP â€” Arts & Humanities Programmes</h3>
+            <ul>
+                <li>Most programmes are open to 10+2 in any stream.</li>
+                <li>Languages such as Assamese, Bengali, Hindi and Sanskrit may require specific subject knowledge at 10th/12th level.</li>
+            </ul>
+        </div>
+
+        <div class="reading-box">
+            <h2><i class="fa-solid fa-file-circle-check"></i>Required Documents To Fill Up Application Form</h2>
+
+            <p><strong>Keep the following documents ready before filling up the FYIMP application form:</strong></p>
+
+            <ul>
+                <li>Email ID</li>
+                <li>Passport Size Photograph</li>
+                <li>Signature Photograph</li>
+                <li>Caste Certificate (OBC / SC / ST if applicable)</li>
+                <li>Marksheets: HSLC and HS</li>
+                <li>Income Certificate / Ration Card for fee waiver, if applicable</li>
+                <li>Domicile Certificate or Aadhaar</li>
+            </ul>
+
+            <div class="important-note">
+                <h3>Important Notice</h3>
+                <p>Please keep all the above-mentioned documents ready beforehand so that you do not face any trouble during admission.</p>
+                <p>PRC may not always be mandatory, but keeping all documents ready will help you complete the admission process smoothly.</p>
+            </div>
+        </div>
+
+        <div class="reading-box">
+            <h2><i class="fa-solid fa-file-pen"></i>Visit Official Website of Gauhati University for Application Process</h2>
+            <p>
+                <a href="https://admissions.gauhati.ac.in/programmes/fyimp-five-year-integrated-masters/" target="_blank">
+                    Click here to visit the official application page
+                </a>
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h2><i class="fa-solid fa-scale-balanced"></i>Reservation Policy</h2>
+
+            <p><em>Government of Assam Rules & Gauhati University Provisions</em></p>
+
+            <div class="info-table-wrapper">
+                <table class="info-table">
+                    <tr>
+                        <th>Category</th>
+                        <th>Reservation (%)</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Schedule Caste</td>
+                        <td>7%</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Schedule Tribe (Plain)</td>
+                        <td>10%</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Schedule Tribe (Hill)</td>
+                        <td>5%</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>OBC/MOBC</td>
+                        <td>27%</td>
+                        <td><strong>Includes:</strong> Ahom, Tea Garden, Koch-Rajbongshi, Chutia, Moran, Motak. <em>Non-Creamy Layer certificate mandatory.</em></td>
+                    </tr>
+                    <tr>
+                        <td>EWS</td>
+                        <td>10%</td>
+                        <td><em>EWS certificate from competent authority mandatory.</em></td>
+                    </tr>
+                    <tr>
+                        <td>Statutory Domicile</td>
+                        <td>â€”</td>
+                        <td><strong>Important:</strong> Statutory reservation is limited to students with Assam as domicile state only.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="reading-box">
+            <h2><i class="fa-solid fa-users"></i>Reservation Criteria</h2>
+
+            <p>
+                All candidates who have applied or are in the process of applying for the FYIMP Programme
+                at Gauhati University are hereby informed to follow the requirements regarding reservation categories.
+            </p>
+
+            <h3>1. Reservation under OBC/MOBC Category</h3>
+            <p>
+                Applicants seeking reservation under the OBC/MOBC category must upload a valid Non-Creamy Layer
+                Certificate. Acknowledgement receipts or proof of application for such certificates shall not be accepted.
+            </p>
+
+            <h3>2. Reservation under Other Category Quota</h3>
+            <p>
+                Candidates applying under other reserved categories must submit the prescribed form in hard copy along
+                with a printed copy of the application form and required self-attested documents.
+            </p>
+
+            <ul>
+                <li>Person with Benchmark Disability (PwBD)</li>
+                <li>Son/Daughter of Ex-Defence Personnel</li>
+                <li>Extra-Curricular Activities / Sports</li>
+                <li>NCC / NSS</li>
+                <li>Fringe Village Quota</li>
+                <li>Son/Daughter of Present or Retired Employee of Gauhati University</li>
+            </ul>
+
+            <p>
+                <a href="materials/Admission Helpdesk/fyimp/QUOTA FORM.pdf" target="_blank" download>
+                    Download Official Notice 2026
+                </a>
+            </p>
+        </div>
+
+        <div class="reading-box">
+            <h2><i class="fa-solid fa-bell"></i>Important Notification for Non-Statutory Reservation Quota</h2>
+
+            <p><strong>(I) Sons and Daughters of Permanent GU Employees:</strong><br>
+            One seat in each Academic Department having intake capacity 40 or less, and two seats where intake is more than 40 students, are reserved on a supernumerary basis.</p>
+
+            <p><strong>(II) Sons and Daughters of Retired GU Employees:</strong><br>
+            A total of five seats are reserved irrespective of all academic departments on a supernumerary basis.</p>
+
+            <p><strong>(III) Fringe Village Quota:</strong><br>
+            A total of fifteen seats are reserved irrespective of all academic departments on a supernumerary basis.</p>
+
+            <p><strong>(IV) Extra Curricular & Co-Curricular Activities:</strong><br>
+            One seat in each Academic Department is reserved on a supernumerary basis.</p>
+
+            <p><strong>(V) NCC Quota:</strong><br>
+            Three seats are reserved irrespective of departments on a supernumerary basis.</p>
+
+            <p><strong>(VI) NSS Quota:</strong><br>
+            Two seats are reserved irrespective of departments on a supernumerary basis.</p>
+
+            <p><strong>(VII) Sons and Daughters of Ex-Defense Personnel:</strong><br>
+            One seat in each Academic Department is reserved on a supernumerary basis.</p>
+        </div>
+
+        <div class="reading-box">
+            <h2><i class="fa-solid fa-circle-info"></i>Important Notes</h2>
+
+            <ol>
+                <li>Under Non-Statutory quota, if there is more than one eligible candidate for a supernumerary seat, only one candidate per category will be selected for each programme except Category I.</li>
+                <li>Candidates applying under Non-Statutory quota and Differently Abled category must submit the prescribed form with self-attested testimonials.</li>
+                <li>Candidates applying under General / Statutory Reservation including EWS category must submit relevant certificates during admission.</li>
+                <li>Candidates seeking admission under reserved categories must be permanent residents of Assam. PRC must be produced during admission.</li>
+            </ol>
+        </div>
+
+        <div class="reading-box">
+            <h2><i class="fa-solid fa-folder-open"></i>Important Documents Required in Online Admission / Physical Verification</h2>
+
+            <ul>
+                <li><strong>HSLC and HS Marksheet and Certificate</strong></li>
+                <li><strong>Caste Certificate, if applicable</strong></li>
+                <li><strong>PRC / Domicile Certificate</strong></li>
+                <li><strong>Gap Certificate, if applicable</strong></li>
+                <li><strong>EC / NCC / NSS Certificate, if any</strong></li>
+                <li>
+                    <strong>UGC Anti-Ragging Undertaking Form</strong><br>
+                    <a href="https://antiragging.in/affidavit_university_form.php" target="_blank">Fill Anti-Ragging Form</a>
+                </li>
+            </ul>
+
+            <p>
+                <strong>Gauhati University Information:</strong><br>
+                Vice Chancellor: Dr. Nani Gopal Mahanta<br>
+                University Phone Number: 9864156214<br>
+                Landline Number: 0361 2570412<br>
+                Nearest Police Station: Jalukbari Police Station
+            </p>
+
+            <div class="important-note">
+                <strong>Important Note:</strong>
+                <p>Keep both original and photocopies of all documents ready. Arrange certificates properly before verification.</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2><i class="fa-solid fa-award"></i>Exit Awards by Year</h2>
+
+            <ul>
+                <li><strong>Year 1: Certificate:</strong> Awarded upon completion of 1 year.</li>
+                <li><strong>Year 2: Diploma:</strong> Awarded upon completion of 2 years.</li>
+                <li><strong>Year 3: Bachelor's Degree:</strong> B.A./B.Sc./B.Voc Major awarded after successful completion of 3 years.</li>
+                <li><strong>Year 4: Honours/Research:</strong> B.A./B.Sc./B.Voc Honours or Honours with Research awarded based on thesis selection in the 4th year.</li>
+                <li><strong>Year 5: Integrated Master's:</strong> M.A./M.Sc./M.Voc/M.Tech/M.Lib.I.Sc awarded after successful completion of 5 years.</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h2><i class="fa-solid fa-money-bill-wave"></i>Fees & Funding</h2>
+
+            <p>
+                All programmes are self-financing. Fees vary by department.
+                Payment must follow Government of Assam rules through the SAMARTH Portal.
+            </p>
+
+            <h3>Stream-specific Notes</h3>
+
+            <h3>FYIMP â€” Commerce & Business Administration</h3>
+            <p><strong>Commerce:</strong> â‚¹25,000 per semester. <strong>BBA/MBA & Data Analytics:</strong> â‚¹30,000 per semester.</p>
+
+            <h3>FYIMP â€” Science & Technology Programmes</h3>
+            <p><strong>Science Majors:</strong> â‚¹16,500 Odd / â‚¹14,500 Even. <strong>M.Tech:</strong> â‚¹28,980 Odd / â‚¹21,420 Even.</p>
+
+            <h3>FYIMP â€” Arts & Humanities Programmes</h3>
+            <p><strong>Arts Majors:</strong> â‚¹14,500 Odd / â‚¹12,500 Even.</p>
+        </div>
+
+    </div>
+
+</div>
+<!-- WhatsApp Helpdesk Section -->
+<section class="whatsapp-helpdesk">
+    <div class="wa-card">
+        <div class="wa-icon">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <div class="wa-content">
+            <h2>Join Our WhatsApp Community</h2>
+            <p>
+                Stay updated with the latest Question Papers, Syllabus,
+                Admission Notices, Merit Lists, Study Materials and
+                important Gauhati University announcements.
+            </p>
+
+            <a href="https://chat.whatsapp.com/GFB6Jixf5prCzfx6dSp2fx"
+               target="_blank"
+               class="wa-btn">
+                <i class="fab fa-whatsapp"></i>
+                Join Community
+            </a>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>Â© 2026 GU FYIMP Admission Portal</p>
+</footer>
+
+<script>
+function toggleCutoff(){
+    const dropdown = document.getElementById("cutoffDropdown");
+    const arrow = document.getElementById("cutoffArrow");
+
+    if(dropdown.style.display === "block"){
+        dropdown.style.display = "none";
+        arrow.innerHTML = "â–¼";
+    }else{
+        dropdown.style.display = "block";
+        arrow.innerHTML = "â–²";
+    }
+}
+
+function toggleMerit(){
+    const dropdown = document.getElementById("meritDropdown");
+    const arrow = document.getElementById("meritArrow");
+
+    if(dropdown.style.display === "block"){
+        dropdown.style.display = "none";
+        arrow.innerHTML = "â–¼";
+    }else{
+        dropdown.style.display = "block";
+        arrow.innerHTML = "â–²";
+    }
+}
+</script>
+
+<script src="site-enhancements.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Academic Resources Archive | Question Papers</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="site-theme.css">
+
+<style>
+body.archive-theme.theme-pyq {
+    background:
+        radial-gradient(circle at top right, rgba(234,179,8,.12), transparent 30%),
+        linear-gradient(180deg,#f8fafc 0%,#f0fdf4 100%);
+}
+
+.hero-icon {
+    width: 86px;
+    height: 86px;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    border-radius: 24px;
+    background: rgba(255,255,255,.14);
+    color: #ffdd7d;
+    font-size: 38px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.18);
+}
+
+.header-actions {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.header-actions a {
+    min-height: 42px;
+    padding: 9px 17px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--archive-green-dark);
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: var(--archive-shadow-sm);
+}
+
+.header-actions a:hover {
+    background: #fff2c9;
+    color: #664b00;
+    transform: translateY(-2px);
+}
+
+.program-intro {
+    width: min(950px, calc(100% - 40px));
+    margin: 42px auto 26px;
+    text-align: center;
+}
+
+.program-intro h2 {
+    margin: 0 0 10px;
+    color: var(--archive-green-dark);
+    font-size: clamp(1.7rem, 3vw, 2.45rem);
+}
+
+.search-section {
+    margin-top: 0 !important;
+}
+
+.grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.card.hidden {
+    display: none;
+}
+
+.card h2 {
+    margin: 0 0 9px;
+    font-size: 22px;
+}
+
+.card p {
+    margin: 0 0 16px;
+    min-height: 50px;
+    font-size: 14px;
+}
+.card a{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    padding:13px 18px;
+    border-radius:12px;
+    background:#0f766e;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+.card a::after{
+    content:"\f061";
+    font-family:"Font Awesome 6 Free";
+    font-weight:900;
+    transition:.3s;
+}
+
+.card a:hover{
+    background:#064e3b;
+}
+
+.card a:hover::after{
+    transform:translateX(6px);
+}
+
+.status-note {
+    display: inline-flex;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #fff9e9;
+    color: #7a5a00;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.info-strip {
+    max-width: 980px;
+    margin: 44px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.disclaimer {
+    max-width: 1000px;
+    margin: 42px auto 0;
+    padding: 20px 24px;
+    border: 1px solid #ecd58f;
+    border-left: 5px solid var(--archive-gold);
+    border-radius: var(--archive-radius);
+    background: #fff9e9;
+    color: var(--archive-copy);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.no-result {
+    max-width: 760px;
+    margin: 24px auto 0;
+    padding: 18px 22px;
+    display: none;
+    border: 1px dashed var(--archive-line);
+    border-radius: var(--archive-radius);
+    background: #ffffff;
+    color: var(--archive-muted);
+    text-align: center;
+    font-weight: 700;
+}
+
+@media(max-width:720px) {
+    .hero-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        font-size: 32px;
+    }
+
+    .program-intro {
+        width: min(100% - 28px, 950px);
+        margin-top: 32px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body class="archive-theme theme-pyq">
+
+<header>
+    <div class="hero-icon">
+        <i class="fa-solid fa-box-archive"></i>
+    </div>
+
+    <h1>Digital Academic Archive</h1>
+
+    <p>Previous Year Question Papers • Syllabus • Study Materials • Academic Resources</p>
+
+    <div class="header-actions">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="the-project.html"><i class="fa-solid fa-circle-info"></i> About Project</a>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="program-intro">
+        <span class="section-label">Question Paper Repository</span>
+        <h2>Select Your Programme</h2>
+        <p>Browse programme-wise previous year question papers and academic resources from one clean archive page.</p>
+    </section>
+
+    <section class="search-section">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search programme... PG, FYUGP, FYIMP, B.Ed, Law">
+        </div>
+    </section>
+
+    <section class="grid" id="cardGrid">
+
+        <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
+            <h2>PG</h2>
+            <p>Postgraduate departments and semester-wise question papers.</p>
+            <a href="PG-ALL-PROGRAMME.html">Open Section</a>
+        </article>
+
+        <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h2>FYUGP</h2>
+            <p>Four Year Undergraduate Programme question paper section.</p>
+            <span class="status-note">Not yet uploaded</span>
+           
+        </article>
+
+        <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+            <h2>FYIMP</h2>
+            <p>Integrated Masters Programme previous year papers.</p>
+            <a href="pyq-fyimp.html">Open Section</a>
+        </article>
+
+        <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h2>B.Tech</h2>
+            <p>Bachelor of Technology department question papers.</p>
+            <span class="status-note">Not yet uploaded</span>
+            
+        </article>
+
+        <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-school"></i></div>
+            <h2>B.Ed</h2>
+            <p>Bachelor of Education academic resources and papers.</p>
+            <a href="pyq-bed.html">Open Section</a>
+        </article>
+
+        <article class="card">
+            <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h2>BA LLB &amp; LLB</h2>
+            <p>Integrated Law and Bachelor of Legislative Law papers.</p>
+            <span class="status-note">Not yet uploaded</span>
+       
+        </article>
+
+    </section>
+
+    <div class="no-result" id="noResult">
+        No matching programme found. Try PG, FYUGP, FYIMP, B.Ed, B.Tech, or Law.
+    </div>
+
+    <section class="info-strip">
+        <div class="info-box">
+            <strong>1000+</strong>
+            <span>Question Papers</span>
+        </div>
+
+        <div class="info-box">
+            <strong>50+</strong>
+            <span>Departments</span>
+        </div>
+
+        <div class="info-box">
+            <strong>24/7</strong>
+            <span>Access</span>
+        </div>
+
+        <div class="info-box">
+            <strong>Free</strong>
+            <span>Open Access</span>
+        </div>
+    </section>
+
+    <div class="disclaimer">
+        <strong>Disclaimer:</strong> This is an independent educational archive created to help students access academic resources. It is not affiliated with, endorsed by, or officially maintained by Gauhati University.
+    </div>
+
+</main>
+
+<footer>
+    © 2026 Digital Academic Archive | Independent Educational Resource
+</footer>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".card");
+const noResult = document.getElementById("noResult");
+
+searchInput.addEventListener("input", function () {
+    const value = this.value.trim().toLowerCase();
+    let visibleCards = 0;
+
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const matched = text.includes(value);
+
+        card.classList.toggle("hidden", !matched);
+
+        if (matched) {
+            visibleCards++;
+        }
+    });
+
+    noResult.style.display = visibleCards === 0 ? "block" : "none";
+});
+</script>
+
+<script src="site-enhancements.js" defer></script>
+
+</body>
+</html>

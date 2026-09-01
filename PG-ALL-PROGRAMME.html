@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GU Previous Year Question Papers</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#eef3ff;
+overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
+height:300px;
+background:linear-gradient(135deg,#5b4bff,#7e62f8,#00b4ff);
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+/* animated circles */
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.15);
+animation:float 8s infinite linear;
+}
+
+.circle:nth-child(1){
+width:180px;
+height:180px;
+top:20px;
+left:50px;
+}
+
+.circle:nth-child(2){
+width:120px;
+height:120px;
+bottom:30px;
+right:80px;
+animation-duration:10s;
+}
+
+.circle:nth-child(3){
+width:70px;
+height:70px;
+top:40%;
+right:25%;
+animation-duration:7s;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+50%{
+transform:translateY(-20px) rotate(180deg);
+}
+100%{
+transform:translateY(0px) rotate(360deg);
+}
+}
+
+header h1{
+font-size:52px;
+font-weight:700;
+z-index:2;
+}
+
+header p{
+margin-top:10px;
+font-size:18px;
+opacity:0.9;
+z-index:2;
+}
+
+/* ================= SEARCH ================= */
+
+.search-section{
+margin-top:-40px;
+display:flex;
+justify-content:center;
+padding:0 20px;
+position:relative;
+z-index:5;
+}
+
+.search-box{
+background:white;
+width:700px;
+max-width:100%;
+padding:18px 25px;
+border-radius:60px;
+box-shadow:0 10px 30px rgba(0,0,0,0.12);
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.search-box i{
+font-size:22px;
+color:#7e62f8;
+}
+
+.search-box input{
+border:none;
+outline:none;
+width:100%;
+font-size:17px;
+font-family:'Poppins',sans-serif;
+}
+
+/* ================= PROGRAM GRID ================= */
+
+.container{
+padding:70px 50px;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:38px;
+color:#1b2559;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:#666;
+font-size:16px;
+}
+
+.program-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+/* ================= PROGRAM CARD ================= */
+
+.program-card{
+position:relative;
+background:white;
+border-radius:22px;
+padding:35px 25px;
+overflow:hidden;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.program-card:hover{
+transform:translateY(-12px);
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* top gradient */
+
+.program-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:6px;
+background:linear-gradient(90deg,#7e62f8,#00b4ff);
+}
+
+/* glowing background */
+
+.program-card::after{
+content:"";
+position:absolute;
+width:120px;
+height:120px;
+background:rgba(126,98,248,0.08);
+border-radius:50%;
+top:-30px;
+right:-30px;
+transition:0.5s;
+}
+
+.program-card:hover::after{
+transform:scale(1.6);
+}
+
+/* icon */
+
+.program-icon{
+width:80px;
+height:80px;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:34px;
+background:linear-gradient(135deg,#7e62f8,#00b4ff);
+color:white;
+margin-bottom:25px;
+box-shadow:0 10px 20px rgba(126,98,248,0.35);
+}
+
+/* title */
+
+.program-card h3{
+font-size:28px;
+color:#1b2559;
+margin-bottom:10px;
+}
+
+.program-card p{
+font-size:15px;
+line-height:1.7;
+color:#666;
+margin-bottom:20px;
+}
+
+/* button */
+
+.open-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:12px 22px;
+border-radius:40px;
+background:linear-gradient(135deg,#7e62f8,#00b4ff);
+color:white;
+text-decoration:none;
+font-size:14px;
+font-weight:500;
+transition:0.3s;
+}
+
+.open-btn:hover{
+transform:scale(1.05);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+margin-top:50px;
+background:#111827;
+padding:30px;
+text-align:center;
+color:#ddd;
+}
+
+footer p{
+font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+header{
+height:250px;
+padding:20px;
+}
+
+header h1{
+font-size:34px;
+}
+
+header p{
+font-size:15px;
+}
+
+.container{
+padding:60px 20px;
+}
+
+.section-title h2{
+font-size:28px;
+}
+
+}
+
+</style>
+<link rel="stylesheet" href="site-theme.css">
+
+  <!-- GU-ENHANCEMENTS:HEAD -->
+  <meta name="theme-color" content="#0b4f3c">
+<!-- /GU-ENHANCEMENTS:HEAD -->
+</head>
+
+<body class="archive-theme theme-pyq">
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<h1>GU Question Papers</h1>
+<p>Previous Year Question Papers & Sessional Papers</p>
+
+</header>
+
+<!-- ================= SEARCH ================= -->
+
+<div class="search-section">
+
+<div class="search-box">
+
+<i class="fas fa-search"></i>
+
+<input type="text"
+id="searchInput"
+placeholder="Search Programme..."
+onkeyup="searchPrograms()">
+
+</div>
+
+</div>
+
+<!-- ================= PROGRAMS ================= -->
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Masters Programme</h2>
+
+<p>Select Your Programme to View Question Papers</p>
+
+</div>
+
+<div class="program-grid" id="programGrid">
+
+<!-- MA -->
+
+<div class="program-card">
+
+<div class="program-icon">
+<i class="fas fa-book-open"></i>
+</div>
+
+<h3>MA</h3>
+
+
+
+<a href="PG-MA.html" class="open-btn">
+Open
+<i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- MSc -->
+
+<div class="program-card">
+
+<div class="program-icon">
+<i class="fas fa-flask"></i>
+</div>
+
+<h3>MSc</h3>
+
+
+
+
+<a href="PG-msc.html" class="open-btn">
+Open
+<i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- MTech -->
+
+<div class="program-card">
+
+<div class="program-icon">
+<i class="fas fa-microchip"></i>
+</div>
+
+<h3>MTech</h3>
+
+
+
+
+<a href="PG-mtech.html" class="open-btn">
+Open
+<i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- MBA -->
+
+<div class="program-card">
+
+<div class="program-icon">
+<i class="fas fa-briefcase"></i>
+</div>
+
+<h3>MBA</h3>
+
+
+
+<a href="PG-MBA.html" class="open-btn">
+Open
+<i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- MCom -->
+
+<div class="program-card">
+
+<div class="program-icon">
+<i class="fas fa-chart-line"></i>
+</div>
+
+<h3>MCom</h3>
+
+
+
+<a href="PG-MCom.html" class="open-btn">
+Open
+<i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- MLISc -->
+
+<div class="program-card">
+
+<div class="program-icon">
+<i class="fas fa-book"></i>
+</div>
+
+<h3>MLISc</h3>
+
+
+
+<a href="PG-mlisc.html" class="open-btn">
+Open
+<i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- MTM -->
+
+<div class="program-card">
+
+<div class="program-icon">
+<i class="fas fa-plane"></i>
+</div>
+
+<h3>MTM</h3>
+
+
+
+<a href="PG-MTM.html" class="open-btn">
+Open
+<i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- LLM -->
+
+<div class="program-card">
+
+<div class="program-icon">
+<i class="fas fa-scale-balanced"></i>
+</div>
+
+<h3>LLM</h3>
+
+
+
+
+<a href="PG-LLM.html" class="open-btn">
+Open
+<i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>© 2026 Gauhati University Question Paper Portal</p>
+
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function searchPrograms(){
+
+let input =
+document.getElementById("searchInput")
+.value.toLowerCase();
+
+let cards =
+document.querySelectorAll(".program-card");
+
+cards.forEach(card=>{
+
+let title =
+card.querySelector("h3")
+.innerText.toLowerCase();
+
+if(title.includes(input)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+/* smooth appearance animation */
+
+const cards =
+document.querySelectorAll('.program-card');
+
+window.addEventListener('load',()=>{
+
+cards.forEach((card,index)=>{
+
+card.style.opacity='0';
+card.style.transform='translateY(50px)';
+
+setTimeout(()=>{
+
+card.style.transition='0.6s';
+card.style.opacity='1';
+card.style.transform='translateY(0px)';
+
+},index*120);
+
+});
+
+});
+
+</script>
+
+
+  <!-- GU-ENHANCEMENTS:BODY -->
+  <script src="site-enhancements.js" defer></script>
+  <!-- /GU-ENHANCEMENTS:BODY -->
+</body>
+</html>

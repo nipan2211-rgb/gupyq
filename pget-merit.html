@@ -1,0 +1,938 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GU PGET Merit List 2025-2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#174c3c;
+    --primary-dark:#0d2f25;
+    --secondary:#173b73;
+    --accent:#d8a21b;
+    --bg:#f4f7f6;
+    --surface:#ffffff;
+    --text:#17212f;
+    --muted:#64748b;
+    --border:#dbe4ea;
+    --shadow:0 18px 45px rgba(20,40,60,0.12);
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(120deg,rgba(13,47,37,0.96),rgba(23,59,115,0.88)),
+        radial-gradient(circle at top right,rgba(216,162,27,0.18),transparent 34%);
+    height:280px;
+    z-index:-1;
+}
+
+.top-header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+}
+
+.header-container{
+    max-width:1220px;
+    margin:auto;
+    padding:14px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.brand img{
+    width:62px;
+    height:62px;
+    object-fit:cover;
+    border-radius:50%;
+    border:2px solid #e7eef3;
+}
+
+.brand h1{
+    color:var(--primary-dark);
+    font-size:23px;
+    line-height:1.2;
+}
+
+.brand p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    min-height:42px;
+    padding:0 16px;
+    border-radius:8px;
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.25s;
+}
+
+.home-btn:hover{
+    background:var(--primary-dark);
+}
+
+header{
+    color:#fff;
+    padding:34px 22px 24px;
+}
+
+.hero-inner{
+    max-width:1220px;
+    margin:auto;
+}
+
+.hero-kicker{
+    display:inline-flex;
+    align-items:center;
+    min-height:30px;
+    padding:0 10px;
+    border:1px solid rgba(255,255,255,0.26);
+    border-radius:8px;
+    color:#ffe19a;
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+header h2{
+    font-size:42px;
+    line-height:1.15;
+    margin-top:12px;
+    letter-spacing:0;
+}
+
+.hero-meta{
+    color:#e7f2ef;
+    max-width:760px;
+    margin-top:10px;
+}
+
+.toolbar{
+    max-width:1220px;
+    margin:0 auto 14px;
+    padding:0 22px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:14px;
+    align-items:center;
+}
+
+.search-box{
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    min-height:50px;
+    padding:0 44px 0 18px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    outline:none;
+    font-size:16px;
+    background:var(--surface);
+    box-shadow:var(--shadow);
+    transition:0.25s;
+}
+
+.search-box input:focus{
+    border-color:#b9d8cb;
+    box-shadow:0 16px 40px rgba(13,47,37,0.16);
+}
+
+.clear-btn{
+    position:absolute;
+    right:8px;
+    top:8px;
+    width:34px;
+    height:34px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    color:var(--muted);
+    cursor:pointer;
+    font-size:20px;
+    line-height:1;
+}
+
+.filter-tabs{
+    display:flex;
+    gap:8px;
+    padding:6px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:8px;
+    box-shadow:var(--shadow);
+}
+
+.filter-tab{
+    border:0;
+    min-height:38px;
+    padding:0 13px;
+    border-radius:7px;
+    background:transparent;
+    color:var(--primary-dark);
+    font-weight:800;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.filter-tab.active,
+.filter-tab:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.result-line{
+    max-width:1220px;
+    margin:0 auto;
+    padding:0 22px 8px;
+    color:#fff4cf;
+    font-weight:700;
+}
+
+/* Layout */
+.container{
+    max-width:1220px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+    padding:10px 22px 34px;
+    align-items:flex-start;
+}
+
+/* Columns */
+.column{
+    background:var(--surface);
+    border-radius:8px;
+    padding:18px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+/* Column Heading */
+.column h1{
+    color:var(--primary-dark);
+    font-size:22px;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:3px solid var(--accent);
+}
+
+/* Course Item */
+.course{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+    padding:13px;
+    margin:9px 0;
+    border-radius:8px;
+    background:#f8fbfa;
+    transition:0.25s;
+    border:1px solid var(--border);
+}
+
+.course:hover{
+    background:#eef7f3;
+    border-color:#b9d8cb;
+    transform:translateY(-1px);
+}
+
+.course-title{
+    font-weight:700;
+    color:var(--text);
+}
+
+.year{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.year-option{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:7px;
+    border-radius:8px;
+    background:#fff;
+    border:1px solid #dbe4ea;
+}
+
+.year-label{
+    font-size:14px;
+    font-weight:700;
+    color:var(--secondary);
+}
+
+/* Download Button */
+.download-btn{
+    text-decoration:none;
+    background:var(--secondary);
+    color:#fff;
+    padding:7px 12px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:700;
+    transition:0.25s;
+    white-space:nowrap;
+}
+
+.download-btn:hover{
+    background:var(--primary);
+}
+
+.download-btn[href="#"]{
+    background:#e5e7eb;
+    color:#64748b;
+    pointer-events:none;
+}
+
+/* Responsive */
+@media(max-width:900px){
+
+    .header-container,
+    .toolbar{
+        grid-template-columns:1fr;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .brand h1{
+        font-size:20px;
+    }
+
+    header h2{
+        font-size:32px;
+    }
+
+    .filter-tabs{
+        overflow-x:auto;
+    }
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .course{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .download-btn{
+        margin-top:0;
+    }
+}
+</style>
+
+  
+</head>
+
+<body class="archive-theme theme-admission">
+
+<div class="top-header">
+    <div class="header-container">
+        <div class="brand">
+          
+            <div>
+                <h1>Student Academic Resource Archive</h1>
+                <p>Admission merit list helpdesk</p>
+            </div>
+        </div>
+        <a class="home-btn" href="index.html">Home</a>
+    </div>
+</div>
+
+<header>
+    <div class="hero-inner">
+        <span class="hero-kicker">GU PGET Merit List</span>
+        <h2>PG Merit Lists 2025 - 2026</h2>
+        <p class="hero-meta">Search a course, switch categories, and download the available merit PDF by year.</p>
+    </div>
+</header>
+
+<div class="toolbar">
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search courses...">
+        <button type="button" class="clear-btn" id="clearSearch" aria-label="Clear search">Ã—</button>
+    </div>
+
+    <div class="filter-tabs" aria-label="Course category filter">
+        <button type="button" class="filter-tab active" data-filter="all">All</button>
+        <button type="button" class="filter-tab" data-filter="traditional">Traditional</button>
+        <button type="button" class="filter-tab" data-filter="interdisciplinary">Interdisciplinary</button>
+    </div>
+</div>
+
+<div class="result-line" id="resultLine"></div>
+
+<div class="container">
+
+    <!-- Traditional Courses -->
+    <div class="column" id="traditional">
+
+        <h1>Traditional Courses</h1>
+
+                <div class="course">
+            <span class="course-title">MA in Anthropology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1C7FNAYQSK-yXw5LYEVDceOf4ZlevGrVU/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="#" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Anthropology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1Sg3Pw0zmPDErrSQGrmZrIWvzGdoKR3U0/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/13qxZTHajO2OSLQqIIAEfchPU1D3gQEUM/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Arabic</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1su_XZE3oxCt5FB4EszzWOXITYiq3LcO_/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/10J_J4UjpTyyeqJm-BiYVhseGN0zNfs-Z/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Assamese</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1nKjUS-LrEb4ez5v44Tgap_Zeokxk8qeF/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1E8MtqXV7y3-scONU1LC8Wbv9uNzZj81n/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Bengali</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1J6d7mqqi1xiSNOf6ygBC7h6vIVy4TruI/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1CzTRhMKcBjDU6uLc_lgofexuQLbwWYW5/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc in Botany</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/14JC_WG1iMlCUpqlAKD7UYvjUNmqXHXW8/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1RZkM87erM9J5eJEORLu1kdptoadfyAZx/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+ <div class="course">
+            <span class="course-title">MA in Bodo</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1XIlYtStxOm3xHUDOu0Q0rP0DMzHMMqPw/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/15KqI8y_dg7CRIfCFpkl0K5NUoXbUvO_v/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+                <div class="course">
+            <span class="course-title">M.Com</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1OrVp988VGaRVnKRqrJTIuxWhXYC18Ucn/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1Y7HBiEh4aWI9-yB_q9gWS7RjuEpBQ5lK/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Chemistry</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1tQgtflCps_0jF_jah-EvtzaIaovQLL8W/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1TeYKMftUVExKt1AP_FpCF1vkyvgH4Rmc/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Economics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1e_XxZwzmah11yNXOVitmfkVWdTUX595i/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1mibHAGwua2DtDjURrUWrz413ts7Jdlmg/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Economics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1mBm7e7_qUmyK07PdFWhZtujENoS1qHqL/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1d6FG6xogMFRI6fG-DlNrscedClcKa55g/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Education</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1vvHj6YMgqyWGtCUigSWmZc4A0C5wyU6t/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1iYZoFH7OeLO6AieiSVg9MgXy1Z63Zz7I/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in English</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1gkGvG2z-E-F1g0vGgqWPyZsm-sB-Km9a/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1asMnMPWskDzVLUXqc1nxHgx-AMuDsMKJ/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Geography</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1uFsV4smhYFscDNj7wFyjlu8eO0sgfbjc/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1H6k7jkykQaafeZE6MiMLTwkHL5Mt3q_D/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Geology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1CGu-K7RSGu-8FgKgBmjbWx407G8l3Hwq/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1RLczr0w0QuqCPEmcxTM3K9qTZlOIM0Qx/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Hindi</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1NXENYRqFnb95jxw5NOobcRVV6vessYdu/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1mhh9likvFa-c4D_g3SJwsdLjX3sh2bYv/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in History</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1WjBtNhGWOTTI29fWCBQieg3X-Yg-CpnH/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1v7xFBFunnSBc2BYmI146EI2DTXQ5q4Du/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Mathematics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1aN45YSedW8RV8TqS3xIxBx8FXYihFIEY/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1xVaNtfhSJw2j3gKBO9sLkYXBG1g7ayPF/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Political Science</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1-yDPwb_kp_T1qybZfM16nAG9FBLgoYfk/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/19-DKWXIfvfpJqN8AfxP8yZOBCmetD6TM/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Persian</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1qWmcNUb9zwZ8gNpUR9YTBxwTe6Rcg_zt/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1Dd4L9wo-SY5WuJv_OOe5vGWYZHw4upZl/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Philosophy</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1bnHMACmwkdldUC8U2WtwkFoDrmRXlpkM/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1iqeLJ4-jMXuF112pX_wTJZa-_BLDde5R/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Physics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1mNTNCXECQf1ZOFN9pxp2ww3FpmIgtu0M/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1O7wYyi9MUgPNjw60lrHosYVMJgeYV8_F/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Sanskrit</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1muLUoDTsuqB1OfiExliT-8FPqNy4qQHA/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1s8qzTyHeAoisSRt5a3fmV_My4R8NSKZr/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Statistics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1AoFl-3wzlBPaqJRmXki5Xfl-V-OBe3Or/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1ViMdS10T4cT88m8MxIZUUbnYD48lwB-K/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Zoology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1hJNzPCSfEqeSdiUIDK4nl0Ng_vQsVss2/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1OJji7CilfT5twrXGHLukdfhW61nGHoDU/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Interdisciplinary Courses -->
+    <div class="column" id="interdisciplinary">
+
+        <h1>Interdisciplinary Courses</h1>
+
+                <div class="course">
+            <span class="course-title">M.A. Comparative Indian Literature</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1HZapK_wblUyLtBXoKGh5ZMpPPSJjKn4O/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1rs5WF387bN6uSywpB_XvqG7HvfDGpkZn/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.A. English Language Teaching</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1uMQptFPkweY7TOCGdsVF--iW8yrPE_hv/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1RzPlEK42hK2b3NAE3gH6bbnrXXxi4nYX/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.A Folklore Studies</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/10nzA3wTEclEHG2jD3y3HJerT8fZL-tAk/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1RX-wabhrwwDJ_6pmMsTcymlSp2FcgOu5/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.A. Linguistics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1maEzXOONjXe_pvV4ZaktO3sVW1lG4zdj/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1bdFr0d57RVUDxg5e57jsGE0lrnfC79mw/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.A. Mass Communication</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1XzNsJrULPLk-3XJWfhx1qjCUZqJRf7gv/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/15gPawpDKWziz-V1nBMzAG69PQ_Hs4TqZ/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Radiological Physics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1kXJW-u7eVGDRuN3q4KsHaJZiC8_Q0pXm/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="#" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.A. Sociology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/16k1aMPaNiB9MAokQe-k4LDqIUNGr_MIY/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1SrgYTgzVtt33mbF4pNG7qbMAYPOT8V-a/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Biotechnology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1112B6vZaiFgkk45p-Jgl9Af6Lpi9lT9R/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1bcwS1C4pgV1vh3vA6vr6CvoTEWfT4WVG/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Computer Science</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1fvQmYzjmik32Kg1tdGpLxKsjhzR97TMl/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1UF8V69CCRQz61FbJlvSF0S6NQ9NCrmmr/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Information Technology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1Wwvb5X48xVypXrIR5R2HH53vPMUeBIE1/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/10w-ht8p--YGa-VPryi75RXivLJOETK7r/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Tech (Research) in AI ML</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1AtrloAEMYL8JFYyv4BDzlCvvXARnzHxJ/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="#" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Tech in Information Technology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1otG-T0RUCvZ30DgS1NKC7lVMpKUZ9Ckc/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1twmgEkkV4mfIB_ctfW35KPVJZ9h_v78M/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Lib. & I.Sc.</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1IbS5HehjvQcOEWZOY105LdWEI5tRBwJl/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1koYpAsR1fidfVSJoLIt5f-UxEtYLedlI/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Cancer Biology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1_mxtyYfepgX02g90n8WxZW0hAmtuSH82/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1SoVvj0bVz_5mQ4JJBI_HSJJIhzzceyj2/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Environmental Science</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1078NuktYX_iMM6NeTAUBRsK8-ibq4ErI/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/18F0_ARUJXH59t1aSuboAo-FhR1qk2aie/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Microbiology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1_mxtyYfepgX02g90n8WxZW0hAmtuSH82/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1NB35TFTZVLLLK5kLwdqeL0sMpMbJhoXh/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Wildlife Science</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/17I35tRmNrTbtjsuc0hsIj4_9OcdxzVMB/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1K8sBlKLUrVanBmr1b6Sce_khVlJRo0K5/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">MA in Women's Studies</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1S1C4bios59yytcQyMwaaz3w6NOVVpxpI/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1xiURLVPBf6L5fodzAD9H4X5ZlkmvnmWj/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">Master of Tourism and Travel Management</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1CV5EhJ8fPhGqpAJSa-2pyik_fMSgaWG1/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/12V_OgupF8-0L8uBKL-1VyGa41VxZdkto/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Psychiatric Nursing</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/19b003QkzWOq7CUIhPfRCrjka1ag-hXB9/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="#" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Micro Electronics & Advance Communication</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1rAdwyoWz1x4lwHNSKBL_I5bHUX8CXKod/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1yBjbOVENXADGgpA4ESySeYrojoyuIcap/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Electronics & Communication Technology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1Yk83oAKDzEWuspSw7QXmrZvNpT_ANOSG/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1yBjbOVENXADGgpA4ESySeYrojoyuIcap/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.A. Psychology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1tVaaBejHBRZJ82FoNlLhlCaaAjVnMOxE/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1w7AhCkb0vGWpF-qNN6xO0oGISyknx7Mt/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Psychology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1ZeSeN376fvg761wrCusgh6awgIkYrdFq/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1w7AhCkb0vGWpF-qNN6xO0oGISyknx7Mt/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Tech in Advance Communication & Information Systems</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1fBieNtO0ASZ9ISSCgjPzIx9-2EV2_tWs/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1_FZmTqYK4VTaMcoIpRGO5lf-0lzragFm/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Tech in Bioprocess Technology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1bDMpP36SLifzzGrhYbEt8V7bgTOiG937/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="#" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Tech in VLSI & Microelectronics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1np4Y5RXnBjgEnv7N9nMXHfR6TQ2Nl3pF/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1-xTWOaxD5luODse6e9k67zYea5ZKu3p3/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. Instrumentation and Applied Physics</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/10a_uqQaW8xLrAjX0ocbLU7pRFuLfbk49/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1KAiEyFD1yKKsR3WqiT6vRoqb2BLU3gCs/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">Masters Medical Laboratory Sciences</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1Y55TM5e_Wly323GLyrG0nDycwRueXHoy/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="#" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.Sc. in Herbal Science and Technology</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/1S6ZowjnNWa39G3rmO6Qr-SAMkXZ4vEeg/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1Ty6kQFRN97h-Bd68b1HKrKJk4i1lch4y/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M.A. in Performing Arts (Sattriva Dance)</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/16l5PDvfr4m5mpuxtR9WndZl-LwXRs5cC/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/1dMHvNTBdZf9rZB3WD1kWqCIViAa_Y64v/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+                <div class="course">
+            <span class="course-title">M. A. in Performing Arts (Theater Studies and Acting)</span>
+            <div class="year">
+                <div class="year-option"><span class="year-label">2025</span><a href="https://drive.google.com/file/d/16BccIygptDNpKpV-TXErh7RosoE4g9cX/view?usp=drive_link" download class="download-btn">Download</a></div>
+                <div class="year-option"><span class="year-label">2026</span><a href="https://drive.google.com/file/d/14gd9XiT94iQ8GXwGOlPQbWh57dfGW5Xp/view?usp=drive_link" download class="download-btn">Download</a></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+const searchInput = document.getElementById('search');
+const clearSearch = document.getElementById('clearSearch');
+const filterTabs = document.querySelectorAll('.filter-tab');
+const columns = document.querySelectorAll('.column');
+const resultLine = document.getElementById('resultLine');
+let activeFilter = 'all';
+
+function updateCourses(){
+    const filter = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    columns.forEach(column => {
+        const groupMatch = activeFilter === 'all' || column.id === activeFilter;
+        let columnCount = 0;
+
+        column.querySelectorAll('.course').forEach(course => {
+            const textMatch = course.textContent.toLowerCase().includes(filter);
+            const isVisible = groupMatch && textMatch;
+            course.style.display = isVisible ? 'flex' : 'none';
+            if(isVisible){
+                visibleCount++;
+                columnCount++;
+            }
+        });
+
+        column.style.display = columnCount > 0 ? 'block' : 'none';
+    });
+
+    clearSearch.style.display = filter ? 'block' : 'none';
+    resultLine.textContent = `${visibleCount} course${visibleCount === 1 ? '' : 's'} shown`;
+}
+
+searchInput.addEventListener('input', updateCourses);
+
+clearSearch.addEventListener('click', function(){
+    searchInput.value = '';
+    searchInput.focus();
+    updateCourses();
+});
+
+filterTabs.forEach(tab => {
+    tab.addEventListener('click', function(){
+        filterTabs.forEach(item => item.classList.remove('active'));
+        this.classList.add('active');
+        activeFilter = this.dataset.filter;
+        updateCourses();
+    });
+});
+
+document.querySelectorAll('.download-btn[href="#"]').forEach(link => {
+    link.textContent = 'Pending';
+    link.removeAttribute('download');
+});
+
+updateCourses();
+</script>
+
+  <!-- GU-ENHANCEMENTS:BODY -->
+  <script src="site-enhancements.js" defer></script>
+  <!-- /GU-ENHANCEMENTS:BODY -->
+
+ 
+</body>
+</html>
+
+

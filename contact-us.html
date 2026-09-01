@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Student Academic Resource Archive</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Site Theme -->
+    <link rel="stylesheet" href="site-theme.css">
+
+    <meta name="theme-color" content="#0b4f3c">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #0b4f3c;
+            color: white;
+            text-align: center;
+            padding: 24px 15px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            background: #083d2f;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 650px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e9e7;
+        }
+
+        /* Email Icon */
+        .contact-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #e9f3ef;
+            color: #0b4f3c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+        }
+
+        .contact-box h2 {
+            color: #0b4f3c;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Email Button */
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: #0b4f3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .email-link:hover {
+            background: #083d2f;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #222;
+            color: white;
+            padding: 16px;
+            font-size: 13px;
+            margin-top: 80px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .contact-container {
+                margin: 35px auto;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+
+            .contact-box h2 {
+                font-size: 24px;
+            }
+
+            .email-link {
+                font-size: 14px;
+                padding: 11px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body class="archive-theme theme-info">
+
+    <!-- Header -->
+    <header>
+        <h1>Student Academic Resource Archive</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+
+    <!-- Contact -->
+    <main class="contact-container">
+
+        <div class="contact-box">
+
+            <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <h2>Contact Us</h2>
+
+            <p>
+                For questions, suggestions, academic resources, or technical
+                support, please feel free to contact us by email.
+            </p>
+
+            <a href="mailto:nipan2211@gmail.com" class="email-link">
+                <i class="fa-solid fa-envelope"></i>
+                info@gmail.com
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Â© 2026 Student Academic Resource Archive</p>
+    </footer>
+
+    <!-- Site Enhancements -->
+    <script src="site-enhancements.js" defer></script>
+
+</body>
+</html>

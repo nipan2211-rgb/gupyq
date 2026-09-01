@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> GAUHATI UNIVERSITY INSTITUTE OF SCIENCE AND TECHNOLOGY (GUIST) B.Tech Admission Helpdesk</title>
+
+<link rel="stylesheet" href="site-theme.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  .placement-page {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #dbe5f1;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(15, 42, 99, 0.09);
+}
+
+.placement-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 26px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #dbe5f1;
+}
+
+.placement-icon {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  background: linear-gradient(135deg, #162a63, #2563eb);
+  color: #ffffff;
+  font-size: 26px;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+}
+
+.placement-heading h2 {
+  margin: 0 0 6px;
+  color: #162a63;
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.placement-heading p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.placement-introduction {
+  padding: 22px;
+  background: #f8fafc;
+  border-left: 5px solid #2563eb;
+  border-radius: 12px;
+}
+
+.placement-introduction p {
+  margin: 0 0 13px;
+  color: #334155;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.placement-introduction p:last-child {
+  margin-bottom: 0;
+}
+
+.placement-services {
+  margin-top: 30px;
+}
+
+.placement-services h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 17px;
+  color: #162a63;
+  font-size: 21px;
+}
+
+.placement-services h3 i {
+  color: #2563eb;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 80px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #dbe5f1;
+  border-radius: 12px;
+  color: #334155;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: transform 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: #93c5fd;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.1);
+}
+
+.service-card i {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 17px;
+}
+
+.recruiters-section {
+  margin-top: 30px;
+  padding: 24px;
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+  border: 1px solid #bfdbfe;
+  border-radius: 15px;
+}
+
+.section-subheading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.subheading-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.section-subheading h3 {
+  margin: 0;
+  color: #162a63;
+  font-size: 22px;
+}
+
+.section-subheading > i {
+  color: #2563eb;
+  font-size: 31px;
+}
+
+.recruiter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.recruiter-card {
+  display: grid;
+  place-items: center;
+  min-height: 72px;
+  padding: 13px;
+  background: #ffffff;
+  border: 1px solid #dbe5f1;
+  border-radius: 10px;
+  color: #1e3a5f;
+  text-align: center;
+  font-weight: 700;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.recruiter-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(37, 99, 235, 0.11);
+}
+
+.recruiter-note {
+  margin: 17px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.placement-contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #dbe5f1;
+  border-radius: 13px;
+  box-shadow: 0 7px 18px rgba(15, 42, 99, 0.06);
+}
+
+.contact-card-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #162a63, #2563eb);
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.contact-card span {
+  display: block;
+  margin-bottom: 6px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.contact-card h3 {
+  margin: 2px 0;
+  color: #162a63;
+  font-size: 17px;
+}
+
+.contact-card a {
+  color: #1d4ed8;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+  .service-grid,
+  .recruiter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .placement-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .placement-page {
+    margin: 20px 12px;
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .placement-heading {
+    align-items: flex-start;
+  }
+
+  .placement-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 21px;
+  }
+
+  .placement-heading h2 {
+    font-size: 22px;
+  }
+
+  .placement-introduction {
+    padding: 17px;
+  }
+
+  .placement-introduction p {
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .service-grid,
+  .recruiter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-subheading > i {
+    display: none;
+  }
+
+  .contact-card {
+    align-items: flex-start;
+    padding: 16px;
+  }
+}
+  .document-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+    padding:8px 14px;
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    transition:all .25s ease;
+}
+
+.document-link:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(37,99,235,.25);
+}
+
+.document-link i{
+    color:#fff;
+}
+  .documents-reading-page {
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #dbe5f1;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(15, 42, 99, 0.09);
+}
+
+.reading-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dbe5f1;
+}
+
+.reading-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #162a63, #2563eb);
+  color: #ffffff;
+  font-size: 25px;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+}
+
+.reading-heading h2 {
+  margin: 0 0 5px;
+  color: #162a63;
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.reading-heading p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.important-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px 18px;
+  background: #eff6ff;
+  border-left: 5px solid #2563eb;
+  border-radius: 10px;
+}
+
+.important-note i {
+  margin-top: 3px;
+  color: #2563eb;
+  font-size: 19px;
+}
+
+.important-note p {
+  margin: 0;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.document-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.document-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 15px 17px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+  color: #334155;
+  line-height: 1.6;
+  transition: transform 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.document-list li:hover {
+  transform: translateY(-2px);
+  border-color: #93c5fd;
+  box-shadow: 0 7px 16px rgba(37, 99, 235, 0.09);
+}
+
+.document-list li i {
+  width: 24px;
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: #2563eb;
+  text-align: center;
+  font-size: 17px;
+}
+
+.hostel-information {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 28px;
+  padding: 22px;
+  background: linear-gradient(135deg, #ecfdf5, #f0fdfa);
+  border: 1px solid #a7f3d0;
+  border-radius: 14px;
+}
+
+.hostel-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: #0f766e;
+  color: #ffffff;
+  font-size: 21px;
+}
+
+.hostel-information h3 {
+  margin: 0 0 9px;
+  color: #115e59;
+  font-size: 20px;
+}
+
+.hostel-information p {
+  margin: 7px 0 0;
+  color: #334155;
+  line-height: 1.7;
+}
+
+@media (max-width: 650px) {
+  .documents-reading-page {
+    margin: 20px 12px;
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .reading-heading {
+    align-items: flex-start;
+  }
+
+  .reading-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 21px;
+  }
+
+  .reading-heading h2 {
+    font-size: 21px;
+  }
+
+  .document-list li {
+    padding: 13px;
+    font-size: 14px;
+  }
+
+  .hostel-information {
+    padding: 17px;
+  }
+}
+  .reservation-section p,
+.reservation-notes p,
+.ne-reservation p {
+  margin: 10px 0;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.table-wrap {
+  width: 100%;
+  margin-top: 20px;
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.reservation-table,
+.ne-seat-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.reservation-table th,
+.reservation-table td,
+.ne-seat-table th,
+.ne-seat-table td {
+  padding: 13px 15px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.reservation-table thead tr:first-child th {
+  padding: 12px;
+  background: linear-gradient(135deg, #173b72, #377ec0);
+  color: #ffffff;
+  text-align: center;
+  font-size: 18px;
+}
+
+.reservation-table thead tr:nth-child(2) th,
+.ne-seat-table thead th {
+  background: #e7f0fb;
+  color: #172554;
+  font-weight: 700;
+}
+
+.reservation-table td:first-child,
+.ne-seat-table td:first-child {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.reservation-table tbody tr:nth-child(even),
+.ne-seat-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.reservation-table tbody tr:hover,
+.ne-seat-table tbody tr:hover {
+  background: #eff6ff;
+}
+
+.reservation-table small {
+  display: block;
+  margin-top: 5px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.reservation-table sup {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.reservation-notes {
+  border-left: 5px solid #2563eb;
+}
+
+.reservation-notes ol {
+  margin: 15px 0;
+  padding-left: 24px;
+}
+
+.reservation-notes li {
+  margin-bottom: 12px;
+  padding-left: 5px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.reservation-notes li::marker {
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.reservation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.reservation-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reservation-actions .download-btn {
+  background: linear-gradient(135deg, #162a63, #2563eb);
+  color: #ffffff;
+}
+
+.reservation-actions .official-btn {
+  background: #ffffff;
+  color: #1d4ed8;
+  border: 1px solid #2563eb;
+}
+
+.reservation-actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(37, 99, 235, 0.2);
+}
+
+.ne-reservation {
+  border-left: 5px solid #0f766e;
+}
+
+.ne-seat-table th {
+  text-align: center;
+  background: linear-gradient(135deg, #173b72, #377ec0);
+  color: #ffffff;
+}
+
+.ne-seat-table td:nth-child(2),
+.ne-seat-table td:nth-child(3) {
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .reservation-actions {
+    flex-direction: column;
+  }
+
+  .reservation-actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .reservation-table th,
+  .reservation-table td,
+  .ne-seat-table th,
+  .ne-seat-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+  .admission-process p {
+  margin: 10px 0;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.admission-process h3 {
+  margin: 24px 0 12px;
+  color: #162a63;
+  font-size: 19px;
+}
+
+.admission-list {
+  margin: 15px 0 0;
+  padding-left: 25px;
+}
+
+.admission-list > li {
+  margin-bottom: 20px;
+  padding-left: 8px;
+  line-height: 1.6;
+}
+
+.admission-list > li::marker {
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.admission-list strong {
+  color: #111827;
+  font-size: 17px;
+}
+
+.admission-note,
+.lateral-admission {
+  margin-top: 24px;
+  padding: 20px;
+  background: #f4f8ff;
+  border-left: 5px solid #1d4ed8;
+  border-radius: 10px;
+}
+
+.admission-note h3,
+.lateral-admission h3 {
+  margin-top: 0;
+}
+
+.admission-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.admission-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  background: linear-gradient(135deg, #162a63, #2563eb);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admission-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(37, 99, 235, 0.25);
+}
+
+@media (max-width: 600px) {
+  .admission-links {
+    flex-direction: column;
+  }
+
+  .admission-links a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .admission-note,
+  .lateral-admission {
+    padding: 16px;
+  }
+}
+  /* WhatsApp Helpdesk */
+
+.whatsapp-helpdesk{
+    padding:60px 20px;
+    background:#f8fafc;
+}
+
+.wa-card{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    border:1px solid #e5e7eb;
+}
+
+.wa-icon{
+    width:90px;
+    height:90px;
+    background:#25D366;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:46px;
+    flex-shrink:0;
+}
+
+.wa-content h2{
+    margin-bottom:12px;
+    color:#0f172a;
+    font-size:28px;
+}
+
+.wa-content p{
+    color:#475569;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.wa-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.wa-btn:hover{
+    background:#1da851;
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(37,211,102,.35);
+}
+
+@media(max-width:768px){
+
+.wa-card{
+    flex-direction:column;
+    text-align:center;
+}
+
+.wa-content h2{
+    font-size:24px;
+}
+
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#f3f8f5;
+  color:#1f2937;
+  line-height:1.7;
+}
+
+header{
+  background:linear-gradient(135deg,#0a3d2d,#126247,#245b8f);
+  color:#fff;
+  text-align:center;
+  padding:55px 20px;
+  border-bottom:5px solid #d7a42a;
+}
+
+header h1{
+  font-size:clamp(2rem,5vw,3.2rem);
+  margin-bottom:10px;
+}
+
+header p{
+  color:#e8f5ef;
+  font-size:17px;
+}
+
+.container{
+  width:min(1180px, calc(100% - 40px));
+  margin:40px auto;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:18px;
+  margin-bottom:30px;
+}
+
+.card{
+  background:#fff;
+  padding:22px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(17,60,45,.10);
+  border:1px solid #dce7e2;
+  transition:.25s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card h3{
+  color:#0a3d2d;
+  font-size:30px;
+}
+
+.card p{
+  color:#465750;
+  font-weight:600;
+}
+
+.section{
+  margin-top:28px;
+}
+
+.box{
+  background:#fff;
+  padding:28px;
+  border-radius:18px;
+  border:1px solid #dce7e2;
+  box-shadow:0 8px 24px rgba(17,60,45,.10);
+}
+
+h2{
+  color:#0a3d2d;
+  margin-bottom:18px;
+  font-size:26px;
+}
+
+h3{
+  color:#126247;
+  margin:22px 0 10px;
+}
+
+h4{
+  color:#13231e;
+  margin:15px 0 12px;
+}
+
+ul,ol{
+  padding-left:24px;
+}
+
+li{
+  margin:8px 0;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  margin-top:12px;
+}
+
+th,td{
+  border:1px solid #dce7e2;
+  padding:13px;
+  text-align:center;
+}
+
+th{
+  background:#0a3d2d;
+  color:#fff;
+}
+
+tr:nth-child(even) td{
+  background:#f8fbfa;
+}
+
+.download-btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 18px;
+  background:#126247;
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.download-btn:hover{
+  background:#0a3d2d;
+}
+
+.important-note{
+  margin-top:22px;
+  padding:18px 20px;
+  background:#fff9e9;
+  border-left:5px solid #d7a42a;
+  border-radius:12px;
+  color:#465750;
+}
+
+/* Reading Page Fix */
+.reading-box{
+  max-width:900px;
+  margin:26px auto;
+  padding:32px 38px;
+  background:#ffffff;
+  border:1px solid #dce7e2;
+  border-radius:18px;
+  box-shadow:0 8px 24px rgba(17,60,45,.10);
+}
+
+.reading-box h2{
+  text-align:center;
+  color:#0a3d2d;
+  margin-bottom:22px;
+}
+
+.reading-box h3{
+  color:#126247;
+}
+
+.reading-box p,
+.reading-box li{
+  font-size:16.5px;
+  line-height:1.9;
+  text-align:justify;
+  color:#465750;
+}
+
+.quick-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:14px;
+  margin-top:10px;
+}
+
+.quick-list li{
+  list-style:none;
+  background:#f1f8f5;
+  border-left:4px solid #126247;
+  padding:12px 14px;
+  border-radius:10px;
+}
+
+footer{
+  background:#10221c;
+  color:#dbe9e3;
+  text-align:center;
+  padding:28px 15px;
+  margin-top:50px;
+  border-top:4px solid #d7a42a;
+}
+
+@media(max-width:768px){
+  .container{
+    width:min(100% - 24px,1180px);
+    margin:28px auto;
+  }
+
+  .box,
+  .reading-box{
+    padding:22px;
+  }
+
+  table{
+    font-size:14px;
+  }
+
+  header{
+    padding:42px 16px;
+  }
+}
+</style>
+</head>
+
+<body class="archive-theme theme-admission">
+
+<header>
+  <h1>GUIST B.Tech Admission Helpdesk</h1>
+  <p>Admission, Cutoff, Merit List, Fee Structure and Counselling Information</p>
+</header>
+
+<div class="container">
+
+  <div class="stats">
+    <div class="card"><h3>100</h3><p>Total Seats</p></div>
+   
+    <div class="card"><h3>40</h3><p>ECE</p></div>
+    <div class="card"><h3>30</h3><p>RAI</p></div>
+    <div class="card"><h3>30</h3><p>Biotech</p></div>
+  </div>
+
+ <div class="section box">
+  <h2>Cut-off Scores (1<sup>st</sup> Round - 2026)</h2>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th colspan="2">Cut-off Score for JEE (Main) - 2026</th>
+      </tr>
+      <tr>
+        <th>Category</th>
+        <th>Score</th>
+      </tr>
+      <tr>
+        <td>UR, OBC (NCL), SC, EWS</td>
+        <td>70</td>
+      </tr>
+      <tr>
+        <td>STP</td>
+        <td>50</td>
+      </tr>
+    </table>
+
+    <br>
+
+    <table>
+      <tr>
+        <th colspan="6">Cut-off Score for CEE (Assam) - 2026</th>
+      </tr>
+      <tr>
+        <th>UR</th>
+        <th>OBC (NCL), SC</th>
+        <th>STP</th>
+        <th>STH</th>
+        <th>EWS</th>
+      </tr>
+      <tr>
+        <td>101</td>
+        <td>76</td>
+        <td>50</td>
+        <td>38</td>
+        <td>100</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+  <div class="section box">
+    <h2>Previous Year B.Tech Merit / Rank List</h2>
+    <p>Download the previous year's B.Tech Merit / Rank List for reference.</p>
+    <h4>B.Tech Merit / Rank List (2026)</h4>
+    <a href="https://drive.google.com/file/d/1HC8llvA_qfiSXFHDbq9Mr3ZRJ-6m4dOt/view?usp=drive_link" class="download-btn" target="_blank">Download PDF</a>
+
+    <div class="important-note">
+      <strong>Note:</strong>
+      <p>This merit/rank list is provided for reference purposes only. The current year's merit position and cut-off may vary based on seat availability, category, and number of applicants.</p>
+    </div>
+  </div>
+
+  <div class="section box">
+    <h2>Branches Offered for the Academic Session 2026-27</h2>
+    <ul>
+     
+      <li>Electronics & Communication Engineering (ECE)</li>
+      <li>Robotics & Artificial Intelligence (R&AI)</li>
+      <li>Biotechnology (BT)</li>
+      <li>Along with the above<strong> B.Tech programmes, two-year M.Tech programmes </strong> as well as <strong>PhD 
+programmes  </strong>are also offered in the respective departments. </li>
+    </ul>
+  </div>
+<div class="section box admission-process">
+  <h2>Admission Process</h2>
+
+  <p>
+    The admission process for the B.Tech and B.Tech (Lateral) programmes
+    offered by Gauhati University Institute of Science and Technology
+    for the academic session 2026–27 is in process.
+  </p>
+
+  <h3>B.Tech Admission Modes</h3>
+
+  <ol class="admission-list">
+    <li>
+      <strong>B.Tech in ECE and R&amp;AI</strong>
+
+      <p>
+        A maximum of 20% of the total seats will be filled by candidates
+        qualified through JEE (Main) 2026.
+      </p>
+
+      <p>
+        Counselling for admission based on JEE (Main) 2026 rank will be
+        conducted at GUIST. The counselling schedule will be published
+        on the Gauhati University website.
+      </p>
+
+      <p>
+        The remaining 80% of the seats will be filled through CEE
+        (Assam) 2026 counselling conducted by GUIST according to the
+        notified schedule.
+      </p>
+    </li>
+
+    <li>
+      <strong>B.Tech in Biotechnology</strong>
+
+      <p>
+        50% of the seats will be filled through an entrance examination
+        conducted by the concerned department.
+      </p>
+
+      <p>
+        From the remaining seats, 20% will be filled through JEE
+        (Main) 2026 and 80% through CEE (Assam) 2026 qualified
+        candidates.
+      </p>
+    </li>
+
+    <li>
+      <strong>Permanent Residence Certificate</strong>
+
+      <p>
+        Only candidates possessing a valid Permanent Residence
+        Certificate (PRC) of Assam are eligible to apply for admission.
+      </p>
+    </li>
+  </ol>
+
+  <div class="admission-note">
+    <h3>Online Application</h3>
+
+    <p>
+      The online application form will be available through the Gauhati
+      University SAMARTH admission portal.
+    </p>
+
+    <p>
+      The last date for submitting the application will be mentioned in
+      the application form. The list of candidates eligible to participate
+      in counselling will be published on the Gauhati University website
+      and the SAMARTH portal after the last date of application.
+    </p>
+
+    <div class="admission-links">
+      <a
+        href="https://gauhatiadmission.samarth.edu.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open SAMARTH Admission Portal
+      </a>
+
+      <a
+        href="https://admissions.gauhati.ac.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open Gauhati University Admission Website
+      </a>
+    </div>
+  </div>
+
+  <div class="lateral-admission">
+    <h3>B.Tech (Lateral) Admission – 2026</h3>
+
+    <p>
+      Admission to the B.Tech (Lateral) programme will be conducted
+      through counselling based on JLEE 2026 rank.
+    </p>
+
+    <p>
+      The admission criteria and relaxation of marks in the qualifying
+      examination will follow the JLEE (Assam) 2026 norms and the AICTE
+      Approval Process Handbook 2024–2027.
+    </p>
+  </div>
+</div>
+
+
+
+  <div class="section box">
+    <h2>Required Documents to be Apply </h2>
+    <ul>
+      <li>CEE/JEE Admit Card & Score Card</li>
+      <li>PRC of Assam</li>
+      <li>HSLC Certificate & Marksheet</li>
+      <li>HS Certificate & Marksheet</li>
+      <li>Caste Certificate, if applicable</li>
+      <li>Gap Certificate, if applicable</li>
+      <li>Reserved Category Documents</li>
+    </ul>
+  </div>
+
+  <div class="section box">
+    <h2>Fee Structure</h2>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Fee Head</th><th>Odd Semester</th><th>Even Semester</th></tr>
+        <tr><td>Admission Fee</td><td>₹4,840</td><td>-</td></tr>
+       
+        <tr><td>I Card Fee(Annual)</td><td>₹130</td><td>-</td></tr>
+        <tr><td>Library Card Fee(Annual)</td><td>₹130</td><td>-</td></tr>
+        <tr><td>Library Fee(Annual)</td><td>₹850</td><td>-</td></tr>
+        <tr><td>Student Welfare Fee(Semester)</td><td>₹610</td><td>-</td></tr>
+        <tr><td>Utility Fee(Fee)</td><td>₹1,000</td><td>-</td></tr>
+        <tr><td>Course Fee</td><td>₹18,150</td><td>₹18,150</td></tr>
+        <tr><td>Laboratory Fee</td><td>₹1,815</td><td>₹1,815</td></tr>
+        <tr><td>Exam Fee</td><td>₹1,455</td><td>₹1,455</td></tr>
+        <tr><td>Total</td><td><b>₹28,980</b></td><td><b>₹21,420</b></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- RESERVATION DETAILS -->
+<div class="section box reservation-section">
+  <h2>Reservation of Seats</h2>
+
+  <p>
+    Reservation of seats will be governed by the provisions of Gauhati
+    University and the Government of Assam rules. Relaxation of marks in
+    the qualifying examination will be provided according to CEE
+    (Assam) 2026 norms and the AICTE Approval Process Handbook
+    2024–2027.
+  </p>
+
+  <div class="table-wrap">
+    <table class="reservation-table">
+      <thead>
+        <tr>
+          <th colspan="2">Reservation for Permanent Residents of Assam</th>
+        </tr>
+        <tr>
+          <th>Reservation Category</th>
+          <th>Percentage / Number of Seats</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Scheduled Caste</td>
+          <td>7%</td>
+        </tr>
+
+        <tr>
+          <td>Scheduled Tribes (Plains)</td>
+          <td>10%</td>
+        </tr>
+
+        <tr>
+          <td>Scheduled Tribes (Hills)</td>
+          <td>5%</td>
+        </tr>
+
+        <tr>
+          <td>OBC / MOBC</td>
+          <td>
+            27%
+            <small>
+              Including special reservation for Ahom, Tea Garden, Koch
+              Rajbongshi, Chutia, Moran and Motak communities.
+            </small>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Economically Weaker Section (EWS)</td>
+          <td>10% in each branch</td>
+        </tr>
+
+        <tr>
+          <td>Differently Abled Persons</td>
+          <td>1 seat in each branch</td>
+        </tr>
+
+        <tr>
+          <td>Employee Quota <sup>*</sup></td>
+          <td>1 seat in each branch as supernumerary</td>
+        </tr>
+
+        <tr>
+          <td>Ex-Employee Quota <sup>**</sup></td>
+          <td>
+            Total 1 seat, including all branches, as supernumerary
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Fringe Village Quota
+            <small>
+              Garigaon, Sadilapur, Katia Dalang and Sundarbari
+            </small>
+          </td>
+          <td>
+            Total 1 seat, including all branches, as supernumerary
+          </td>
+        </tr>
+
+        <tr>
+          <td>Extra and Co-Curricular Activities <sup>**</sup></td>
+          <td>
+            Total 1 seat, including all branches, as supernumerary
+          </td>
+        </tr>
+
+        <tr>
+          <td>NCC <sup>**</sup></td>
+          <td>
+            Total 1 seat, including all branches, as supernumerary
+          </td>
+        </tr>
+
+        <tr>
+          <td>NSS <sup>**</sup></td>
+          <td>
+            Total 1 seat, including all branches, as supernumerary
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="reading-box reservation-notes">
+
+
+    <div class="reservation-actions">
+    <a
+      href="materials/Admission Helpdesk/btech/QUOTA FORM.pdf"
+      class="download-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Download Prescribed Quota Form
+    </a>
+
+    <a
+      href="https://admissions.gauhati.ac.in/"
+      class="official-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Visit Official Admission Website
+    </a>
+  </div>
+</div>
+
+<!-- OTHER NORTH-EAST RESERVED SEATS -->
+<div class="reading-box ne-reservation">
+  <h2>Other Reserved Seats for North-Eastern States</h2>
+
+  <p>
+    Seven seats in the B.Tech programme are reserved for candidates
+    from other North-Eastern states. One seat is reserved for each
+    eligible state other than Assam.
+  </p>
+
+  <p>
+    Candidates seeking admission under this category must contact the
+    respective Directorate of Higher Education or Directorate of
+    Technical Education of their state.
+  </p>
+
+  <div class="table-wrap">
+    <table class="ne-seat-table">
+      <thead>
+        <tr>
+          <th>North-Eastern State</th>
+          <th>Branch</th>
+          <th>Number of Seats</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Arunachal Pradesh</td>
+          <td rowspan="3">
+            Electronics and Communication Engineering
+          </td>
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td>Tripura</td>
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td>Manipur</td>
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td>Mizoram</td>
+          <td rowspan="2">Biotechnology</td>
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td>Meghalaya</td>
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td>Nagaland</td>
+          <td rowspan="2">
+            Robotics &amp; Artificial Intelligence
+          </td>
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td>Sikkim</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- REQUIRED DOCUMENTS READING PAGE -->
+<div class="reading-box documents-reading-page">
+
+  <div class="reading-heading">
+    <span class="reading-icon">
+      <i class="fa-solid fa-file-circle-check"></i>
+    </span>
+
+    <div>
+      <h2>Documents Required at the Time of Admission</h2>
+      <p>B.Tech and B.Tech (Lateral Entry) Admission 2026</p>
+    </div>
+  </div>
+
+  <div class="important-note">
+    <i class="fa-solid fa-circle-info"></i>
+    <p>
+      Candidates must submit self-attested copies of the following
+      documents at the time of admission.
+    </p>
+  </div>
+
+  <ul class="document-list">
+    <li>
+      <i class="fa-solid fa-id-card"></i>
+      <span>
+        Admit Card or Score Card of CEE (Assam) 2026 or JEE (Main) 2026
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-house-user"></i>
+      <span>
+        Permanent Residence Certificate (PRC) of Assam
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-certificate"></i>
+      <span>
+        HSLC or Class 10 Pass Certificate/Admit Card as proof of age
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>
+        Higher Secondary (10+2) Pass Certificate
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-file-lines"></i>
+      <span>
+        HSLC or Class 10 Mark Sheet/Grade Sheet
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-file-lines"></i>
+      <span>
+        Higher Secondary (10+2) Mark Sheet/Grade Sheet
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-users"></i>
+      <span>
+        Valid SC, ST, OBC or other caste certificate issued by the
+        appropriate authority and approved by the Government of Assam
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <span>
+        OBC candidates must submit a valid Non-Creamy Layer Certificate.
+        The OBC NCL certificate is compulsory according to Gauhati
+        University rules.
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-user-graduate"></i>
+      <span>
+        Diploma examination mark sheet, grade sheet and certificate for
+        candidates applying for B.Tech Lateral Entry
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-folder-open"></i>
+      <span>
+        Appropriate supporting documents for candidates applying under
+        other reserved categories
+      </span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-calendar-xmark"></i>
+      <span>
+        Gap Certificate, wherever applicable
+      </span>
+    </li>
+  </ul>
+<li>
+    <i class="fa-solid fa-shield-halved"></i>
+    <span>
+        <strong>UGC Anti-Ragging Undertaking Form</strong><br>
+        Every student must submit the online Anti-Ragging Undertaking before admission.
+        <br><br>
+        <a href="https://antiragging.in/affidavit_university_form.php"
+           target="_blank"
+           class="document-link">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Fill UGC Anti-Ragging Undertaking Form
+        </a>
+    </span>
+</li>
+  <div class="hostel-information">
+    <div class="hostel-icon">
+      <i class="fa-solid fa-building-user"></i>
+      
+    </div>
+
+    <div>
+      <h3>Hostel Facilities</h3>
+
+      <p>
+        Hostel accommodation will be allotted strictly according to the
+        availability of seats and the prevailing hostel admission rules
+        of Gauhati University.
+      </p>
+
+      <p>
+        Admission to the B.Tech programme does not automatically provide
+        any right or guarantee of hostel accommodation.
+      </p>
+    </div>
+  </div>
+
+</div>
+  
+
+  <!-- TRAINING AND PLACEMENT CELL -->
+<div class="reading-box placement-page">
+
+  <div class="placement-heading">
+    <div class="placement-icon">
+      <i class="fa-solid fa-briefcase"></i>
+    </div>
+
+    <div>
+      <h2>Training and Placement Cell</h2>
+      <p>Gauhati University Institute of Science and Technology</p>
+    </div>
+  </div>
+
+  <div class="placement-introduction">
+    <p>
+      The Training and Placement Cell at GUIST oversees the institute's
+      recruitment process and helps students access promising career
+      opportunities.
+    </p>
+
+    <p>
+      The cell actively supports final-year students by facilitating campus
+      interviews and exploring different placement opportunities, helping
+      students secure jobs that match their skills and academic achievements.
+    </p>
+
+    <p>
+      It also provides assistance and necessary infrastructure to visiting
+      organisations for conducting smooth recruitment drives. Placement
+      activities are organised throughout the year to connect final-year
+      students with organisations and institutions offering employment or
+      higher-study opportunities.
+    </p>
+  </div>
+
+  <div class="placement-services">
+    <h3>
+      <i class="fa-solid fa-list-check"></i>
+      Major Activities of the Cell
+    </h3>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <i class="fa-solid fa-building"></i>
+        <span>Campus recruitment drives</span>
+      </div>
+
+      <div class="service-card">
+        <i class="fa-solid fa-handshake"></i>
+        <span>Coordination with hiring organisations</span>
+      </div>
+
+      <div class="service-card">
+        <i class="fa-solid fa-user-tie"></i>
+        <span>Career support for final-year students</span>
+      </div>
+
+      <div class="service-card">
+        <i class="fa-solid fa-comments"></i>
+        <span>Campus interviews and selection activities</span>
+      </div>
+
+      <div class="service-card">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>Higher-study opportunities</span>
+      </div>
+
+      <div class="service-card">
+        <i class="fa-solid fa-network-wired"></i>
+        <span>Industry and institutional connections</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="recruiters-section">
+    <div class="section-subheading">
+      <div>
+        <span class="subheading-label">Career Opportunities</span>
+        <h3>Prominent Hiring Organisations</h3>
+      </div>
+
+      <i class="fa-solid fa-building-circle-check"></i>
+    </div>
+
+    <div class="recruiter-grid">
+      <div class="recruiter-card">Codeyoung</div>
+      <div class="recruiter-card">Hike Education</div>
+      <div class="recruiter-card">ITC Infotech</div>
+      <div class="recruiter-card">Federal Bank</div>
+      <div class="recruiter-card">Zafin</div>
+      <div class="recruiter-card">Nuclei</div>
+      <div class="recruiter-card">LTIMindtree</div>
+      <div class="recruiter-card">Teachnook</div>
+      <div class="recruiter-card">Cognizant</div>
+    </div>
+
+    <p class="recruiter-note">
+      The organisations shown above are among the prominent recruiters
+      associated with placement opportunities at GUIST.
+    </p>
+  </div>
+
+  <div class="placement-contact-grid">
+
+    <div class="contact-card">
+      <div class="contact-card-icon">
+        <i class="fa-solid fa-user-group"></i>
+      </div>
+
+      <div>
+        <span>Training &amp; Placement Cell In-Charge</span>
+        <h3>Prof. Pranjal Saikia</h3>
+        <h3>Dr. Chandan Kalita</h3>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-card-icon">
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+
+      <div>
+        <span>Official Contact</span>
+
+        <a href="mailto:tpc.guist@gauhati.ac.in">
+          tpc.guist@gauhati.ac.in
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+  
+
+</div>
+<!-- WhatsApp Helpdesk Section -->
+<section class="whatsapp-helpdesk">
+    <div class="wa-card">
+        <div class="wa-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <div class="wa-content">
+            <h2>Join Our WhatsApp Community</h2>
+            <p>
+                Stay updated with the latest Question Papers, Syllabus,
+                Admission Notices, Merit Lists, Study Materials and
+                important Gauhati University announcements.
+            </p>
+
+            <a href="https://chat.whatsapp.com/JOFm9mcVDuwJAXfRnwwqdQ"
+               target="_blank"
+               class="wa-btn">
+                <i class="fa-brands fa-whatsapp"></i>
+                Join Community
+            </a>
+        </div>
+    </div>
+</section>
+<footer>
+  © GUIST B.Tech Admission Helpdesk
+</footer>
+
+<script src="site-enhancements.js" defer></script>
+</body>
+</html>

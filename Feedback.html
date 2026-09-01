@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback - Gauhati University Digital Archive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background: #d3f3c7;
+            color: #333;
+        }
+
+        header {
+            background: #162c0c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background: #6b8e23;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2f4f2f;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background: #6b8e23;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #556b2f;
+        }
+
+        footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="site-theme.css">
+
+    <!-- GU-ENHANCEMENTS:HEAD -->
+    <meta name="theme-color" content="#0b4f3c">
+    <!-- /GU-ENHANCEMENTS:HEAD -->
+</head>
+
+<body class="archive-theme theme-info">
+
+<header>
+    <h1>Gauhati University Digital Archive</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+</nav>
+
+<div class="container">
+    <h2>Feedback</h2>
+
+    <form id="feedbackForm">
+        <input type="text" id="userName" placeholder="Enter Your Name" required>
+        <input type="email" id="userEmail" placeholder="Enter Your Email" required>
+        <textarea id="userFeedback" rows="6" placeholder="Write Your Feedback Here..." required></textarea>
+        <button type="submit" id="submitBtn">Submit Feedback</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById('submitBtn');
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    // ============================================
+    // GOOGLE FORM CONFIGURATION
+    // ============================================
+
+    const googleFormId =
+        '1FAIpQLSdWeFQRY2Z5i6UcQ69HrDb5NT5tKIXLdYqljWBFp2PguGsojQ';
+
+    const nameEntryId = 'entry.1494319690';
+    const emailEntryId = 'entry.935821101';
+    const feedbackEntryId = 'entry.2112697512';
+
+    // ============================================
+
+    const formData = new FormData();
+
+    formData.append(
+        nameEntryId,
+        document.getElementById('userName').value
+    );
+
+    formData.append(
+        emailEntryId,
+        document.getElementById('userEmail').value
+    );
+
+    formData.append(
+        feedbackEntryId,
+        document.getElementById('userFeedback').value
+    );
+
+    const formActionUrl =
+        `https://docs.google.com/forms/d/e/${googleFormId}/formResponse`;
+
+    fetch(formActionUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+    })
+    .then(() => {
+
+        alert('Thank you! Your feedback has been submitted successfully.');
+
+        document.getElementById('feedbackForm').reset();
+
+    })
+    .catch((error) => {
+
+        console.error('Feedback submission error:', error);
+
+        alert(
+            'Unable to submit feedback. Please try again later.'
+        );
+
+    })
+    .finally(() => {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Feedback';
+
+    });
+});
+</script>
+
+<footer>
+    <p>Â© 2026 Gauhati University Digital Archive</p>
+</footer>
+
+<!-- GU-ENHANCEMENTS:BODY -->
+<script src="site-enhancements.js" defer></script>
+<!-- /GU-ENHANCEMENTS:BODY -->
+
+</body>
+</html>

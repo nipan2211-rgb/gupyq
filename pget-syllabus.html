@@ -1,0 +1,1657 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GUPGET Syllabus Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#174c3c;
+    --primary-dark:#0d2f25;
+    --secondary:#173b73;
+    --accent:#d8a21b;
+    --bg:#f4f7f6;
+    --surface:#ffffff;
+    --text:#17212f;
+    --muted:#64748b;
+    --border:#dbe4ea;
+    --shadow:0 18px 45px rgba(20,40,60,0.12);
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    height:285px;
+    background:
+        linear-gradient(120deg,rgba(13,47,37,.96),rgba(23,59,115,.88)),
+        radial-gradient(circle at top right,rgba(216,162,27,.18),transparent 34%);
+    z-index:-1;
+}
+
+.top-header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+}
+
+.header-container{
+    max-width:1220px;
+    margin:auto;
+    padding:14px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.brand img{
+    width:62px;
+    height:62px;
+    object-fit:cover;
+    border-radius:50%;
+    border:2px solid #e7eef3;
+}
+
+.brand h1{
+    color:var(--primary-dark);
+    font-size:23px;
+    line-height:1.2;
+}
+
+.brand p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:42px;
+    padding:0 16px;
+    border-radius:8px;
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    transition:.25s;
+}
+
+.home-btn:hover{
+    background:var(--primary-dark);
+}
+
+.hero{
+    color:#fff;
+    padding:34px 22px 24px;
+}
+
+.hero-inner{
+    max-width:1220px;
+    margin:auto;
+}
+
+.hero-kicker{
+    display:inline-flex;
+    align-items:center;
+    min-height:30px;
+    padding:0 10px;
+    border:1px solid rgba(255,255,255,.26);
+    border-radius:8px;
+    color:#ffe19a;
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.hero h2{
+    font-size:42px;
+    line-height:1.15;
+    margin-top:12px;
+}
+
+.hero-meta{
+    color:#e7f2ef;
+    max-width:820px;
+    margin-top:10px;
+}
+
+.info-box{
+    max-width:1220px;
+    margin:0 auto 16px;
+    padding:0 22px;
+}
+
+.info-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:18px;
+    box-shadow:var(--shadow);
+}
+
+.info-card h2{
+    color:var(--primary-dark);
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:#334155;
+    margin-top:8px;
+}
+
+.toolbar{
+    max-width:1220px;
+    margin:0 auto 14px;
+    padding:0 22px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:14px;
+    align-items:center;
+}
+
+.search-box{
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    min-height:50px;
+    padding:0 44px 0 18px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    outline:none;
+    font-size:16px;
+    background:var(--surface);
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.search-box input:focus{
+    border-color:#b9d8cb;
+    box-shadow:0 16px 40px rgba(13,47,37,.16);
+}
+
+.clear-btn{
+    position:absolute;
+    right:8px;
+    top:8px;
+    width:34px;
+    height:34px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    color:var(--muted);
+    cursor:pointer;
+    font-size:20px;
+    line-height:1;
+    display:none;
+}
+
+.filter-tabs{
+    display:flex;
+    gap:8px;
+    padding:6px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:8px;
+    box-shadow:var(--shadow);
+}
+
+.filter-tab{
+    border:0;
+    min-height:38px;
+    padding:0 13px;
+    border-radius:7px;
+    background:transparent;
+    color:var(--primary-dark);
+    font-weight:800;
+    cursor:pointer;
+    transition:.25s;
+    white-space:nowrap;
+}
+
+.filter-tab.active,
+.filter-tab:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.result-line{
+    max-width:1220px;
+    margin:0 auto;
+    padding:0 22px 8px;
+    color:#fff4cf;
+    font-weight:700;
+}
+
+.container{
+    max-width:1220px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+    padding:10px 22px 36px;
+    align-items:start;
+    overflow:visible;
+}
+
+.column{
+    background:var(--surface);
+    border-radius:8px;
+    padding:18px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+    overflow:visible;
+    position:relative;
+}
+
+.column h2{
+    color:var(--primary-dark);
+    font-size:22px;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:3px solid var(--accent);
+}
+
+.course{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px;
+    align-items:start;
+    padding:13px;
+    margin:9px 0;
+    border-radius:8px;
+    background:#f8fbfa;
+    border:1px solid var(--border);
+    transition:.25s;
+    position:relative;
+    overflow:visible;
+    z-index:1;
+}
+
+.course:hover,
+.course:focus-within{
+    background:#eef7f3;
+    border-color:#b9d8cb;
+    transform:translateY(-1px);
+    z-index:9999;
+}
+
+.course-title{
+    font-weight:800;
+    color:var(--text);
+    grid-column:1 / -1;
+    padding:0 0 4px;
+    min-width:0;
+}
+
+.dropdown{
+    position:relative;
+    min-width:0;
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:calc(100% + 6px);
+    left:0;
+    min-width:240px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+    z-index:99999;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+.drop-btn{
+    width:100%;
+    border:none;
+    padding:10px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:800;
+    font-size:13px;
+    color:#fff;
+    white-space:nowrap;
+}
+.syllabus-btn{ background:#131f38; }
+.topics-btn{ background:#d8a21b; color:#111; }
+.paper-btn{ background:#0a9396; }
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    margin-top:5px;
+    min-width:230px;
+    background:#fff;
+    border-radius:8px;
+    box-shadow:0 14px 35px rgba(0,0,0,.18);
+    border:1px solid var(--border);
+    z-index:9999;
+    overflow:hidden;
+}
+
+.dropdown:last-child .dropdown-content{
+    left:auto;
+    right:0;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content{
+    display:block;
+}
+
+.dropdown-content a,
+.no-file{
+    display:block;
+    padding:11px 14px;
+    text-decoration:none;
+    color:#1e293b;
+    font-size:14px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.dropdown-content a:hover{
+    background:#eef6ff;
+    color:#0a4f8f;
+}
+
+.no-file{
+    color:#64748b;
+}
+
+.hidden{
+    display:none !important;
+}
+
+@media(max-width:620px){
+    .course{
+        grid-template-columns:1fr;
+    }
+
+    .course-title{
+        grid-column:auto;
+    }
+
+    .dropdown-content{
+        position:static;
+        width:100%;
+        margin-top:8px;
+    }
+}
+
+@media(max-width:900px){
+    .header-container,
+    .toolbar{
+        grid-template-columns:1fr;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .brand h1{
+        font-size:20px;
+    }
+
+    .hero h2{
+        font-size:32px;
+    }
+
+    .filter-tabs{
+        overflow-x:auto;
+    }
+
+    .container{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body class="archive-theme theme-admission">
+
+<div class="top-header">
+    <div class="header-container">
+        <div class="brand">
+           
+            <div>
+                <h1>Student Academic Resources Archive</h1>
+                <p>PG entrance syllabus helpdesk</p>
+            </div>
+        </div>
+        <a class="home-btn" href="index.html">Home</a>
+    </div>
+</div>
+
+<header class="hero">
+    <div class="hero-inner">
+        <span class="hero-kicker">GUPGET Syllabus Portal</span>
+        <h2>PG Syllabus, Important Topics & Model Papers</h2>
+        <p class="hero-meta">Departments are now arranged according to the PG merit-list categories: Traditional Courses and Interdisciplinary Courses.</p>
+    </div>
+</header>
+
+<section class="info-box">
+    <div class="info-card">
+        <h2>Gauhati University PG Entrance Information</h2>
+        <p>Gauhati University does not permit candidates to take away entrance examination question papers after the exam. Therefore, previous yearsâ€™ entrance question papers may not be available for all subjects.</p>
+        <p>Traditional courses generally follow the undergraduate syllabus. For interdisciplinary courses, available syllabi, important topics, and model papers are provided wherever collected.</p>
+        <p style="font-weight:800;color:#059669;">Best wishes for your entrance examination!</p>
+    </div>
+</section>
+
+<div class="toolbar">
+    <div class="search-box">
+        <input type="text" id="searchBar" placeholder="Search course or department...">
+        <button type="button" class="clear-btn" id="clearSearch" aria-label="Clear search">Ã—</button>
+    </div>
+
+    <div class="filter-tabs" aria-label="Course category filter">
+        <button type="button" class="filter-tab active" data-filter="all">All</button>
+        <button type="button" class="filter-tab" data-filter="traditional">Traditional</button>
+        <button type="button" class="filter-tab" data-filter="interdisciplinary">Interdisciplinary</button>
+    </div>
+</div>
+
+<div class="result-line" id="resultLine"></div>
+
+<main class="container" id="content"></main>
+
+<script>
+const courses = [
+    {
+        "name": "MA/ M.Sc. in Anthropology",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Anthropology Syllabus",
+                "link": "https://drive.google.com/file/d/1cVhosKWvVahbuDu_6nWLumBqDilrJXE2/view?usp=drive_link"
+            }
+        ],
+        "topics": [
+            {
+                
+            }
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "https://drive.google.com/file/d/1uxnxJ39N699HIF__6o6ipXKFFe8QsyKD/view?usp=drive_link"
+            }
+        ]
+    },
+    
+    {
+        "name": "MA in Arabic",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Arabic Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/arabic.pdf"
+            }
+        ],
+        "topics": [
+            
+                
+        ],
+       
+    },
+    {
+        "name": "MA in Assamese",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Assamese Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/assamese.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/assamese/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in Bengali",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Bengali Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/bengali.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Traditional/bengali-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc in Botany",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Sc in Botany Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/botany.pdf"
+            }
+        ],
+        "topics": [
+          
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Traditional/botany-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Com",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Com Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/commerce.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/commerce/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. in Chemistry",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Sc. in Chemistry Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/chemistry.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DU",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/chemistry/2020 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in Economics",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Economics Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/economics.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/economics/2022 DU.pdf"
+            }
+        ]
+    },
+   
+    {
+        "name": "MA in Education",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Education Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/education.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/education/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in English",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in English Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/english.pdf"
+            }
+        ],
+        "topics": [
+          
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2021",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/english/2021 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. in Geography",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Sc. in Geography Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/geography.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/geography/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. in Geology",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Sc. in Geology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/geology.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Traditional/geology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in Hindi",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Hindi Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/hindi.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Traditional/hindi-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in History",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in History Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/history.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/history/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. in Mathematics",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Sc. in Mathematics Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/maths.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/mathematics/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in Political Science",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Political Science Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/political-science.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/political science/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in Persian",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Persian Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/persian.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Traditional/persian-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in Philosophy",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Philosophy Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/philosophy.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/philosophY/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. in Physics",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Sc. in Physics Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/physics.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2021",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/physics/2021 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in Sanskrit",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "MA in Sanskrit Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/sanskrit.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Traditional/sanskrit-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. in Statistics",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Sc. in Statistics Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/statistics.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/statistics/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. in Zoology",
+        "category": "traditional",
+        "syllabus": [
+            {
+                "title": "M.Sc. in Zoology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Traditional/zoology.pdf"
+            }
+        ],
+        "topics": [
+            
+        ],
+        "papers": [
+            {
+                "title": "CPGEE 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/zoology/2025 CU.pdf"
+            },
+            {
+                "title": "DUPGET 2024",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/zoology/2024 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.A. Comparative Indian Literature",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.A. Comparative Indian Literature Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/comparative-indian-literature.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/comparative-indian-literature-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.A. English Language Teaching",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.A. English Language Teaching Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/english-language-teaching.pdf"
+            }
+        ],
+        "topics": [
+          
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/english-language-teaching-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.A Folklore Studies",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.A Folklore Studies Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/folklore-studies.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/folklore-studies-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.A. Linguistics",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.A. Linguistics Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/linguistics.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/linguistics-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.A. Mass Communication",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.A. Mass Communication Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/m-ass-communication.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2023",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/mass com/2023 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Radiological Physics",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Radiological Physics Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/radiological-physics.pdf"
+            }
+        ],
+        "topics": [
+         
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/radiological-physics-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.A. Sociology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.A. Sociology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/sociology.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/sociology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Biotechnology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Biotechnology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/biotechnology.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2022",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/biotechnology/2022 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Computer Science",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Computer Science Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/computer-science.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "DUPGET 2016",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/computer science/2016 DU.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Information Technology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Information Technology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/information-technology.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/inform-ation-technology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Tech (Research) in AI ML",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Tech (Research) in AI ML Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/m-tech-research-ai-ml.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/m-tech-research-ai-ml-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Tech in Information Technology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Tech in Information Technology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/m-tech-inform-ation-technology.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/m-tech-inform-ation-technology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Lib. & I.Sc.",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Lib. & I.Sc. Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/mlisc.pdf"
+            }
+        ],
+        "topics": [
+            {
+                "title": "Important Topics",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/important-topic/interdisciplinary/mlisc.pdf"
+            }
+        ],
+        "papers": [
+            {
+                "title": "GUPGET 2024",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/mlisc/2024 GU.pdf"
+            },
+            {
+                "title": "CUPGET 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/mlisc/2025 CU.pdf"
+            },
+            {
+                "title": "CUPGET 2024",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/mlisc/2024 CU.pdf"
+            },
+            {
+                "title": "CUPGET 2023",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/mlisc/2023 CU.pdf"
+            }
+           
+        ]
+    },
+    {
+        "name": "M.Sc. Cancer Biology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Cancer Biology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/cancer-biology.pdf"
+            }
+        ],
+        "topics": [
+          
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/cancer-biology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Environmental Science",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Environmental Science Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/environmental-science.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/environmental-science-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Microbiology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Microbiology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/microbiology.pdf"
+            }
+        ],
+        "topics": [
+          
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/microbiology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Wildlife Science",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Wildlife Science Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/wildlife-science.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/wildlife-science-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "MA in Women's Studies",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "MA in Women's Studies Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/women studies.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/womens-studies-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "Master of Tourism and Travel Management",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "Master of Tourism and Travel Management Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/tourism-and-travel-m-anagement.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/tourism-and-travel-m-anagement-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Psychiatric Nursing",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Psychiatric Nursing Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/psychiatric-nursing.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/psychiatric-nursing-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Micro Electronics & Advance Communication",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Micro Electronics & Advance Communication Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/electronic science.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/micro-electronics-and-advance-communication-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Electronics & Communication Technology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Electronics & Communication Technology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/electronics-and-communication-technology.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/electronics-and-communication-technology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.A. Psychology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.A. Psychology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/psychology.pdf"
+            }
+        ],
+        "topics": [
+          
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/psychology-2025.pdf"
+            }
+        ]
+    },
+    
+    {
+    "name": "MBA",
+    "category": "interdisciplinary",
+    "syllabus": [
+        {
+            "title": "MBA Syllabus",
+            "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/bba.pdf"
+        }
+    ],
+    "topics": [
+        {
+            "title": "Important Topics",
+            "link": "../../../materials/Admission Helpdesk/pg/syllabus/important-topics/Interdisciplinary/mba-topics.pdf"
+        }
+    ],
+    "papers": [
+        {
+            "title": "Model Paper 2025",
+            "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/mba-2025.pdf"
+        }
+    ]
+},
+    {
+        "name": "M.Tech in Advance Communication & Information Systems",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Tech in Advance Communication & Information Systems Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/m-tech-advance-communication-and-inform-ation-systems.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/m-tech-advance-communication-and-inform-ation-systems-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Tech in Bioprocess Technology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Tech in Bioprocess Technology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/m-tech-bioprocess-technology.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/m-tech-bioprocess-technology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Tech in VLSI & Microelectronics",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Tech in VLSI & Microelectronics Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/m-tech-vlsi-and-microelectronics.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/m-tech-vlsi-and-microelectronics-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. Instrumentation and Applied Physics",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. Instrumentation and Applied Physics Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/instrumentation.pdf"
+            }
+        ],
+        "topics": [
+         
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/instrumentation-and-applied-physics-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "Masters Medical Laboratory Sciences",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "Masters Medical Laboratory Sciences Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/medical-laboratory-sciences.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/medical-laboratory-sciences-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.Sc. in Herbal Science and Technology",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.Sc. in Herbal Science and Technology Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/herbal-science-and-technology.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/Interdisciplinary/herbal-science-and-technology-2025.pdf"
+            }
+        ]
+    },
+    {
+        "name": "M.A. in Performing Arts (Sattriva Dance)",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M.A. in Performing Arts (Sattriva Dance) Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/performing-arts-sattriva-dance.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+
+            }
+        ]
+    },
+    {
+        "name": "M. A. in Performing Arts (Theater Studies and Acting)",
+        "category": "interdisciplinary",
+        "syllabus": [
+            {
+                "title": "M. A. in Performing Arts (Theater Studies and Acting) Syllabus",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/syllabus-2/Interdisciplinary/performing-arts-theater-studies-and-acting.pdf"
+            }
+        ],
+        "topics": [
+           
+        ],
+        "papers": [
+            {
+                "title": "Model Paper 2025",
+                "link": "../../../materials/Admission Helpdesk/pg/syllabus/model-paper/performing arts/2017 DU.pdf"
+            }
+        ]
+    }
+];
+
+const groups = [
+    { id:"traditional", title:"Traditional Courses" },
+    { id:"interdisciplinary", title:"Interdisciplinary Courses" }
+];
+
+const searchBar = document.getElementById("searchBar");
+const clearSearch = document.getElementById("clearSearch");
+const filterTabs = document.querySelectorAll(".filter-tab");
+const content = document.getElementById("content");
+const resultLine = document.getElementById("resultLine");
+let activeFilter = "all";
+
+function makeDropdown(buttonText, buttonClass, files){
+    let html = `
+        <div class="dropdown">
+            <button class="drop-btn ${buttonClass}" type="button">${buttonText}</button>
+            <div class="dropdown-content">
+    `;
+
+    if(files && files.length > 0){
+        files.forEach(file => {
+            if(file.link && file.link !== "#"){
+                html += `<a href="${file.link}" target="_blank">${file.title}</a>`;
+            }else{
+                html += `<div class="no-file">${file.title || "No file uploaded"}</div>`;
+            }
+        });
+    }else{
+        html += `<div class="no-file">No file uploaded</div>`;
+    }
+
+    html += `
+            </div>
+        </div>
+    `;
+    return html;
+}
+
+function renderPage(){
+    let html = "";
+
+    groups.forEach(group => {
+        const groupCourses = courses.filter(course => course.category === group.id);
+
+        html += `
+            <section class="column" id="${group.id}">
+                <h2>${group.title}</h2>
+        `;
+
+        groupCourses.forEach(course => {
+            html += `
+                <article class="course" data-category="${course.category}">
+                    <div class="course-title">${course.name}</div>
+                    ${makeDropdown("Syllabus", "syllabus-btn", course.syllabus)}
+                    ${makeDropdown("Important Topics", "topics-btn", course.topics)}
+                    ${makeDropdown("Model Papers", "paper-btn", course.papers)}
+                </article>
+            `;
+        });
+
+        html += `</section>`;
+    });
+
+    content.innerHTML = html;
+    updateCourses();
+}
+
+function updateCourses(){
+    const query = searchBar.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    document.querySelectorAll(".column").forEach(column => {
+        const groupMatch = activeFilter === "all" || column.id === activeFilter;
+        let columnCount = 0;
+
+        column.querySelectorAll(".course").forEach(course => {
+            const textMatch = course.textContent.toLowerCase().includes(query);
+            const show = groupMatch && textMatch;
+            course.classList.toggle("hidden", !show);
+
+            if(show){
+                visibleCount++;
+                columnCount++;
+            }
+        });
+
+        column.classList.toggle("hidden", columnCount === 0);
+    });
+
+    clearSearch.style.display = query ? "block" : "none";
+    resultLine.textContent = `${visibleCount} course${visibleCount === 1 ? "" : "s"} shown`;
+}
+
+searchBar.addEventListener("input", updateCourses);
+
+clearSearch.addEventListener("click", function(){
+    searchBar.value = "";
+    searchBar.focus();
+    updateCourses();
+});
+
+filterTabs.forEach(tab => {
+    tab.addEventListener("click", function(){
+        filterTabs.forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
+        activeFilter = this.dataset.filter;
+        updateCourses();
+    });
+});
+
+renderPage();
+</script>
+
+<!-- GU-ENHANCEMENTS:BODY -->
+<script src="site-enhancements.js" defer></script>
+<!-- /GU-ENHANCEMENTS:BODY -->
+
+</body>
+</html>
