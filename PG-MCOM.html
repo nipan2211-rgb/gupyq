@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -11,204 +11,252 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:'Segoe UI',sans-serif;
-background:#f9fbff;
-color:#222;
+    font-family:'Segoe UI',sans-serif;
+    background:#f9fbff;
+    color:#222;
 }
 
 /* HEADER */
 
 header{
-background:linear-gradient(135deg,#1e3a8a,#2563eb);
-color:white;
-padding:35px 20px;
-text-align:center;
-box-shadow:0 4px 15px rgba(0,0,0,0.15);
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    color:white;
+    padding:35px 20px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
 }
 
 header h1{
-font-size:32px;
-margin-bottom:8px;
+    font-size:32px;
+    margin-bottom:8px;
 }
 
 header p{
-font-size:15px;
-opacity:0.9;
+    font-size:15px;
+    opacity:0.9;
 }
 
 /* CONTAINER */
 
 .container{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
 }
 
 /* CARD */
 
 .card{
-background:white;
-border-radius:18px;
-padding:25px;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
 
 /* TITLE */
 
 .program-title{
-display:flex;
-align-items:center;
-gap:15px;
-margin-bottom:25px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
 }
 
 .program-icon{
-width:65px;
-height:65px;
-background:#dbeafe;
-border-radius:16px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-color:#2563eb;
+    width:65px;
+    height:65px;
+    background:#dbeafe;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    color:#2563eb;
 }
 
 .program-title h2{
-font-size:28px;
-color:#1e3a8a;
+    font-size:28px;
+    color:#1e3a8a;
 }
 
 /* DETAILS */
 
 details{
-margin-bottom:14px;
-background:#fbfdff;
-border:1px solid #dbeafe;
-border-radius:10px;
-overflow:hidden;
+    margin-bottom:14px;
+    background:#fbfdff;
+    border:1px solid #dbeafe;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+/* REMOVE DEFAULT BROWSER ARROW */
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+summary::marker{
+    display:none;
 }
 
 summary{
-padding:15px 18px;
-font-weight:600;
-cursor:pointer;
-position:relative;
-list-style:none;
-transition:0.3s;
+    padding:15px 50px 15px 18px;
+    font-weight:600;
+    cursor:pointer;
+    position:relative;
+    list-style:none;
+    transition:0.3s;
 }
 
 summary:hover{
-background:#eff6ff;
+    background:#eff6ff;
 }
+
+/* CUSTOM PLUS */
 
 summary::after{
-content:"+";
-position:absolute;
-right:18px;
-font-size:20px;
+    content:"+";
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:20px;
+    font-weight:600;
+    line-height:1;
 }
 
-details[open] summary::after{
-content:"âˆ’";
+/* CUSTOM MINUS */
+
+details[open] > summary::after{
+    content:"\2212";
 }
 
 /* CONTENT */
 
 .year{
-padding:15px 18px;
-background:white;
-border-top:1px solid #e5e5e5;
+    padding:15px 18px;
+    background:white;
+    border-top:1px solid #e5e5e5;
 }
 
 /* YEAR ROW */
 
 .year-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-padding:12px 0;
-border-bottom:1px dashed #ddd;
-gap:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    padding:12px 0;
+    border-bottom:1px dashed #ddd;
+    gap:10px;
 }
 
 .year-row:last-child{
-border-bottom:none;
+    border-bottom:none;
 }
 
 .year-text{
-font-weight:600;
-color:#1e3a8a;
+    font-weight:600;
+    color:#1e3a8a;
 }
 
 /* BUTTONS */
 
 .links{
-display:flex;
-gap:10px;
+    display:flex;
+    gap:10px;
 }
 
 .links a{
-text-decoration:none;
-padding:8px 14px;
-border-radius:6px;
-font-size:14px;
-color:white;
-transition:0.3s;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:6px;
+    font-size:14px;
+    color:white;
+    transition:0.3s;
 }
 
 .final-btn{
-background:#2563eb;
+    background:#2563eb;
 }
 
 .final-btn:hover{
-background:#1d4ed8;
+    background:#1d4ed8;
 }
 
 .sessional-btn{
-background:#3b82f6;
+    background:#3b82f6;
 }
 
 .sessional-btn:hover{
-background:#2563eb;
+    background:#2563eb;
 }
 
 /* FOOTER */
 
 footer{
-text-align:center;
-padding:20px;
-color:#666;
-font-size:14px;
+    text-align:center;
+    padding:20px;
+    color:#666;
+    font-size:14px;
 }
 
 /* MOBILE */
 
 @media(max-width:600px){
 
-header h1{
-font-size:24px;
-}
+    header h1{
+        font-size:24px;
+    }
 
-.program-title h2{
-font-size:22px;
-}
+    header p{
+        font-size:14px;
+    }
 
+    .container{
+        padding:25px 15px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .program-title h2{
+        font-size:22px;
+    }
+
+    .program-icon{
+        width:55px;
+        height:55px;
+        font-size:25px;
+    }
+
+    .year-row{
+        align-items:flex-start;
+    }
+
+    .links{
+        width:100%;
+    }
+
+    .links a{
+        text-align:center;
+    }
 }
 </style>
 
 <link rel="stylesheet" href="site-theme.css">
 
-  <!-- GU-ENHANCEMENTS:HEAD -->
-  <meta name="theme-color" content="#0b4f3c">
+<!-- GU-ENHANCEMENTS:HEAD -->
+<meta name="theme-color" content="#0b4f3c">
 <!-- /GU-ENHANCEMENTS:HEAD -->
+
 </head>
 
 <body class="archive-theme theme-pyq">
@@ -243,7 +291,7 @@ font-size:22px;
 
 <div class="year">
 
-<!-- COMMERCE -->
+<!-- M COM -->
 
 <details class="department">
 
@@ -254,133 +302,130 @@ font-size:22px;
 <!-- SEMESTER 1 -->
 
 <details class="semester">
+
 <summary>SEMESTER 1</summary>
 
 <div class="year">
 
 <div class="year-row">
 <span class="year-text">2023</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2024</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2025</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 </div>
 
 </details>
 
+
 <!-- SEMESTER 2 -->
 
 <details class="semester">
+
 <summary>SEMESTER 2</summary>
 
 <div class="year">
 
 <div class="year-row">
 <span class="year-text">2023</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2024</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2025</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 </div>
 
 </details>
 
+
 <!-- SEMESTER 3 -->
 
 <details class="semester">
+
 <summary>SEMESTER 3</summary>
 
 <div class="year">
 
 <div class="year-row">
 <span class="year-text">2023</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2024</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2025</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 </div>
 
 </details>
+
 
 <!-- SEMESTER 4 -->
 
 <details class="semester">
+
 <summary>SEMESTER 4</summary>
 
 <div class="year">
 
-
-
 <div class="year-row">
+
 <span class="year-text">2024</span>
 
 <div class="links">
-<a href="https://drive.google.com/file/d/1ZtXNn5sSRI-xrY97JAIPYsBrQAbkG5E_/view?usp=drive_link" class="final-btn" download>Final</a>
+
+<a
+href="https://drive.google.com/file/d/1ZtXNn5sSRI-xrY97JAIPYsBrQAbkG5E_/view?usp=drive_link"
+class="final-btn"
+target="_blank"
+rel="noopener noreferrer">
+Final
+</a>
 
 </div>
+
 </div>
+
 
 <div class="year-row">
+
 <span class="year-text">2025</span>
 
 <div class="links">
-<a href="https://drive.google.com/file/d/1pYl3-xyps3FfWG3SuRCWg4vmzmGnS7P7/view?usp=drive_link" class="final-btn" download>Final</a>
+
+<a
+href="https://drive.google.com/file/d/1pYl3-xyps3FfWG3SuRCWg4vmzmGnS7P7/view?usp=drive_link"
+class="final-btn"
+target="_blank"
+rel="noopener noreferrer">
+Final
+</a>
 
 </div>
+
 </div>
 
 </div>
@@ -390,6 +435,7 @@ font-size:22px;
 </div>
 
 </details>
+
 
 <!-- 5 YEARS INTEGRATED M.COM -->
 
@@ -402,131 +448,103 @@ font-size:22px;
 <!-- SEMESTER 1 -->
 
 <details class="semester">
+
 <summary>SEMESTER 1</summary>
 
 <div class="year">
 
 <div class="year-row">
 <span class="year-text">2023</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2024</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2025</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 </div>
 
 </details>
 
+
 <!-- SEMESTER 2 -->
 
 <details class="semester">
+
 <summary>SEMESTER 2</summary>
 
 <div class="year">
 
 <div class="year-row">
 <span class="year-text">2023</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2024</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2025</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 </div>
 
 </details>
 
+
 <!-- SEMESTER 3 -->
 
 <details class="semester">
+
 <summary>SEMESTER 3</summary>
 
 <div class="year">
 
 <div class="year-row">
 <span class="year-text">2023</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2024</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2025</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 </div>
 
 </details>
 
+
 <!-- SEMESTER 4 -->
 
 <details class="semester">
+
 <summary>SEMESTER 4</summary>
 
 <div class="year">
 
-
-
 <div class="year-row">
 <span class="year-text">2024</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 <div class="year-row">
 <span class="year-text">2025</span>
-
-<div class="links">
-
-</div>
+<div class="links"></div>
 </div>
 
 </div>
@@ -546,14 +564,15 @@ font-size:22px;
 </div>
 
 <footer>
-Â© 2026 MCom Previous Year Question Papers
+&copy; 2026 MCom Previous Year Question Papers
 </footer>
 
 
-  <!-- GU-ENHANCEMENTS:BODY -->
-  <script src="site-enhancements.js" defer></script>
-  <!-- /GU-ENHANCEMENTS:BODY -->
+<!-- GU-ENHANCEMENTS:BODY -->
+
+<script src="site-enhancements.js" defer></script>
+
+<!-- /GU-ENHANCEMENTS:BODY -->
+
 </body>
 </html>
-
-
