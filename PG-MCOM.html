@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,9 @@
 
 <title>MCom Question Papers</title>
 
+<!-- Font Awesome -->
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 *{
@@ -22,7 +24,9 @@ body{
     color:#222;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
     background:linear-gradient(135deg,#1e3a8a,#2563eb);
@@ -42,7 +46,9 @@ header p{
     opacity:0.9;
 }
 
-/* CONTAINER */
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
     max-width:1000px;
@@ -50,7 +56,9 @@ header p{
     padding:40px 20px;
 }
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 .card{
     background:white;
@@ -59,7 +67,9 @@ header p{
     box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* TITLE */
+/* =========================
+   PROGRAM TITLE
+========================= */
 
 .program-title{
     display:flex;
@@ -78,6 +88,7 @@ header p{
     justify-content:center;
     font-size:30px;
     color:#2563eb;
+    flex-shrink:0;
 }
 
 .program-title h2{
@@ -85,7 +96,9 @@ header p{
     color:#1e3a8a;
 }
 
-/* DETAILS */
+/* =========================
+   ACCORDION
+========================= */
 
 details{
     margin-bottom:14px;
@@ -95,15 +108,7 @@ details{
     overflow:hidden;
 }
 
-/* REMOVE DEFAULT BROWSER ARROW */
-
-summary::-webkit-details-marker{
-    display:none;
-}
-
-summary::marker{
-    display:none;
-}
+/* Remove default browser arrow */
 
 summary{
     padding:15px 50px 15px 18px;
@@ -111,33 +116,58 @@ summary{
     cursor:pointer;
     position:relative;
     list-style:none;
-    transition:0.3s;
+    transition:background 0.3s ease;
+    user-select:none;
+}
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+summary::marker{
+    display:none;
+    content:"";
 }
 
 summary:hover{
     background:#eff6ff;
 }
 
-/* CUSTOM PLUS */
+/* =========================
+   CSS CUSTOM ARROW
+========================= */
+
+/*
+   Closed  = right-facing arrow
+   Open    = down-facing arrow
+*/
 
 summary::after{
-    content:"+";
+    content:"";
     position:absolute;
-    right:18px;
+    right:20px;
     top:50%;
-    transform:translateY(-50%);
-    font-size:20px;
-    font-weight:600;
-    line-height:1;
+
+    width:9px;
+    height:9px;
+
+    border-right:2px solid #2563eb;
+    border-bottom:2px solid #2563eb;
+
+    transform:translateY(-65%) rotate(-45deg);
+
+    transition:transform 0.25s ease;
 }
 
-/* CUSTOM MINUS */
+/* Arrow when accordion is open */
 
 details[open] > summary::after{
-    content:"\2212";
+    transform:translateY(-65%) rotate(45deg);
 }
 
-/* CONTENT */
+/* =========================
+   CONTENT
+========================= */
 
 .year{
     padding:15px 18px;
@@ -145,7 +175,9 @@ details[open] > summary::after{
     border-top:1px solid #e5e5e5;
 }
 
-/* YEAR ROW */
+/* =========================
+   YEAR ROW
+========================= */
 
 .year-row{
     display:flex;
@@ -166,11 +198,14 @@ details[open] > summary::after{
     color:#1e3a8a;
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 
 .links{
     display:flex;
     gap:10px;
+    flex-wrap:wrap;
 }
 
 .links a{
@@ -179,8 +214,13 @@ details[open] > summary::after{
     border-radius:6px;
     font-size:14px;
     color:white;
-    transition:0.3s;
+    transition:all 0.3s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
 }
+
+/* Final Button */
 
 .final-btn{
     background:#2563eb;
@@ -188,7 +228,10 @@ details[open] > summary::after{
 
 .final-btn:hover{
     background:#1d4ed8;
+    transform:translateY(-1px);
 }
+
+/* Sessional Button */
 
 .sessional-btn{
     background:#3b82f6;
@@ -196,9 +239,12 @@ details[open] > summary::after{
 
 .sessional-btn:hover{
     background:#2563eb;
+    transform:translateY(-1px);
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     text-align:center;
@@ -207,9 +253,15 @@ footer{
     font-size:14px;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
+
+    header{
+        padding:28px 15px;
+    }
 
     header h1{
         font-size:24px;
@@ -227,6 +279,10 @@ footer{
         padding:18px;
     }
 
+    .program-title{
+        gap:12px;
+    }
+
     .program-title h2{
         font-size:22px;
     }
@@ -235,6 +291,14 @@ footer{
         width:55px;
         height:55px;
         font-size:25px;
+    }
+
+    summary{
+        padding:14px 45px 14px 15px;
+    }
+
+    .year{
+        padding:12px 15px;
     }
 
     .year-row{
@@ -251,6 +315,7 @@ footer{
 }
 </style>
 
+<!-- SITE THEME -->
 <link rel="stylesheet" href="site-theme.css">
 
 <!-- GU-ENHANCEMENTS:HEAD -->
@@ -261,310 +326,388 @@ footer{
 
 <body class="archive-theme theme-pyq">
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-<h1>MCom Question Papers</h1>
+    <h1>MCom Question Papers</h1>
 
-<p>Master of Commerce - Previous Year Question Papers</p>
+    <p>
+        Master of Commerce - Previous Year Question Papers
+    </p>
 
 </header>
 
+
+<!-- =========================
+     MAIN CONTAINER
+========================= -->
+
 <div class="container">
 
-<div class="card">
+    <div class="card">
 
-<div class="program-title">
+        <!-- PROGRAM TITLE -->
 
-<div class="program-icon">
-<i class="fas fa-chart-line"></i>
+        <div class="program-title">
+
+            <div class="program-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+
+            <h2>
+                Master of Commerce (MCom)
+            </h2>
+
+        </div>
+
+
+        <!-- =========================
+             MAIN PROGRAM
+        ========================= -->
+
+        <details>
+
+            <summary>
+                Master of Commerce (MCom)
+            </summary>
+
+            <div class="year">
+
+
+                <!-- =========================
+                     M COM
+                ========================= -->
+
+                <details class="department">
+
+                    <summary>
+                        M Com
+                    </summary>
+
+                    <div class="year">
+
+
+                        <!-- =========================
+                             SEMESTER 1
+                        ========================= -->
+
+                        <details class="semester">
+
+                            <summary>
+                                SEMESTER 1
+                            </summary>
+
+                            <div class="year">
+
+                                <div class="year-row">
+                                    <span class="year-text">2023</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2024</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2025</span>
+                                    <div class="links"></div>
+                                </div>
+
+                            </div>
+
+                        </details>
+
+
+                        <!-- =========================
+                             SEMESTER 2
+                        ========================= -->
+
+                        <details class="semester">
+
+                            <summary>
+                                SEMESTER 2
+                            </summary>
+
+                            <div class="year">
+
+                                <div class="year-row">
+                                    <span class="year-text">2023</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2024</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2025</span>
+                                    <div class="links"></div>
+                                </div>
+
+                            </div>
+
+                        </details>
+
+
+                        <!-- =========================
+                             SEMESTER 3
+                        ========================= -->
+
+                        <details class="semester">
+
+                            <summary>
+                                SEMESTER 3
+                            </summary>
+
+                            <div class="year">
+
+                                <div class="year-row">
+                                    <span class="year-text">2023</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2024</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2025</span>
+                                    <div class="links"></div>
+                                </div>
+
+                            </div>
+
+                        </details>
+
+
+                        <!-- =========================
+                             SEMESTER 4
+                        ========================= -->
+
+                        <details class="semester">
+
+                            <summary>
+                                SEMESTER 4
+                            </summary>
+
+                            <div class="year">
+
+                                <div class="year-row">
+
+                                    <span class="year-text">
+                                        2024
+                                    </span>
+
+                                    <div class="links">
+
+                                        <a
+                                        href="https://drive.google.com/file/d/1ZtXNn5sSRI-xrY97JAIPYsBrQAbkG5E_/view?usp=drive_link"
+                                        class="final-btn"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                            Final
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="year-row">
+
+                                    <span class="year-text">
+                                        2025
+                                    </span>
+
+                                    <div class="links">
+
+                                        <a
+                                        href="https://drive.google.com/file/d/1pYl3-xyps3FfWG3SuRCWg4vmzmGnS7P7/view?usp=drive_link"
+                                        class="final-btn"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                            Final
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </details>
+
+                    </div>
+
+                </details>
+
+
+                <!-- =========================
+                     5 YEARS INTEGRATED M.COM
+                ========================= -->
+
+                <details class="department">
+
+                    <summary>
+                        5 Years Integrated M.Com
+                    </summary>
+
+                    <div class="year">
+
+
+                        <!-- =========================
+                             SEMESTER 1
+                        ========================= -->
+
+                        <details class="semester">
+
+                            <summary>
+                                SEMESTER 1
+                            </summary>
+
+                            <div class="year">
+
+                                <div class="year-row">
+                                    <span class="year-text">2023</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2024</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2025</span>
+                                    <div class="links"></div>
+                                </div>
+
+                            </div>
+
+                        </details>
+
+
+                        <!-- =========================
+                             SEMESTER 2
+                        ========================= -->
+
+                        <details class="semester">
+
+                            <summary>
+                                SEMESTER 2
+                            </summary>
+
+                            <div class="year">
+
+                                <div class="year-row">
+                                    <span class="year-text">2023</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2024</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2025</span>
+                                    <div class="links"></div>
+                                </div>
+
+                            </div>
+
+                        </details>
+
+
+                        <!-- =========================
+                             SEMESTER 3
+                        ========================= -->
+
+                        <details class="semester">
+
+                            <summary>
+                                SEMESTER 3
+                            </summary>
+
+                            <div class="year">
+
+                                <div class="year-row">
+                                    <span class="year-text">2023</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2024</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2025</span>
+                                    <div class="links"></div>
+                                </div>
+
+                            </div>
+
+                        </details>
+
+
+                        <!-- =========================
+                             SEMESTER 4
+                        ========================= -->
+
+                        <details class="semester">
+
+                            <summary>
+                                SEMESTER 4
+                            </summary>
+
+                            <div class="year">
+
+                                <div class="year-row">
+                                    <span class="year-text">2024</span>
+                                    <div class="links"></div>
+                                </div>
+
+                                <div class="year-row">
+                                    <span class="year-text">2025</span>
+                                    <div class="links"></div>
+                                </div>
+
+                            </div>
+
+                        </details>
+
+                    </div>
+
+                </details>
+
+            </div>
+
+        </details>
+
+    </div>
+
 </div>
 
-<h2>Master of Commerce (MCom)</h2>
 
-</div>
-
-<!-- MAIN PROGRAM -->
-
-<details>
-
-<summary>Master of Commerce (MCom)</summary>
-
-<div class="year">
-
-<!-- M COM -->
-
-<details class="department">
-
-<summary>M Com</summary>
-
-<div class="year">
-
-<!-- SEMESTER 1 -->
-
-<details class="semester">
-
-<summary>SEMESTER 1</summary>
-
-<div class="year">
-
-<div class="year-row">
-<span class="year-text">2023</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2024</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2025</span>
-<div class="links"></div>
-</div>
-
-</div>
-
-</details>
-
-
-<!-- SEMESTER 2 -->
-
-<details class="semester">
-
-<summary>SEMESTER 2</summary>
-
-<div class="year">
-
-<div class="year-row">
-<span class="year-text">2023</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2024</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2025</span>
-<div class="links"></div>
-</div>
-
-</div>
-
-</details>
-
-
-<!-- SEMESTER 3 -->
-
-<details class="semester">
-
-<summary>SEMESTER 3</summary>
-
-<div class="year">
-
-<div class="year-row">
-<span class="year-text">2023</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2024</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2025</span>
-<div class="links"></div>
-</div>
-
-</div>
-
-</details>
-
-
-<!-- SEMESTER 4 -->
-
-<details class="semester">
-
-<summary>SEMESTER 4</summary>
-
-<div class="year">
-
-<div class="year-row">
-
-<span class="year-text">2024</span>
-
-<div class="links">
-
-<a
-href="https://drive.google.com/file/d/1ZtXNn5sSRI-xrY97JAIPYsBrQAbkG5E_/view?usp=drive_link"
-class="final-btn"
-target="_blank"
-rel="noopener noreferrer">
-Final
-</a>
-
-</div>
-
-</div>
-
-
-<div class="year-row">
-
-<span class="year-text">2025</span>
-
-<div class="links">
-
-<a
-href="https://drive.google.com/file/d/1pYl3-xyps3FfWG3SuRCWg4vmzmGnS7P7/view?usp=drive_link"
-class="final-btn"
-target="_blank"
-rel="noopener noreferrer">
-Final
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- 5 YEARS INTEGRATED M.COM -->
-
-<details class="department">
-
-<summary>5 Years Integrated M.Com</summary>
-
-<div class="year">
-
-<!-- SEMESTER 1 -->
-
-<details class="semester">
-
-<summary>SEMESTER 1</summary>
-
-<div class="year">
-
-<div class="year-row">
-<span class="year-text">2023</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2024</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2025</span>
-<div class="links"></div>
-</div>
-
-</div>
-
-</details>
-
-
-<!-- SEMESTER 2 -->
-
-<details class="semester">
-
-<summary>SEMESTER 2</summary>
-
-<div class="year">
-
-<div class="year-row">
-<span class="year-text">2023</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2024</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2025</span>
-<div class="links"></div>
-</div>
-
-</div>
-
-</details>
-
-
-<!-- SEMESTER 3 -->
-
-<details class="semester">
-
-<summary>SEMESTER 3</summary>
-
-<div class="year">
-
-<div class="year-row">
-<span class="year-text">2023</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2024</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2025</span>
-<div class="links"></div>
-</div>
-
-</div>
-
-</details>
-
-
-<!-- SEMESTER 4 -->
-
-<details class="semester">
-
-<summary>SEMESTER 4</summary>
-
-<div class="year">
-
-<div class="year-row">
-<span class="year-text">2024</span>
-<div class="links"></div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2025</span>
-<div class="links"></div>
-</div>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-</div>
-
-</div>
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
-&copy; 2026 MCom Previous Year Question Papers
+    &copy; 2026 MCom Previous Year Question Papers
 </footer>
 
 
