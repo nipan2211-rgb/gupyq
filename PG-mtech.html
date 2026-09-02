@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -112,15 +112,33 @@ summary:hover{
     background:#eff6ff;
 }
 
+/* REMOVE DEFAULT BROWSER ARROW */
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+summary::marker{
+    display:none;
+}
+
+/* ACCORDION ICON */
+
 summary::after{
     content:"+";
     position:absolute;
     right:18px;
+    top:50%;
+    transform:translateY(-50%);
     font-size:20px;
+    font-weight:600;
+    line-height:1;
 }
 
+/* OPEN STATE - MINUS */
+
 details[open] > summary::after{
-    content:"âˆ’";
+    content:"-";
 }
 
 .year{
@@ -491,7 +509,7 @@ footer{
 </div>
 
 <footer>
-    Â© 2026 MTech Previous Year Question Papers
+    Copyright &copy; 2026 MTech Previous Year Question Papers
 </footer>
 
 <script>
