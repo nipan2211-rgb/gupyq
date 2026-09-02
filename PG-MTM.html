@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -85,6 +85,82 @@ font-size:28px;
 color:#003566;
 }
 
+/<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#eef4ff;
+color:#222;
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(135deg,#003566,#00509d);
+color:white;
+padding:35px 20px;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+header h1{
+font-size:34px;
+margin-bottom:8px;
+}
+
+header p{
+font-size:15px;
+opacity:0.9;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+border-radius:18px;
+padding:25px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+
+.program-title{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+}
+
+.program-icon{
+width:60px;
+height:60px;
+background:#dcecff;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#00509d;
+}
+
+.program-title h2{
+font-size:28px;
+color:#003566;
+}
+
 /* DETAILS */
 
 details{
@@ -95,8 +171,10 @@ border-radius:10px;
 overflow:hidden;
 }
 
+/* REMOVE DEFAULT BROWSER ARROW */
+
 summary{
-padding:15px 18px;
+padding:15px 50px 15px 18px;
 font-weight:600;
 cursor:pointer;
 position:relative;
@@ -104,20 +182,121 @@ list-style:none;
 transition:0.3s;
 }
 
+summary::-webkit-details-marker{
+display:none;
+}
+
+summary::marker{
+display:none;
+}
+
 summary:hover{
 background:#edf5ff;
 }
+
+/* CUSTOM PLUS / MINUS */
 
 summary::after{
 content:"+";
 position:absolute;
 right:18px;
+top:50%;
+transform:translateY(-50%);
 font-size:20px;
+font-weight:600;
+line-height:1;
 }
 
-details[open] summary::after{
-content:"âˆ’";
+/* OPEN STATE */
+
+details[open] > summary::after{
+content:"-";
 }
+
+/* SEMESTER CONTENT */
+
+.year{
+padding:15px 18px;
+background:white;
+border-top:1px solid #e5e5e5;
+}
+
+/* YEAR ROW */
+
+.year-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+padding:12px 0;
+border-bottom:1px dashed #ddd;
+gap:10px;
+}
+
+.year-row:last-child{
+border-bottom:none;
+}
+
+.year-text{
+font-weight:600;
+color:#003566;
+}
+
+/* BUTTONS */
+
+.links{
+display:flex;
+gap:10px;
+}
+
+.links a{
+text-decoration:none;
+padding:8px 14px;
+border-radius:6px;
+font-size:14px;
+color:white;
+transition:0.3s;
+}
+
+.final-btn{
+background:#0077b6;
+}
+
+.final-btn:hover{
+background:#005f8f;
+}
+
+.sessional-btn{
+background:#00b4d8;
+}
+
+.sessional-btn:hover{
+background:#0096c7;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+color:#666;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+header h1{
+font-size:26px;
+}
+
+.program-title h2{
+font-size:22px;
+}
+
+}
+</style>
 
 /* SEMESTER CONTENT */
 
@@ -338,11 +517,9 @@ font-size:22px;
 </div>
 
 </div>
-
 <footer>
-Â© 2026 MTM Previous Year Question Papers
+    Copyright &copy; 2026 MTM Previous Year Question Papers
 </footer>
-
 
   <!-- GU-ENHANCEMENTS:BODY -->
   <script src="site-enhancements.js" defer></script>
