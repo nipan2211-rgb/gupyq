@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -84,39 +84,56 @@ color:#6d28d9;
 font-size:28px;
 color:#3b0764;
 }
-
 /* DETAILS */
 
 details{
-margin-bottom:14px;
-background:#faf8ff;
-border:1px solid #e5ddff;
-border-radius:10px;
-overflow:hidden;
+    margin-bottom:14px;
+    background:#faf8ff;
+    border:1px solid #e5ddff;
+    border-radius:10px;
+    overflow:hidden;
 }
 
+/* REMOVE DEFAULT BROWSER ARROW */
+
 summary{
-padding:15px 18px;
-font-weight:600;
-cursor:pointer;
-position:relative;
-list-style:none;
-transition:0.3s;
+    padding:15px 50px 15px 18px;
+    font-weight:600;
+    cursor:pointer;
+    position:relative;
+    list-style:none;
+    transition:0.3s;
+}
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+summary::marker{
+    display:none;
 }
 
 summary:hover{
-background:#f1ebff;
+    background:#f1ebff;
 }
+
+/* CUSTOM ACCORDION ICON */
 
 summary::after{
-content:"+";
-position:absolute;
-right:18px;
-font-size:20px;
+    content:"+";
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:20px;
+    font-weight:600;
+    line-height:1;
 }
 
-details[open] summary::after{
-content:"âˆ’";
+/* OPEN = MINUS */
+
+details[open] > summary::after{
+    content:"-";
 }
 
 /* CONTENT */
@@ -390,7 +407,7 @@ font-size:22px;
 </div>
 
 <footer>
-Â© 2026 LLM Previous Year Question Papers
+    Copyright &copy; 2026 LLM Previous Year Question Papers
 </footer>
 
 
