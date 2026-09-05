@@ -1510,6 +1510,58 @@
   <!-- GU-ENHANCEMENTS:HEAD -->
   <meta name="theme-color" content="#0b4f3c">
   <link rel="stylesheet" href="site-theme.css">
+  <!-- MOBILE MENU FIX: closed by default -->
+  <style id="mobile-menu-fix">
+    .mobile-menu {
+      position: fixed !important;
+      top: 0 !important;
+      right: -120vw !important;
+      width: min(360px, 88vw) !important;
+      height: 100vh !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: none !important;
+      z-index: 1500 !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
+      transition: right 0.3s ease, opacity 0.2s ease, visibility 0.3s ease !important;
+    }
+
+    .mobile-menu.active {
+      right: 0 !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+
+    .menu-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 1400 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    .menu-overlay.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
+    body.menu-open {
+      overflow: hidden !important;
+      touch-action: none;
+    }
+
+    @media (min-width: 1041px) {
+      .mobile-menu,
+      .menu-overlay {
+        display: none !important;
+      }
+    }
+  </style>
   <!-- /GU-ENHANCEMENTS:HEAD -->
 </head>
 
@@ -1872,9 +1924,7 @@
         <a href="https://admissions.gauhati.ac.in/" target="_blank">
           <span>Samarth Admission Portal</span><small>GU online admission portal</small>
         </a>
- <a href="https://guportal.in/DocumentRequest/portal_document_request_registration_new.aspx?op=new" target="_blank">
-          <span>Apply Pass Certificate </span><small>GU Pass Certificate Apply link </small>
-        </a>
+
         
       </div>
 
@@ -1925,11 +1975,11 @@
       </div>
       <div>
         <h3>Project credits</h3>
-        <p> Design and Developed by <strong>Nipan Kalita</strong><br>Under the guidance of <strong>Dr. Badan Barman</strong><br>Department of Library and Information Science</p>
+        <p> Design and Developed by <strong>Nipan Kalita</strong><br>Department of Library and Information Science</p>
       </div>
     </div>
     <div class="shell footer-bottom">
-      <span>© 2026 Independent Academic Archive All original website design, code, and content are copyrighted.</span>
+      <span>&copy; 2026 Independent Academic Archive All original website design, code, and content are copyrighted.</span>
       <span>Guwahati, Assam, India</span>
     </div>
   </footer>
@@ -1950,6 +2000,13 @@
     const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
     const quickSearches = Array.from(document.querySelectorAll("[data-search-term]"));
     let activeFilter = "all";
+
+    // Always start with the mobile menu closed.
+    menu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+    menu.setAttribute("aria-hidden", "true");
+    menuButton.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
 
     function openMenu() {
       menu.classList.add("active");
@@ -2016,7 +2073,9 @@
     menuOverlay.addEventListener("click", function() { closeMenu(); });
 
     menu.querySelectorAll("a").forEach(function(link) {
-      link.addEventListener("click", function() { closeMenu(false); });
+      link.addEventListener("click", function() {
+        closeMenu(false);
+      });
     });
 
     document.addEventListener("keydown", function(event) {
