@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,210 +8,273 @@
 <title>MLISc Question Papers</title>
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="site-theme.css">
+
+<meta name="theme-color" content="#0b4f3c">
 
 <style>
+
+/* MORE OLD QUESTION PAPERS */
+
+.more-papers{
+    text-align:center;
+    margin:25px 0 10px;
+    padding:18px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:10px;
+}
+
+.more-papers p{
+    margin-bottom:8px;
+    color:#64748b;
+    font-size:14px;
+}
+
+.more-papers a{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+}
+
+.more-papers a:hover{
+    text-decoration:underline;
+}
+
+.more-papers i{
+    margin-right:5px;
+}
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:'Segoe UI',sans-serif;
-background:#f7fbff;
-color:#222;
+    font-family:'Segoe UI',sans-serif;
+    background:#f7fbff;
+    color:#1e293b;
 }
 
 /* HEADER */
 
 header{
-background:linear-gradient(135deg,#0f172a,#2563eb);
-color:white;
-padding:35px 20px;
-text-align:center;
-box-shadow:0 4px 15px rgba(85, 81, 81, 0.15);
+    background:linear-gradient(135deg,#0f172a,#2563eb);
+    color:white;
+    text-align:center;
+    padding:32px 20px;
 }
 
 header h1{
-font-size:32px;
-margin-bottom:8px;
+    font-size:30px;
+    margin-bottom:7px;
 }
 
 header p{
-font-size:15px;
-opacity:0.9;
+    font-size:15px;
+    opacity:.9;
 }
 
-/* CONTAINER */
+/* MAIN */
 
 .container{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
+    max-width:900px;
+    margin:35px auto;
+    padding:0 18px;
 }
 
-/* CARD */
+/* PAGE TITLE */
 
-.card{
-background:white;
-border-radius:18px;
-padding:25px;
-box-shadow:0 6px 18px rgba(8, 8, 8, 0.08);
+.page-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:25px;
 }
 
-/* TITLE */
-
-.program-title{
-display:flex;
-align-items:center;
-gap:15px;
-margin-bottom:25px;
+.page-icon{
+    width:52px;
+    height:52px;
+    border-radius:12px;
+    background:#dbeafe;
+    color:#2563eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
 }
 
-.program-icon{
-width:65px;
-height:65px;
-background:#dbeafe;
-border-radius:16px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-color:#2563eb;
+.page-title h2{
+    font-size:24px;
+    color:#0f172a;
 }
 
-.program-title h2{
-font-size:28px;
-color:#0f172a;
+/* SEMESTER */
+
+.semester{
+    background:white;
+    border:1px solid #dbeafe;
+    border-radius:12px;
+    margin-bottom:16px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
 }
 
-/* DETAILS */
-
-details{
-margin-bottom:14px;
-background:#fbfdff;
-border:1px solid #dbeafe;
-border-radius:10px;
-overflow:hidden;
+.semester-title{
+    background:#eff6ff;
+    padding:15px 18px;
+    font-size:17px;
+    font-weight:700;
+    color:#0f172a;
+    border-bottom:1px solid #dbeafe;
 }
 
-summary{
-padding:15px 18px;
-font-weight:600;
-cursor:pointer;
-position:relative;
-list-style:none;
-transition:0.3s;
-}
+/* TABLE HEADER */
 
-summary:hover{
-background:#eff6ff;
-}
-
-summary::after{
-content:"+";
-position:absolute;
-right:18px;
-font-size:20px;
-}
-
-details[open] summary::after{
-content:"−";
-}
-
-/* CONTENT */
-
-.year{
-padding:15px 18px;
-background:rgb(217, 228, 247);
-border-top:1px solid #e5e5e5;
+.paper-header{
+    display:grid;
+    grid-template-columns:1fr 120px 120px;
+    padding:11px 18px;
+    background:#f8fafc;
+    font-size:13px;
+    font-weight:600;
+    color:#64748b;
+    border-bottom:1px solid #e2e8f0;
 }
 
 /* YEAR ROW */
 
-.year-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-padding:12px 0;
-border-bottom:1px dashed #ddd;
-gap:10px;
-flex-direction:row-reverse;
+.paper-row{
+    display:grid;
+    grid-template-columns:1fr 120px 120px;
+    align-items:center;
+    padding:13px 18px;
+    border-bottom:1px solid #e2e8f0;
 }
 
-.year-row:last-child{
-border-bottom:none;
+.paper-row:last-child{
+    border-bottom:none;
 }
 
-.year-text{
-font-weight:600;
-color:#0f172a;
+.year{
+    font-weight:600;
+    color:#0f172a;
 }
 
 /* BUTTONS */
 
-.links{
-display:flex;
-gap:10px;
-}
-
-.links a{
-text-decoration:none;
-padding:8px 14px;
-border-radius:6px;
-font-size:14px;
-color:white;
-transition:0.3s;
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    text-decoration:none;
+    color:white;
+    padding:7px 12px;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:600;
+    transition:.2s;
 }
 
 .final-btn{
-background:#2563eb;
+    background:#2563eb;
 }
 
 .final-btn:hover{
-background:#1d4ed8;
+    background:#1d4ed8;
 }
 
 .sessional-btn{
-background:#3b82f6;
+    background:#64748b;
 }
 
 .sessional-btn:hover{
-background:#2563eb;
+    background:#475569;
+}
+
+/* NOT AVAILABLE */
+
+.not-available{
+    color:#94a3b8;
+    font-size:13px;
 }
 
 /* FOOTER */
 
 footer{
-text-align:center;
-padding:20px;
-color:#666;
-font-size:14px;
+    text-align:center;
+    padding:25px 15px;
+    color:#64748b;
+    font-size:13px;
 }
+
 
 /* MOBILE */
 
 @media(max-width:600px){
 
-header h1{
-font-size:24px;
+    header h1{
+        font-size:24px;
+    }
+
+    header p{
+        font-size:13px;
+    }
+
+    .container{
+        margin-top:25px;
+        padding:0 12px;
+    }
+
+    .page-title h2{
+        font-size:21px;
+    }
+
+    .paper-header{
+        grid-template-columns:1fr 85px 85px;
+        padding:10px 12px;
+        font-size:12px;
+    }
+
+    .paper-row{
+        grid-template-columns:1fr 85px 85px;
+        padding:12px;
+    }
+
+    .btn{
+        padding:7px 8px;
+        font-size:12px;
+    }
 }
 
-.program-title h2{
-font-size:22px;
-}
+
+/* VERY SMALL SCREEN */
+
+@media(max-width:400px){
+
+    .paper-header{
+        grid-template-columns:1fr 70px 70px;
+    }
+
+    .paper-row{
+        grid-template-columns:1fr 70px 70px;
+    }
+
+    .btn{
+        font-size:11px;
+        padding:6px 5px;
+    }
 
 }
+
 </style>
-
-<link rel="stylesheet" href="site-theme.css">
-
-  <!-- GU-ENHANCEMENTS:HEAD -->
-  <meta name="theme-color" content="#0b4f3c">
-<!-- /GU-ENHANCEMENTS:HEAD -->
 </head>
+
 
 <body class="archive-theme theme-pyq">
 
@@ -218,134 +282,257 @@ font-size:22px;
 
 <h1>MLISc Question Papers</h1>
 
-<p>Master of Library and Information Science - Previous Year Question Papers</p>
+<p>
+Master of Library and Information Science — Previous Year Question Papers
+</p>
 
 </header>
 
-<div class="container">
 
-<div class="card">
+<main class="container">
 
-<div class="program-title">
+<!-- TITLE -->
 
-<div class="program-icon">
+<div class="page-title">
+
+<div class="page-icon">
 <i class="fas fa-book-reader"></i>
 </div>
 
-<h2>Master of Library and Information Science (MLISc)</h2>
+<h2>MLISc Previous Year Papers</h2>
 
 </div>
 
-<!-- MAIN PROGRAM -->
 
-<details>
+<!-- ================= SEMESTER 1 ================= -->
 
-<summary>Master of Library and Information Science (MLISc)</summary>
+<section class="semester">
 
-<div class="year">
+<div class="semester-title">
+SEMESTER 1
+</div>
 
-<!-- SEMESTER 1 -->
+<div class="paper-header">
+<span>Year</span>
+<span>Final</span>
+<span>Sessional</span>
+</div>
 
-<details class="semester">
 
-<summary>SEMESTER 1</summary><div class="year">
-<div class="year-row"><span class="year-text">2023</span><div class="links">
-<a href="https://drive.google.com/file/d/1r4mAz9YWTgbIEthmnDsriP40mTAMwMFR/view?usp=drive_link" class="final-btn" download>Final</a><a href="https://drive.google.com/file/d/1ulDZfCA6oRr7kvfPkJC9dRbMu1yrmojZ/view?usp=drive_link" class="sessional-btn" download>Sessional</a>
-</div></div>
+<div class="paper-row">
 
-<div class="year-row"><span class="year-text">2025</span><div class="links">
+<span class="year">2023</span>
+
+<a href="https://drive.google.com/file/d/1r4mAz9YWTgbIEthmnDsriP40mTAMwMFR/view?usp=drive_link"
+class="btn final-btn"
+download>
+<i class="fas fa-file-pdf"></i> Final
+</a>
+
+<a href="https://drive.google.com/file/d/1ulDZfCA6oRr7kvfPkJC9dRbMu1yrmojZ/view?usp=drive_link"
+class="btn sessional-btn"
+download>
+<i class="fas fa-file-pdf"></i> Sessional
+</a>
+
+</div>
+
+
+<div class="paper-row">
+
+<span class="year">2025</span>
+
 <a href="https://drive.google.com/file/d/1s_cYjCAiMR9xkaiMmwcI9H9moEcqOAJA/view?usp=drive_link"
-class="final-btn" download>Final</a> <a href="https://drive.google.com/file/d/1z4KzFXVdgjOK3l-0eA1SP3SF3YkYz7st/view?usp=drive_link" class="sessional-btn" download>Sessional</a>
-</div></div>
-</div></details>
+class="btn final-btn"
+download>
+<i class="fas fa-file-pdf"></i> Final
+</a>
 
-<!-- SEMESTER 2 -->
+<a href="https://drive.google.com/file/d/1z4KzFXVdgjOK3l-0eA1SP3SF3YkYz7st/view?usp=drive_link"
+class="btn sessional-btn"
+download>
+<i class="fas fa-file-pdf"></i> Sessional
+</a>
 
-<details class="semester">
-
-<summary>SEMESTER 2</summary><div class="year"><div class="year-row">
-<span class="year-text">2022</span><div class="links">
-<a href="https://drive.google.com/file/d/1bQqykoBQRso9HcdzgGEQmLTSztRXw-6R/view?usp=drive_link" class="final-btn" download>Final</a>
 </div>
+
+</section>
+
+
+<!-- ================= SEMESTER 2 ================= -->
+
+<section class="semester">
+
+<div class="semester-title">
+SEMESTER 2
 </div>
 
-<div class="year-row">
-<span class="year-text">2023</span><div class="links">
-<a href="https://drive.google.com/file/d/1xfWjq5UegXsKvkn7prYtPuA1Gp4z51zC/view?usp=drive_link" class="final-btn" download>Final</a>
-</div></div>
+<div class="paper-header">
+<span>Year</span>
+<span>Final</span>
+<span>Sessional</span>
+</div>
 
-<div class="year-row">
-<span class="year-text">2025</span><div class="links">
+
+<div class="paper-row">
+
+<span class="year">2022</span>
+
+<a href="https://drive.google.com/file/d/1bQqykoBQRso9HcdzgGEQmLTSztRXw-6R/view?usp=drive_link"
+class="btn final-btn"
+download>
+<i class="fas fa-file-pdf"></i> Final
+</a>
+
+<span class="not-available">—</span>
+
+</div>
+
+
+<div class="paper-row">
+
+<span class="year">2023</span>
+
+<a href="https://drive.google.com/file/d/1xfWjq5UegXsKvkn7prYtPuA1Gp4z51zC/view?usp=drive_link"
+class="btn final-btn"
+download>
+<i class="fas fa-file-pdf"></i> Final
+</a>
+
+<span class="not-available">—</span>
+
+</div>
+
+
+<div class="paper-row">
+
+<span class="year">2025</span>
+
 <a href="https://drive.google.com/file/d/18iAVDulcK_ibylH0fBUNDVhtTZnNJCeg/view?usp=drive_link"
-class="final-btn" download>Final</a>
+class="btn final-btn"
+download>
+<i class="fas fa-file-pdf"></i> Final
+</a>
+
 <a href="https://drive.google.com/file/d/1jZwOKxgC3xFCL4iaIcFc03wKdN1_V_N7/view?usp=drive_link"
-class="sessional-btn" download>Sessional</a>
-</div></div>
+class="btn sessional-btn"
+download>
+<i class="fas fa-file-pdf"></i> Sessional
+</a>
 
-</div></details>
+</div>
 
-<!-- SEMESTER 3 -->
+</section>
 
-<details class="semester">
 
-<summary>SEMESTER 3</summary><div class="year">
+<!-- ================= SEMESTER 3 ================= -->
 
-<div class="year-row">
-<span class="year-text">2025</span>
+<section class="semester">
 
-<div class="links">
+<div class="semester-title">
+SEMESTER 3
+</div>
+
+<div class="paper-header">
+<span>Year</span>
+<span>Final</span>
+<span>Sessional</span>
+</div>
+
+
+<div class="paper-row">
+
+<span class="year">2025</span>
+
 <a href="https://drive.google.com/file/d/159SfARKpBtDKt4dh82AM0ikmqHDOUH0q/view?usp=drive_link"
-class="final-btn" download>Final</a>
+class="btn final-btn"
+download>
+<i class="fas fa-file-pdf"></i> Final
+</a>
 
 <a href="https://drive.google.com/file/d/1Iid3rLlQKjmPdMYU0pP-QdoQIeP4MK11/view?usp=drive_link"
-class="sessional-btn" download>Sessional</a>
-</div></div>
-</div></details>
-
-<!-- SEMESTER 4 -->
-
-<details class="semester">
-
-<summary>SEMESTER 4</summary>
-
-<div class="year">
-
-<div class="year-row">
-<span class="year-text">2025</span>
-
-<div class="links">
-<a href="https://drive.google.com/file/d/1C7p4-c1VedWKl6ZDd4yUnN5L5AT5hzRP/view?usp=drive_link" class="final-btn" download>Final</a>
-</div>
-</div>
-
-<div class="year-row">
-<span class="year-text">2026</span>
-
-<div class="links">
-<a href="https://drive.google.com/file/d/19jWU0A0JR8Qq3ksVOCg3ttqtPSEUjmgf/view?usp=drive_link" class="final-btn" download>Final</a>
-
-<a href="https://drive.google.com/file/d/1xJuiwlTIXih9ltiYNkwblDQNaLLNSnP0/view?usp=drive_link" class="sessional-btn" download>Sessional</a>
-</div>
-</div>
+class="btn sessional-btn"
+download>
+<i class="fas fa-file-pdf"></i> Sessional
+</a>
 
 </div>
 
-</details>
+</section>
+
+
+<!-- ================= SEMESTER 4 ================= -->
+
+<section class="semester">
+
+<div class="semester-title">
+SEMESTER 4
+</div>
+
+<div class="paper-header">
+<span>Year</span>
+<span>Final</span>
+<span>Sessional</span>
+</div>
+
+
+<div class="paper-row">
+
+<span class="year">2025</span>
+
+<a href="https://drive.google.com/file/d/1C7p4-c1VedWKl6ZDd4yUnN5L5AT5hzRP/view?usp=drive_link"
+class="btn final-btn"
+download>
+<i class="fas fa-file-pdf"></i> Final
+</a>
+
+<span class="not-available">—</span>
 
 </div>
 
-</details>
+
+<div class="paper-row">
+
+<span class="year">2026</span>
+
+<a href="https://drive.google.com/file/d/19jWU0A0JR8Qq3ksVOCg3ttqtPSEUjmgf/view?usp=drive_link"
+class="btn final-btn"
+download>
+<i class="fas fa-file-pdf"></i> Final
+</a>
+
+<a href="https://drive.google.com/file/d/1xJuiwlTIXih9ltiYNkwblDQNaLLNSnP0/view?usp=drive_link"
+class="btn sessional-btn"
+download>
+<i class="fas fa-file-pdf"></i> Sessional
+</a>
 
 </div>
 
+</section>
+</section>
+
+<!-- MORE OLD QUESTION PAPERS -->
+
+<div class="more-papers">
+    <p>Looking for more old question papers?</p>
+
+    <a href="https://mliscindia.blogspot.com/p/old-question-papers.html?m=1" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-arrow-right"></i>
+        Visit here for more old question papers
+    </a>
 </div>
+
+</main>
+</main>
+
 
 <footer>
 © 2026 MLISc Previous Year Question Papers
 </footer>
 
-  <!-- GU-ENHANCEMENTS:BODY -->
-  <script src="site-enhancements.js" defer></script>
-  <!-- /GU-ENHANCEMENTS:BODY -->
+
+<script src="site-enhancements.js" defer></script>
+
 </body>
 </html>
